@@ -101,8 +101,8 @@ function afficheTable(category) {
                     </div>
                 </td>
                 <td class="px-6 py-4 flex items-center">
-                    <button onclick="editTshirt('Classic White T-Shirt')" class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
-                    <button onclick="deleteTshirt(this)" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                    <button  class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                    <button  class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
                 </td>
             </tr>
         </tbody>
@@ -133,8 +133,8 @@ function afficheTable(category) {
                     </div>
                 </td>
                 <td class="px-6 py-4 flex items-center">
-                    <button onclick="editTshirt('Classic White T-Shirt')" class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
-                    <button onclick="deleteTshirt(this)" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                    <button  class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                    <button  class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
                 </td>
             </tr>
         </tbody>
