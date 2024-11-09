@@ -75,6 +75,38 @@ function afficheTable(category) {
                 </tr>
             </tbody>
         `;
+    }else if (category === 'Tshirt'){
+        ajouter.classList.remove("hidden");
+        tableTitle.textContent = 'T-shirt Table';
+        tableChange.innerHTML = `
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Title</th>
+                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Description</th>
+                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Price</th>
+                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Images</th>
+                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-t">
+                <td class="px-6 py-4">Classic White T-Shirt</td>
+                <td class="px-6 py-4">A simple, classic white t-shirt made of 100% cotton.</td>
+                <td class="px-6 py-4">$20</td>
+                <td class="px-6 py-4">
+                    <div class="flex space-x-2">
+                        <img src="image1.jpg" alt="White T-Shirt" class="w-16 h-16 object-cover">
+                        <img src="image2.jpg" alt="White T-Shirt Back" class="w-16 h-16 object-cover">
+                        <img src="image3.jpg" alt="White T-Shirt Closeup" class="w-16 h-16 object-cover">
+                    </div>
+                </td>
+                <td class="px-6 py-4 flex items-center">
+                    <button onclick="editTshirt('Classic White T-Shirt')" class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                    <button onclick="deleteTshirt(this)" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    `;
     }
     
 }
