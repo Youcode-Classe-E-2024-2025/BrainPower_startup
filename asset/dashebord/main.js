@@ -31,11 +31,50 @@ function afficheTable(category) {
                     </td>
                     <td class="px-6 py-4 text-gray-600">23/04/18</td>
                     <td class="px-6 py-4" flex items-center>
-                        <button onclick="editClient('John Michael')" class=" px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
-                        <button onclick="deleteClient(this)" class=" px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                        <button  class=" px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                        <button  class=" px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        `;
+    }else if (category === 'Movie'){
+        ajouter.classList.remove("hidden");
+
+
+        tableTitle.textContent = 'Movie Table';
+        tableChange.innerHTML = `
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Name</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Description</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Price</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Genre</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Production Date</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Duration</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Author</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Image</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Video</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Actions</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-t">
+                    <td class="px-6 py-4">Movie</td>
+                    <td class="px-6 py-4">Action-packed thriller with intense scenes.</td>
+                    <td class="px-6 py-4">$15</td>
+                    <td class="px-6 py-4">Action</td>
+                    <td class="px-6 py-4">2024-06-15</td>
+                    <td class="px-6 py-4">120 min</td>
+                    <td class="px-6 py-4">Director</td>
+                    <td class="px-6 py-4"><img src="image1.jpg" alt="Movie" class="w-16 h-16 object-cover"></td>
+                    <td class="px-6 py-4"><video controls><source src="video1.mp4" type="video/mp4"></video></td>
+                    <td class="px-6 py-4 flex items-center">
+                        <button  class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                        <button  class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
                     </td>
                 </tr>
             </tbody>
         `;
     }
+    
 }
