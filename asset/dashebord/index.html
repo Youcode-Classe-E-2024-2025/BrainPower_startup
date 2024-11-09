@@ -82,7 +82,7 @@
                 </div>
             
                 <!-- Card 4 -->
-                <div onclick="updateTable('accessoires')" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+                <div onclick="updateTable('Accessoires')" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
                     <div class="flex items-center space-x-4">
                         <div class="bg-teal-100 p-3 rounded-full">
                             <span>👜</span>
@@ -98,8 +98,9 @@
           <!-- ###################### -->
 
             <div id="table-container" class="max-w-[1200px] mx-auto my-10 hidden">
-                <div class="bg-gray-800 text-white rounded-t-lg p-4">
+                <div class="bg-gray-800 text-white rounded-t-lg p-4 flex justify-between items-center">
                     <h2 id="table-title" class="text-lg font-semibold">Authors Table</h2>
+                    <button id="ajouter" onclick="addClient()" class="bg-green-500 text-white px-4 py-2 rounded hidden">Ajouter</button>
                 </div>
                 <div class="bg-white shadow-lg rounded-b-lg overflow-hidden">
                     <table id="dynamic-table" class="w-full max-w-[1200px] text-left">
@@ -111,5 +112,7 @@
         </main>
     </div>
   </div>
+
+  <script src="./main.js"></script>
 </body>
 </html>
