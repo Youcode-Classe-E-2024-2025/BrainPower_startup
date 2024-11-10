@@ -62,39 +62,50 @@ SaveMovie.addEventListener("click", function (e) {
 // ###################################################################################################################################
 const SaveTshirt = document.getElementById("SaveTshir");
 // ############################################################  remplissage T-shirt  ################################################
-let dataTshirt = JSON.parse(localStorage.getItem("Tshirt")) || [] ;
-let indexTshirt = 0
+let dataTshirt = JSON.parse(localStorage.getItem("Tshirt")) || [];
+let indexTshirt = dataTshirt.length
 
-SaveTshirt.addEventListener("click",function(e){
+SaveTshirt.addEventListener("click", function (e) {
     e.preventDefault();
+
     const titleTshirt = document.querySelector("#titleTshirt").value;
     const textareaTshirt = document.querySelector("#textTshirt").value;
     const priceTshirt = document.querySelector("#priceTshirt").value;
-    const imageTshirt = document.querySelector("#imageTshirt").value;
-    
-    console.log(titleTshirt);
-    console.log(textareaTshirt);
-    console.log(priceTshirt);
-    console.log(imageTshirt);
-    
-    
-        if(!titleTshirt || !textareaTshirt || !priceTshirt || !imageTshirt){
-            alert("remplir les inputs des tshirt")
-            return
-        }
-    
-        let Tshirt = {
-            id : indexTshirt++,
-            name:titleTshirt,
-            Text:textareaTshirt,
-            price:priceTshirt,
-        }
-    
-        dataTshirt.push(Tshirt);
-        localStorage.setItem("Tshirt",JSON.stringify(dataTshirt))
-        VideFormTshirt();
-    
-})
+    const imagesInput = document.querySelector("#imageTshirt").files;
+
+    if (!titleTshirt || !textareaTshirt || !priceTshirt || imagesInput.length === 0) {
+        alert("Remplissez tous les champs du T-shirt");
+        return;
+    }
+
+    const imageUrls = [];
+    let loadedImages = 0;
+
+    Array.from(imagesInput).forEach((file) => {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            imageUrls.push(event.target.result);
+            loadedImages++;
+
+            // Enregistrer le T-shirt une fois que toutes les images sont chargées
+            if (loadedImages === imagesInput.length) {
+                let Tshirt = {
+                    id: indexTshirt++,
+                    name: titleTshirt,
+                    text: textareaTshirt,
+                    price: priceTshirt,
+                    images: imageUrls
+                };
+
+                dataTshirt.push(Tshirt);
+                localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
+                VideFormTshirt();
+            }
+        };
+        reader.readAsDataURL(file);
+    });
+});
+
 // #####################################################################################################################################
 const SaveAccessoire = document.getElementById("SaveAccessoire");
 // ############################################################  remplissage T-shirt  ################################################
@@ -261,7 +272,7 @@ function afficheTable(category) {
                         <td class="px-6 py-4">${Movie.dure}</td>
                         <td class="px-6 py-4">${Movie.autheur}</td>
                         <td class="px-6 py-4"><img src="${Movie.image}" alt="Movie" class="w-16 h-16 object-cover"></td>
-                        <td class="px-6 py-4 w-96"><video controls><source src="${Movie.video}" type="video/mp4"></video></td>
+                        <td class="px-6 py-4"><video controls><source src="${Movie.video}" type="video/mp4"></video></td>
                         <td class="px-6 py-4 flex items-center">
                             <button class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
                             <button class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
@@ -270,40 +281,43 @@ function afficheTable(category) {
                 `).join('')}
             </tbody>
         `;
-    }else if (category === 'Tshirt'){
-
+    }else if (category === 'Tshirt') {
         ModelMovie.classList.add("hidden");
         ModelTshirt.classList.remove("hidden");
         ModelAccessoire.classList.add("hidden");
-
+    
         tableTitle.textContent = 'T-shirt Table';
         tableChange.innerHTML = `
-        <thead class="bg-gray-100">
-            <tr>
-                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Title</th>
-                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Description</th>
-                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Price</th>
-                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Images</th>
-                <th class="px-6 py-3 text-gray-600 font-medium uppercase">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="border-t">
-                <td class="px-6 py-4">Classic White T-Shirt</td>
-                <td class="px-6 py-4">A simple, classic white t-shirt made of 100% cotton.</td>
-                <td class="px-6 py-4">$20</td>
-                <td class="px-6 py-4">
-                    <div class="flex space-x-2">
-                        <img src="" alt="White T-Shirt" class="w-16 h-16 object-cover">
-                    </div>
-                </td>
-                <td class="px-6 py-4 flex items-center">
-                    <button  class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
-                    <button  class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
-                </td>
-            </tr>
-        </tbody>
-    `;
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Title</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Description</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Price</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Images</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${dataTshirt.map(Tshirt => `
+                    <tr class="border-t">
+                        <td class="px-6 py-4">${Tshirt.name}</td>
+                        <td class="px-6 py-4">${Tshirt.text}</td>
+                        <td class="px-6 py-4">${Tshirt.price}</td>
+                        <td class="px-6 py-4">
+                            <div class="flex space-x-2">
+                                ${Tshirt.images.map(imageUrl => `
+                                    <img src="${imageUrl}" alt="T-shirt Image" class="w-16 h-16 object-cover">
+                                `).join('')}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 flex items-center">
+                            <button class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                            <button class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                        </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        `;
     }else if (category === 'Accessoires'){
 
 
