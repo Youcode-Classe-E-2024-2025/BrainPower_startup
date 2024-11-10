@@ -58,6 +58,17 @@ SaveMovie.addEventListener("click", function (e) {
 });
 
 
+function SupprimerMovie(id) {
+
+    const index = dataMovies.findIndex((movie) => movie.id === id);
+    dataMovies.splice(index, 1);
+    localStorage.setItem("movie", JSON.stringify(dataMovies));
+    afficheTable();
+}
+
+
+
+
 
 // ###################################################################################################################################
 const SaveTshirt = document.getElementById("SaveTshir");
@@ -104,7 +115,10 @@ SaveTshirt.addEventListener("click", function (e) {
         };
         reader.readAsDataURL(file);
     });
+    closeModalTshirt();
 });
+
+
 
 // #####################################################################################################################################
 const SaveAccessoire = document.getElementById("SaveAccessoire");
@@ -142,7 +156,7 @@ SaveAccessoire.addEventListener("click", function (e) {
                     name: titleAccessoire,
                     text: textareaAccessoire,
                     price: priceAccessoire,
-                    images: imageUrls // Tableau d'URLs d'images
+                    images: imageUrls
                 };
 
                 dataAccessoire.push(Accessoire);
@@ -152,6 +166,7 @@ SaveAccessoire.addEventListener("click", function (e) {
         };
         reader.readAsDataURL(file);
     });
+    closeModalAccessoire();
 });
 
 
@@ -286,7 +301,7 @@ function afficheTable(category) {
                         <td class="px-6 py-4"><video controls><source src="${Movie.video}" type="video/mp4"></video></td>
                         <td class="px-6 py-4 flex items-center">
                             <button class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
-                            <button class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                            <button onclick="SupprimerMovie(${Movie.id})" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
                         </td>
                     </tr>
                 `).join('')}
