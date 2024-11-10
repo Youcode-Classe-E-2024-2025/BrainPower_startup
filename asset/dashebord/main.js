@@ -21,7 +21,7 @@ function closeModalAccessoire() {
 }
 // ########################################################################################################################
 
-
+// ########################################################  Affichage   ##################################################
 function afficheTable(category) {
     const tableContainer = document.getElementById('table-container');
     const tableTitle = document.getElementById('table-title');
@@ -185,3 +185,5 @@ function afficheTable(category) {
     
     
 }
+
+// #######################################################################################################################
