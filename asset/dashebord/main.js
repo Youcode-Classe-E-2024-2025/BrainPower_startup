@@ -1,7 +1,7 @@
 const SaveMovie = document.getElementById("SaveMovie");
 // ############################################################  remplissage movie  ###############################################################
 let dataMovies = movie = JSON.parse(localStorage.getItem("movie")) || [] ;
-let index = 0
+let indexMovie = 0
 
 SaveMovie.addEventListener("click",function(e){
     e.preventDefault();
@@ -26,7 +26,7 @@ SaveMovie.addEventListener("click",function(e){
         }
     
         let Movie = {
-            id : index++,
+            id : indexMovie++,
             name:nameMovie,
             Text:textareaMovie,
             price:priceMovie,
@@ -45,6 +45,41 @@ SaveMovie.addEventListener("click",function(e){
 })
 
 // ###################################################################################################################################
+const SaveTshirt = document.getElementById("SaveTshir");
+// ############################################################  remplissage T-shirt  ################################################
+let dataTshirt = movie = JSON.parse(localStorage.getItem("Tshirt")) || [] ;
+let indexTshirt = 0
+
+SaveTshirt.addEventListener("click",function(e){
+    e.preventDefault();
+    const titleTshirt = document.querySelector("#titleTshirt").value;
+    const textareaTshirt = document.querySelector("#textTshirt").value;
+    const priceTshirt = document.querySelector("#priceTshirt").value;
+    const imageTshirt = document.querySelector("#imageTshirt").value;
+    
+    console.log(titleTshirt);
+    console.log(textareaTshirt);
+    console.log(priceTshirt);
+    console.log(imageTshirt);
+    
+    
+        if(!titleTshirt || !textareaTshirt || !priceTshirt || !imageTshirt){
+            alert("remplir les inputs des tshirt")
+            return
+        }
+    
+        let Tshirt = {
+            id : indexTshirt++,
+            name:titleTshirt,
+            Text:textareaTshirt,
+            price:priceTshirt,
+        }
+    
+        dataTshirt.push(Tshirt);
+        localStorage.setItem("Tshirt",JSON.stringify(dataTshirt))
+        VideFormTshirt();
+    
+})
 
 // ###############################################  movie form vide   ######################################################
    
@@ -58,6 +93,13 @@ function VideFormMovie(){
     document.querySelector("#autheurMovie").value = "";
     document.querySelector("#imageMovie").value = "";
     document.querySelector("#vidéoMovie").value = "";
+}
+
+function VideFormTshirt(){
+    document.querySelector("#titleTshirt").value = "";
+    document.querySelector("#textTshirt").value = "";
+    document.querySelector("#priceTshirt").value = "";
+    document.querySelector("#imageTshirt").value = "";
 }
 
 // ###############################################  les models   ######################################################
@@ -193,9 +235,7 @@ function afficheTable(category) {
                 <td class="px-6 py-4">$20</td>
                 <td class="px-6 py-4">
                     <div class="flex space-x-2">
-                        <img src="image1.jpg" alt="White T-Shirt" class="w-16 h-16 object-cover">
-                        <img src="image2.jpg" alt="White T-Shirt Back" class="w-16 h-16 object-cover">
-                        <img src="image3.jpg" alt="White T-Shirt Closeup" class="w-16 h-16 object-cover">
+                        <img src="" alt="White T-Shirt" class="w-16 h-16 object-cover">
                     </div>
                 </td>
                 <td class="px-6 py-4 flex items-center">
