@@ -129,44 +129,44 @@
                 <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2">
                     <div>
                         <label class="text-gray-600 font-medium">Nom</label>
-                        <input type="text" value="Movie" class="w-full p-2 border rounded mt-1">
+                        <input type="text" id="nameMovie"  class="w-full p-2 border rounded mt-1">
                     </div>
                     <div>
                         <label class="text-gray-600 font-medium">Description</label>
-                        <textarea class="w-full p-2 border rounded mt-1">Action-packed thriller with intense scenes.</textarea>
+                        <textarea id="textareaMovie" class="w-full p-2 border rounded mt-1"></textarea>
                     </div>
                     <div>
                         <label class="text-gray-600 font-medium">Prix</label>
-                        <input type="text" value="$15" class="w-full p-2 border rounded mt-1">
+                        <input type="text" id="priceMovie" class="w-full p-2 border rounded mt-1">
                     </div>
                     <div>
                         <label class="text-gray-600 font-medium">Genre</label>
-                        <input type="text" value="Action" class="w-full p-2 border rounded mt-1">
+                        <input type="text" id="GenreMovie" class="w-full p-2 border rounded mt-1">
                     </div>
                     <div>
                         <label class="text-gray-600 font-medium">Date de Production</label>
-                        <input type="date" value="2024-06-15" class="w-full p-2 border rounded mt-1">
+                        <input type="date" id="dateMovie" class="w-full p-2 border rounded mt-1">
                     </div>
                     <div>
                         <label class="text-gray-600 font-medium">Durée</label>
-                        <input type="text" value="120 min" class="w-full p-2 border rounded mt-1">
+                        <input type="text" id="duréMovie" class="w-full p-2 border rounded mt-1">
                     </div>
                     <div>
                         <label class="text-gray-600 font-medium">Auteur</label>
-                        <input type="text" value="Director" class="w-full p-2 border rounded mt-1">
+                        <input type="text" id="autheurMovie" class="w-full p-2 border rounded mt-1">
                     </div>
                     <div>
                         <label class="text-gray-600 font-medium">Image</label>
-                        <input type="file" class="w-full p-2 border rounded mt-1">
+                        <input type="file" id="imageMovie" class="w-full p-2 border rounded mt-1">
                     </div>
                     <div class="md:col-span-2">
                         <label class="text-gray-600 font-medium">Vidéo</label>
-                        <input type="file" class="w-full p-2 border rounded mt-1">
+                        <input type="file" id="vidéoMovie" class="w-full p-2 border rounded mt-1">
                     </div>
                 </div>
                 <div class="flex justify-end mt-4">
-                    <button onclick="closeModalMovie()" class="px-4 py-2 bg-gray-200 text-gray-600 rounded mr-2">Annuler</button>
-                    <button class="px-4 py-2 bg-blue-500 text-white rounded">Enregistrer</button>
+                    <button onclick="closeModalMovie()"class="px-4 py-2 bg-gray-200 text-gray-600 rounded mr-2">Annuler</button>
+                    <button id="SaveMovie" class="px-4 py-2 bg-blue-500 text-white rounded">Enregistrer</button>
                 </div>
             </form>
         </section>
