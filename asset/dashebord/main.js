@@ -57,7 +57,7 @@ SaveMovie.addEventListener("click", function (e) {
     closeModalMovie();
 });
 
-
+// supprimer movie
 function SupprimerMovie(id) {
 
     const index = dataMovies.findIndex((movie) => movie.id === id);
