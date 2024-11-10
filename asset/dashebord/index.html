@@ -13,7 +13,7 @@
 
   <!-- Sidebar -->
     <div class="flex">
-        <aside class="bg-gray-800 text-white w-64 h-screen p-4">
+        <aside class="bg-gray-500 text-white w-64 h-screen p-4">
         <h1 class="text-xl font-bold mb-6">Anime Powar</h1>
         <nav class="space-y-4">
             <a href="#" class="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-700">
@@ -45,7 +45,7 @@
       <main>
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-4">
                 <!-- Card 1 -->
-                <div onclick="afficheTable('clients')" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+                <div onclick="afficheTable('clients',null)" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
                     <div class="flex items-center space-x-4">
                         <div class="bg-orange-100 p-3 w-12 h-12 rounded-[50%] text-center">
                             <span><i class="bi bi-people-fill"></i></span>
@@ -58,7 +58,7 @@
                 </div>
             
                 <!-- Card 2 -->
-                <div onclick="afficheTable('Movie')" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+                <div onclick="afficheTable('Movie',null)" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
                     <div class="flex items-center space-x-4">
                         <div class="bg-green-100 p-3 w-12 h-12 rounded-[50%] text-center">
                             <span><i class="bi bi-film"></i></span>
@@ -71,7 +71,7 @@
                 </div>
             
                 <!-- Card 3 -->
-                <div onclick="afficheTable('Tshirt')" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+                <div onclick="afficheTable('Tshirt',null)" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
                     <div class="flex items-center space-x-4">
                         <div class="bg-blue-100 p-3 rounded-full">
                             <span><i class="fas fa-tshirt"></i>
@@ -85,7 +85,7 @@
                 </div>
             
                 <!-- Card 4 -->
-                <div onclick="afficheTable('Accessoires')" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+                <div onclick="afficheTable('Accessoires',null)" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
                     <div class="flex items-center space-x-4">
                         <div class="bg-teal-100 p-3 rounded-full">
                             <span><i class="bi bi-tropical-storm"></i></span>
@@ -101,9 +101,13 @@
           <!-- content des tables  -->
 
             <div id="table-container" class="max-w-[1200px] mx-auto my-10 hidden">
-                <div class="bg-gray-800 text-white rounded-t-lg p-4 flex justify-between items-center">
+                <div class="bg-gray-500 text-white rounded-t-lg p-4 flex justify-between items-center">
                     <h2 id="table-title" class="text-lg font-semibold">Authors Table</h2>
-                    <button id="ajouter" onclick="addClient()" class="bg-green-500 text-white px-4 py-2 rounded hidden">Ajouter</button>
+                    <div>
+                        <button id="ajouterMovie" onclick="openModalMovie()" class="rounded hidden"><i class="fas fa-plus-circle text-green-600 text-[25px] "></i> </button>
+                        <button id="ajouterTshirt" onclick="openModalTshirt()" class="rounded hidden "><i class="fas fa-plus-circle text-green-600 text-[25px]"></i> </button>
+                        <button id="ajouterAccessoire" onclick="openModalAccessoire()" class="rounded hidden"><i class="fas fa-plus-circle text-green-600 text-[25px]"></i> </button>
+                    </div>
                 </div>
                 <div class="bg-white shadow-lg rounded-b-lg overflow-hidden">
                     <table id="table-change" class="w-full max-w-[1200px] text-left">
@@ -111,6 +115,127 @@
                     </table>
                 </div>
             </div>
+
+
+
+        <!-- ###############  model 1  ########## -->
+
+    <section id="ModalMovie" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-start pt-10 flex">
+            <form class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6 border-2 ">
+                <div class="flex justify-between items-center border-b pb-3">
+                    <h3 class="text-lg font-semibold text-gray-700">Ajouté movie</h3>
+                    <button onclick="closeModalMovie()" class="text-gray-400 hover:text-gray-600">&times;</button>
+                </div>
+                <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2">
+                    <div>
+                        <label class="text-gray-600 font-medium">Nom</label>
+                        <input type="text" value="Movie" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Description</label>
+                        <textarea class="w-full p-2 border rounded mt-1">Action-packed thriller with intense scenes.</textarea>
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Prix</label>
+                        <input type="text" value="$15" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Genre</label>
+                        <input type="text" value="Action" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Date de Production</label>
+                        <input type="date" value="2024-06-15" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Durée</label>
+                        <input type="text" value="120 min" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Auteur</label>
+                        <input type="text" value="Director" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Image</label>
+                        <input type="file" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Vidéo</label>
+                        <input type="file" class="w-full p-2 border rounded mt-1">
+                    </div>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <button onclick="closeModalMovie()" class="px-4 py-2 bg-gray-200 text-gray-600 rounded mr-2">Annuler</button>
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded">Enregistrer</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- ############## model 2    ##########-->
+
+   <section id="ModalTshirt" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-start pt-10 flex">
+            <form class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6">
+                <div class="flex justify-between items-center border-b pb-3">
+                    <h3 class="text-lg font-semibold text-gray-700">Ajouté T-Shirt</h3>
+                    <button onclick="closeModalTshirt()" class="text-gray-400 hover:text-gray-600">&times;</button>
+                </div>
+                <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2">
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Titre</label>
+                        <input type="text" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Description</label>
+                        <textarea class="w-full p-2 border rounded mt-1"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Prix</label>
+                        <input type="text"  class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Images</label>
+                        <input type="file" class="w-full p-2 border rounded mt-2">
+                    </div>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <button onclick="closeModalTshirt()" class="px-4 py-2 bg-gray-200 text-gray-600 rounded mr-2">Annuler</button>
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded">Enregistrer</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- ##############  model 3   ######### -->
+
+        <section id="ModalAccessoire" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-start pt-10 flex">
+            <form class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6">
+                <div class="flex justify-between items-center border-b pb-3">
+                    <h3 class="text-lg font-semibold text-gray-700">Ajouté Accessoires</h3>
+                    <button onclick="closeModalAccessoire()" class="text-gray-400 hover:text-gray-600">&times;</button>
+                </div>
+                <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2">
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Titre</label>
+                        <input type="text" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Description</label>
+                        <textarea class="w-full p-2 border rounded mt-1"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Prix</label>
+                        <input type="text"  class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Images</label>
+                        <input type="file" class="w-full p-2 border rounded mt-2">
+                    </div>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <button onclick="closeModalAccessoire()" class="px-4 py-2 bg-gray-200 text-gray-600 rounded mr-2">Annuler</button>
+                    <button class="px-4 py-2 bg-blue-500 text-white rounded">Enregistrer</button>
+                </div>
+            </form>
+        </section>
                 
         </main>
     </div>

@@ -1,13 +1,43 @@
+
+// ###############################################  les models   ######################################################
+function openModalMovie() {
+    document.getElementById('ModalMovie').classList.remove('hidden');
+}
+function openModalTshirt() {
+    document.getElementById('ModalTshirt').classList.remove('hidden');
+}
+function openModalAccessoire() {
+    document.getElementById('ModalAccessoire').classList.remove('hidden');
+}
+
+function closeModalMovie() {
+    document.getElementById('ModalMovie').classList.add('hidden');
+}
+function closeModalTshirt() {
+    document.getElementById('ModalTshirt').classList.add('hidden');
+}
+function closeModalAccessoire() {
+    document.getElementById('ModalAccessoire').classList.add('hidden');
+}
+// ########################################################################################################################
+
+
 function afficheTable(category) {
     const tableContainer = document.getElementById('table-container');
     const tableTitle = document.getElementById('table-title');
     const tableChange = document.getElementById('table-change');
-    const ajouter = document.getElementById("ajouter")
+    const ModelMovie = document.getElementById("ajouterMovie")
+    const ModelTshirt = document.getElementById("ajouterTshirt")
+    const ModelAccessoire = document.getElementById("ajouterAccessoire")
 
     tableContainer.classList.remove('hidden');
 
     if (category === 'clients') {
-        ajouter.classList.add("hidden");
+
+        ModelMovie.classList.add("hidden");
+        ModelTshirt.classList.add("hidden");
+        ModelAccessoire.classList.add("hidden");
+        
         tableTitle.textContent = 'Clients Table';
         tableChange.innerHTML = `
             <thead class="bg-gray-100">
@@ -38,7 +68,9 @@ function afficheTable(category) {
             </tbody>
         `;
     }else if (category === 'Movie'){
-        ajouter.classList.remove("hidden");
+        ModelMovie.classList.remove("hidden");
+        ModelTshirt.classList.add("hidden");
+        ModelAccessoire.classList.add("hidden");
 
 
         tableTitle.textContent = 'Movie Table';
@@ -76,7 +108,11 @@ function afficheTable(category) {
             </tbody>
         `;
     }else if (category === 'Tshirt'){
-        ajouter.classList.remove("hidden");
+
+        ModelMovie.classList.add("hidden");
+        ModelTshirt.classList.remove("hidden");
+        ModelAccessoire.classList.add("hidden");
+
         tableTitle.textContent = 'T-shirt Table';
         tableChange.innerHTML = `
         <thead class="bg-gray-100">
@@ -108,7 +144,13 @@ function afficheTable(category) {
         </tbody>
     `;
     }else if (category === 'Accessoires'){
-        ajouter.classList.remove("hidden");
+
+
+        ModelMovie.classList.add("hidden");
+        ModelTshirt.classList.add("hidden");
+        ModelAccessoire.classList.remove("hidden");
+
+
         tableTitle.textContent = 'Accessoires Table';
         tableChange.innerHTML = `
         <thead class="bg-gray-100">
