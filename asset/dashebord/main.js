@@ -1,5 +1,5 @@
 const SaveMovie = document.getElementById("SaveMovie");
-
+// ############################################################  remplissage movie  ###############################################################
 let dataMovies = movie = JSON.parse(localStorage.getItem("movie")) || [] ;
 let index = 0
 
@@ -40,8 +40,25 @@ SaveMovie.addEventListener("click",function(e){
     
         dataMovies.push(Movie);
         localStorage.setItem("movie",JSON.stringify(dataMovies))
+        VideFormMovie();
     
 })
+
+// ###################################################################################################################################
+
+// ###############################################  movie form vide   ######################################################
+   
+function VideFormMovie(){
+    document.querySelector("#nameMovie").value = "";
+    document.querySelector("#textareaMovie").value = "";
+    document.querySelector("#priceMovie").value = "";
+    document.querySelector("#GenreMovie").value = "";
+    document.querySelector("#dateMovie").value = "";
+    document.querySelector("#duréMovie").value = "";
+    document.querySelector("#autheurMovie").value = "";
+    document.querySelector("#imageMovie").value = "";
+    document.querySelector("#vidéoMovie").value = "";
+}
 
 // ###############################################  les models   ######################################################
 function openModalMovie() {
