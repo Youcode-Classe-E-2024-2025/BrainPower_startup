@@ -1,6 +1,6 @@
 const SaveMovie = document.getElementById("SaveMovie");
 // ############################################################  remplissage movie  ###############################################################
-let dataMovies = movie = JSON.parse(localStorage.getItem("movie")) || [] ;
+let dataMovies = JSON.parse(localStorage.getItem("movie")) || [] ;
 let indexMovie = 0
 
 SaveMovie.addEventListener("click",function(e){
@@ -47,7 +47,7 @@ SaveMovie.addEventListener("click",function(e){
 // ###################################################################################################################################
 const SaveTshirt = document.getElementById("SaveTshir");
 // ############################################################  remplissage T-shirt  ################################################
-let dataTshirt = movie = JSON.parse(localStorage.getItem("Tshirt")) || [] ;
+let dataTshirt = JSON.parse(localStorage.getItem("Tshirt")) || [] ;
 let indexTshirt = 0
 
 SaveTshirt.addEventListener("click",function(e){
@@ -80,6 +80,43 @@ SaveTshirt.addEventListener("click",function(e){
         VideFormTshirt();
     
 })
+// #####################################################################################################################################
+const SaveAccessoire = document.getElementById("SaveAccessoire");
+// ############################################################  remplissage T-shirt  ################################################
+
+let dataAccessoire = JSON.parse(localStorage.getItem("Accessoire")) || [] ;
+let indexAccessoire = 0
+
+SaveAccessoire.addEventListener("click",function(e){
+    e.preventDefault();
+    const titleAccessoire = document.querySelector("#titleAccessoire").value;
+    const textareaAccessoire = document.querySelector("#textAccessoire").value;
+    const priceAccessoire = document.querySelector("#priceAccessoire").value;
+    const imageAccessoire = document.querySelector("#imageAccessoire").value;
+    
+    console.log(titleAccessoire);
+    console.log(textareaAccessoire);
+    console.log(priceAccessoire);
+    console.log(imageAccessoire);
+    
+    
+        if(!titleAccessoire || !textareaAccessoire || !priceAccessoire || !imageAccessoire){
+            alert("remplir les inputs des Accessoire")
+            return
+        }
+    
+        let Accessoire = {
+            id : indexAccessoire++,
+            name:titleAccessoire,
+            Text:textareaAccessoire,
+            price:priceAccessoire,
+        }
+    
+        dataAccessoire.push(Accessoire);
+        localStorage.setItem("Accessoire",JSON.stringify(dataAccessoire))
+        VideFormAccessoire();
+    
+})
 
 // ###############################################  movie form vide   ######################################################
    
@@ -100,6 +137,12 @@ function VideFormTshirt(){
     document.querySelector("#textTshirt").value = "";
     document.querySelector("#priceTshirt").value = "";
     document.querySelector("#imageTshirt").value = "";
+}
+function VideFormAccessoire(){
+    document.querySelector("#titleAccessoire").value = "";
+    document.querySelector("#textAccessoire").value = "";
+    document.querySelector("#priceAccessoire").value = "";
+    document.querySelector("#imageAccessoire").value = "";
 }
 
 // ###############################################  les models   ######################################################
