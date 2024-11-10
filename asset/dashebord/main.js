@@ -1,3 +1,47 @@
+const SaveMovie = document.getElementById("SaveMovie");
+
+let dataMovies = movie = JSON.parse(localStorage.getItem("movie")) || [] ;
+let index = 0
+
+SaveMovie.addEventListener("click",function(e){
+    e.preventDefault();
+    const nameMovie = document.querySelector("#nameMovie").value;
+    const textareaMovie = document.querySelector("#textareaMovie").value;
+    const priceMovie = document.querySelector("#priceMovie").value;
+    const GenreMovie = document.querySelector("#GenreMovie").value;
+    const dateMovie = document.querySelector("#dateMovie").value;
+    const duréMovie = document.querySelector("#duréMovie").value;
+    const autheurMovie = document.querySelector("#autheurMovie").value;
+    const imageMovie = document.querySelector("#imageMovie").value;
+    const vidéoMovie = document.querySelector("#vidéoMovie").value;
+    
+    // console.log(nameMovie);
+    // console.log(imageMovie);
+    // console.log(vidéoMovie);
+    
+    
+        if(!nameMovie || !textareaMovie || !priceMovie || !GenreMovie || !dateMovie || !duréMovie || !autheurMovie || !imageMovie || !vidéoMovie){
+            alert("remplir les inputs des movies")
+            return
+        }
+    
+        let Movie = {
+            id : index++,
+            name:nameMovie,
+            Text:textareaMovie,
+            price:priceMovie,
+            genre:GenreMovie,
+            date:dateMovie,
+            dure:duréMovie,
+            autheur:autheurMovie,
+            image:imageMovie,
+            video:vidéoMovie,
+        }
+    
+        dataMovies.push(Movie);
+        localStorage.setItem("movie",JSON.stringify(dataMovies))
+    
+})
 
 // ###############################################  les models   ######################################################
 function openModalMovie() {
@@ -22,6 +66,7 @@ function closeModalAccessoire() {
 // ########################################################################################################################
 
 // ########################################################  Affichage   ##################################################
+
 function afficheTable(category) {
     const tableContainer = document.getElementById('table-container');
     const tableTitle = document.getElementById('table-title');
@@ -98,8 +143,8 @@ function afficheTable(category) {
                     <td class="px-6 py-4">2024-06-15</td>
                     <td class="px-6 py-4">120 min</td>
                     <td class="px-6 py-4">Director</td>
-                    <td class="px-6 py-4"><img src="image1.jpg" alt="Movie" class="w-16 h-16 object-cover"></td>
-                    <td class="px-6 py-4"><video controls><source src="video1.mp4" type="video/mp4"></video></td>
+                    <td class="px-6 py-4"><img src="" alt="Movie" class="w-16 h-16 object-cover"></td>
+                    <td class="px-6 py-4"><video controls><source src="" type="video/mp4"></video></td>
                     <td class="px-6 py-4 flex items-center">
                         <button  class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
                         <button  class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
