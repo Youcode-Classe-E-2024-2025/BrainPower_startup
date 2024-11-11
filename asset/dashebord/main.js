@@ -118,7 +118,14 @@ SaveTshirt.addEventListener("click", function (e) {
     closeModalTshirt();
 });
 
+// supprimer movie
+function SupprimerTshirt(id) {
 
+    const index = dataTshirt.findIndex((Tshirt) => Tshirt.id === id);
+    dataTshirt.splice(index, 1);
+    localStorage.setItem("movie", JSON.stringify(dataTshirt));
+    afficheTable();
+}
 
 // #####################################################################################################################################
 const SaveAccessoire = document.getElementById("SaveAccessoire");
@@ -338,7 +345,7 @@ function afficheTable(category) {
                         </td>
                         <td class="px-6 py-4 flex items-center">
                             <button class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
-                            <button class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                            <button onclick="SupprimerTshirt(${Tshirt.id})" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
                         </td>
                     </tr>
                 `).join('')}
