@@ -96,5 +96,6 @@ body{
   
   .links a{
   font-size:26px;
-  margin:7px
+  margin:7px;
+  text-decoration-line: none;
   }
