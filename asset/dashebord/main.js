@@ -64,7 +64,7 @@ function SupprimerMovie(id) {
     const index = dataMovies.findIndex((movie) => movie.id === id);
     dataMovies.splice(index, 1);
     localStorage.setItem("movie", JSON.stringify(dataMovies));
-    afficheTable();
+    afficheTable("Movie");
 }
 
 const btnModifierMovie = document.getElementById("SaveModiferMovie");
@@ -192,7 +192,7 @@ function SupprimerTshirt(id) {
     const index = dataTshirt.findIndex((Tshirt) => Tshirt.id === id);
     dataTshirt.splice(index, 1);
     localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
-    afficheTable();
+    afficheTable('Tshirt');
 }
 
 const btnModifierTshirt = document.getElementById("SaveModiferTshir");
@@ -313,7 +313,7 @@ function SupprimerAccessoire(id) {
     const index = dataAccessoire.findIndex((Accessoire) => Accessoire.id === id);
     dataAccessoire.splice(index, 1);
     localStorage.setItem("Accessoire", JSON.stringify(dataAccessoire));
-    afficheTable();
+    afficheTable("Accessoires");
 }
 
 
