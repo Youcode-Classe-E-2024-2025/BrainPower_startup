@@ -48,7 +48,7 @@ SaveMovie.addEventListener("click", function (e) {
             dataMovies.push(Movie);
             localStorage.setItem("movie", JSON.stringify(dataMovies));
             VideFormMovie();
-            afficheTable();
+            afficheTable("Movie");
         };
 
         readerVideo.readAsDataURL(vidéoMovie); // Lire le fichier vidéo en tant qu'URL
@@ -179,6 +179,7 @@ SaveTshirt.addEventListener("click", function (e) {
                 dataTshirt.push(Tshirt);
                 localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
                 VideFormTshirt();
+                afficheTable('Tshirt')
             }
         };
         reader.readAsDataURL(file);
@@ -220,7 +221,7 @@ function ModifierTshirt(id) {
 
         if (imagesTshirt && imagesTshirt.length > 0) {
             let imagesDataUrls = [];
-            let loadedImages = 0; // Compteur pour vérifier quand toutes les images sont chargées
+            let loadedImages = 0;
 
             Array.from(imagesTshirt).forEach((imageFile) => {
                 const readerImage = new FileReader();
@@ -229,29 +230,33 @@ function ModifierTshirt(id) {
                     imagesDataUrls.push(event.target.result);
                     loadedImages++;
 
-
                     if (loadedImages === imagesTshirt.length) {
-                        Tshirt.images = imagesDataUrls;  // Mettre à jour les images du Tshirt
-
-                        // Mise à jour des autres informations
-                        Tshirt.name = titleTshirt;
-                        Tshirt.text = textareaTshirt;
-                        Tshirt.price = priceTshirt;
-
-                        // Sauvegarder les modifications dans localStorage
-                        localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
-
-                        closeModalTshirt();
-                        afficheTable();
+                        Tshirt.images = imagesDataUrls;
+                        updateTshirtData(Tshirt, titleTshirt, textareaTshirt, priceTshirt);
                     }
                 };
 
                 readerImage.readAsDataURL(imageFile);
             });
 
+        } else {
+            updateTshirtData(Tshirt, titleTshirt, textareaTshirt, priceTshirt);
         }
     };
+
+    function updateTshirtData(Tshirt, title, text, price) {
+        Tshirt.name = title;
+        Tshirt.text = text;
+        Tshirt.price = price;
+
+        localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
+        closeModalTshirt();
+        afficheTable('Tshirt');
+    }
 }
+
+
+
 
 
 
@@ -300,6 +305,7 @@ SaveAccessoire.addEventListener("click", function (e) {
                 dataAccessoire.push(Accessoire);
                 localStorage.setItem("Accessoire", JSON.stringify(dataAccessoire));
                 VideFormAccessoire();
+                afficheTable("Accessoires");
             }
         };
         reader.readAsDataURL(file);
@@ -317,20 +323,19 @@ function SupprimerAccessoire(id) {
 }
 
 const btnModifierAccessoire = document.getElementById("SaveModiferAccessoire");
-function ModifierAccessoire(id){
-    openModalTshirt(); 
+function ModifierAccessoire(id) {
+    openModalAccessoire(); 
 
     SaveAccessoire.classList.add("hidden");
     btnModifierAccessoire.classList.remove("hidden");
 
-    const Accessoire = dataTshirt.find((tshirt) => tshirt.id === id);
+    const accessoire = dataAccessoire.find((accessoire) => accessoire.id === id);
 
-    document.querySelector("#titleAccessoire").value = Accessoire.name;
-    document.querySelector("#textAccessoire").value = Accessoire.text;
-    document.querySelector("#priceAccessoire").value = Accessoire.price;
+    document.querySelector("#titleAccessoire").value = accessoire.name;
+    document.querySelector("#textAccessoire").value = accessoire.text;
+    document.querySelector("#priceAccessoire").value = accessoire.price;
 
-
-    btnModifierTshirt.onclick = function(e) {
+    btnModifierAccessoire.onclick = function(e) {
         e.preventDefault();
 
         const titleAccessoire = document.querySelector("#titleAccessoire").value;
@@ -340,7 +345,7 @@ function ModifierAccessoire(id){
 
         if (imagesAccessoire && imagesAccessoire.length > 0) {
             let imagesDataUrls = [];
-            let loadedImages = 0; // Compteur pour vérifier quand toutes les images sont chargées
+            let loadedImages = 0;
 
             Array.from(imagesAccessoire).forEach((imageFile) => {
                 const readerImage = new FileReader();
@@ -349,28 +354,29 @@ function ModifierAccessoire(id){
                     imagesDataUrls.push(event.target.result);
                     loadedImages++;
 
-
                     if (loadedImages === imagesAccessoire.length) {
-                        Accessoire.images = imagesDataUrls;  // Mettre à jour les images du Tshirt
-
-                        // Mise à jour des autres informations
-                        Accessoire.name = titleAccessoire;
-                        Accessoire.text = textareaAccessoire;
-                        Accessoire.price = priceAccessoire;
-
-                        // Sauvegarder les modifications dans localStorage
-                        localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
-
-                        closeModalAccessoire();
-                        afficheTable(); 
+                        accessoire.images = imagesDataUrls; // Update images for the Accessoire
+                        updateAccessoireData(accessoire, titleAccessoire, textareaAccessoire, priceAccessoire);
                     }
                 };
 
                 readerImage.readAsDataURL(imageFile);
             });
 
+        } else {
+            updateAccessoireData(accessoire, titleAccessoire, textareaAccessoire, priceAccessoire);
         }
     };
+
+    function updateAccessoireData(accessoire, title, text, price) {
+        accessoire.name = title;
+        accessoire.text = text;
+        accessoire.price = price;
+
+        localStorage.setItem("Accessoire", JSON.stringify(dataAccessoire));
+        closeModalAccessoire();
+        afficheTable("Accessoires");
+    }
 }
 
 
