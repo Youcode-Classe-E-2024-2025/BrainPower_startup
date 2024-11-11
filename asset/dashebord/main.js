@@ -242,7 +242,7 @@ function ModifierTshirt(id) {
                         localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
 
                         closeModalTshirt();
-                        afficheTable(); // Mettre à jour l'affichage
+                        afficheTable();
                     }
                 };
 
@@ -316,7 +316,62 @@ function SupprimerAccessoire(id) {
     afficheTable("Accessoires");
 }
 
+const btnModifierAccessoire = document.getElementById("SaveModiferAccessoire");
+function ModifierAccessoire(id){
+    openModalTshirt(); 
 
+    SaveAccessoire.classList.add("hidden");
+    btnModifierAccessoire.classList.remove("hidden");
+
+    const Accessoire = dataTshirt.find((tshirt) => tshirt.id === id);
+
+    document.querySelector("#titleAccessoire").value = Accessoire.name;
+    document.querySelector("#textAccessoire").value = Accessoire.text;
+    document.querySelector("#priceAccessoire").value = Accessoire.price;
+
+
+    btnModifierTshirt.onclick = function(e) {
+        e.preventDefault();
+
+        const titleAccessoire = document.querySelector("#titleAccessoire").value;
+        const textareaAccessoire = document.querySelector("#textAccessoire").value;
+        const priceAccessoire = document.querySelector("#priceAccessoire").value;
+        const imagesAccessoire = document.querySelector("#imageAccessoire").files;
+
+        if (imagesAccessoire && imagesAccessoire.length > 0) {
+            let imagesDataUrls = [];
+            let loadedImages = 0; // Compteur pour vérifier quand toutes les images sont chargées
+
+            Array.from(imagesAccessoire).forEach((imageFile) => {
+                const readerImage = new FileReader();
+
+                readerImage.onload = function(event) {
+                    imagesDataUrls.push(event.target.result);
+                    loadedImages++;
+
+
+                    if (loadedImages === imagesAccessoire.length) {
+                        Accessoire.images = imagesDataUrls;  // Mettre à jour les images du Tshirt
+
+                        // Mise à jour des autres informations
+                        Accessoire.name = titleAccessoire;
+                        Accessoire.text = textareaAccessoire;
+                        Accessoire.price = priceAccessoire;
+
+                        // Sauvegarder les modifications dans localStorage
+                        localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
+
+                        closeModalAccessoire();
+                        afficheTable(); 
+                    }
+                };
+
+                readerImage.readAsDataURL(imageFile);
+            });
+
+        }
+    };
+}
 
 
 // ###############################################  les forms vides   ######################################################
@@ -362,6 +417,9 @@ function openModalTshirt() {
 }
 function openModalAccessoire() {
     document.getElementById('ModalAccessoire').classList.remove('hidden');
+    btnModifierAccessoire.classList.add("hidden")
+    SaveAccessoire.classList.remove("hidden")
+    VideFormAccessoire();
 }
 
 function closeModalMovie() {
@@ -535,7 +593,7 @@ function afficheTable(category) {
                             </div>
                         </td>
                         <td class="px-6 py-4 flex items-center">
-                            <button class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                            <button  onclick="ModifierAccessoire(${accessoire.id})" class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
                             <button onclick="SupprimerAccessoire(${accessoire.id})" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
                         </td>
                     </tr>
