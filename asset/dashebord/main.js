@@ -355,7 +355,7 @@ function ModifierAccessoire(id) {
                     loadedImages++;
 
                     if (loadedImages === imagesAccessoire.length) {
-                        accessoire.images = imagesDataUrls; // Update images for the Accessoire
+                        accessoire.images = imagesDataUrls;
                         updateAccessoireData(accessoire, titleAccessoire, textareaAccessoire, priceAccessoire);
                     }
                 };
