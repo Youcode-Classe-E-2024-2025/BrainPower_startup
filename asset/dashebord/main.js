@@ -5,6 +5,7 @@ let indexMovie =dataMovies.length;
 
 SaveMovie.addEventListener("click", function (e) {
     e.preventDefault();
+    btnModifierMovie.classList.add("hidden");
 
     const nameMovie = document.querySelector("#nameMovie").value;
     const textareaMovie = document.querySelector("#textareaMovie").value;
@@ -66,12 +67,81 @@ function SupprimerMovie(id) {
     afficheTable();
 }
 
+const btnModifierMovie = document.getElementById("SaveModiferMovie");
+
+function ModifierMovie(id) {
+    openModalMovie(); 
+
+    SaveMovie.classList.add("hidden");
+    btnModifierMovie.classList.remove("hidden");
+
+    const movie = dataMovies.find((movie) => movie.id === id);
+
+    document.querySelector("#nameMovie").value = movie.name;
+    document.querySelector("#textareaMovie").value = movie.text;
+    document.querySelector("#priceMovie").value = movie.price;
+    document.querySelector("#GenreMovie").value = movie.genre;
+    document.querySelector("#dateMovie").value = movie.date;
+    document.querySelector("#duréMovie").value = movie.dure;
+    document.querySelector("#autheurMovie").value = movie.autheur;
+    document.querySelector("#imageMovie").src = movie.image; 
+    document.querySelector("#vidéoMovie").src = movie.video; 
+
+    btnModifierMovie.onclick = function (e) {
+        e.preventDefault(); 
+
+        const nameMovie = document.querySelector("#nameMovie").value;
+        const textareaMovie = document.querySelector("#textareaMovie").value;
+        const priceMovie = document.querySelector("#priceMovie").value;
+        const GenreMovie = document.querySelector("#GenreMovie").value;
+        const dateMovie = document.querySelector("#dateMovie").value;
+        const duréMovie = document.querySelector("#duréMovie").value;
+        const autheurMovie = document.querySelector("#autheurMovie").value;
+
+        const imageMovie = document.querySelector("#imageMovie").files[0];
+        const videoMovie = document.querySelector("#vidéoMovie").files[0];
+
+
+        if (imageMovie) {
+            const readerImage = new FileReader();
+            readerImage.onload = function (event) {
+                movie.image = event.target.result; 
+            };
+            readerImage.readAsDataURL(imageMovie);
+        }
+
+        
+        if (videoMovie) {
+            const readerVideo = new FileReader();
+            readerVideo.onload = function (event) {
+                movie.video = event.target.result; 
+            };
+            readerVideo.readAsDataURL(videoMovie);
+        }
+
+        movie.name = nameMovie;
+        movie.text = textareaMovie;
+        movie.price = priceMovie;
+        movie.genre = GenreMovie;
+        movie.date = dateMovie;
+        movie.dure = duréMovie;
+        movie.autheur = autheurMovie;
+
+        localStorage.setItem("movie", JSON.stringify(dataMovies));
+
+        closeModalMovie();
+        afficheTable(); 
+    }
+}
+
+
 
 
 
 
 // ###################################################################################################################################
 const SaveTshirt = document.getElementById("SaveTshir");
+
 // ############################################################  remplissage T-shirt  ################################################
 let dataTshirt = JSON.parse(localStorage.getItem("Tshirt")) || [];
 let indexTshirt = dataTshirt.length
@@ -184,6 +254,8 @@ function SupprimerAccessoire(id) {
     localStorage.setItem("Accessoire", JSON.stringify(dataAccessoire));
     afficheTable();
 }
+
+
 
 
 // ###############################################  les forms vides   ######################################################
@@ -314,9 +386,13 @@ function afficheTable(category) {
                         <td class="px-6 py-4">${Movie.dure}</td>
                         <td class="px-6 py-4">${Movie.autheur}</td>
                         <td class="px-6 py-4"><img src="${Movie.image}" alt="Movie" class="w-16 h-16 object-cover"></td>
-                        <td class="px-6 py-4"><video controls><source src="${Movie.video}" type="video/mp4"></video></td>
+                        <td class="px-6 py-4">
+                            <video controls width="120px" height="120px">
+                                <source src="${Movie.video}" type="video/mp4">
+                            </video>
+                        </td>
                         <td class="px-6 py-4 flex items-center">
-                            <button class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                            <button onclick="ModifierMovie(${Movie.id})" class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
                             <button onclick="SupprimerMovie(${Movie.id})" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
                         </td>
                     </tr>
