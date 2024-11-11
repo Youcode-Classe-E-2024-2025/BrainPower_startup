@@ -4,8 +4,7 @@
     padding:0;
 }
 body{
-    background-color: black;
-}
+    background-image: linear-gradient(black,black,black,#7B3200,black)}
 .bg-About h1{
     position:absolute;
     top:110px;
@@ -36,3 +35,64 @@ body{
     font-family: 'Inter', sans-serif;
 
 }
+.stat{
+    display: flex;
+    color:white;
+    margin:100px;
+    justify-content:space-around;
+    text-align: center;
+    font-size: 20px;
+    font-family:'Poppins', sans-serif;
+    
+}
+.profiles{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 40px;
+    margin-left:200px;
+}
+.profile{
+  padding:30px;
+  width:18rem;
+  height:15rem;
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 30px;
+}
+.profiles img{
+    width:150px;
+    height:150px;
+    border-radius: 90px;
+  }
+  .profiles h2{
+    font-size: 15px;
+    font-family:'Poppins', sans-serif;
+  }
+  .profiles h3{
+    font-family:'Poppins', sans-serif;
+    background-image: linear-gradient(-225deg,
+            #383737 0%,
+            #ff6a00 50%,
+            #da5700bf 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 1s ease infinite;
+  }
+
+  .links{
+    width:10rem;
+    height:2.5rem;
+    background-image: linear-gradient(to right,#EF7D2F,#AAA19A);
+    margin:7px;
+    margin-left:65px;
+    border-radius: 15px;
+  }
+  
+  .links i{
+  font-size:26px;
+  margin:7px
+  }
