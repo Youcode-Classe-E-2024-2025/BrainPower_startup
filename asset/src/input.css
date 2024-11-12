@@ -8,10 +8,13 @@
         font-family: "Poppins", serif;
     }
     i{
-        @apply cursor-pointer text-white;
+        @apply cursor-pointer text-white hover:text-orange-400;
     }
     .nav-menu>ul a{
-        @apply flex h-full items-center px-6 ;
+        @apply    hover:border-b-2 hover:text-orange-700;
+    }
+    .footer-links>ul a{
+        @apply    hover:border-b-2 hover:text-orange-700;
     }
    
 }
