@@ -1,0 +1,6 @@
+.sliders div{
+    z-index: -1;
+}
+.sliders div img{
+    object-fit: cover;
+}
