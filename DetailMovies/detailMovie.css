@@ -2,19 +2,33 @@
     margin:0;
     padding:0;
 }
-
 body{
-    background-color: #ffffff;
-}
-
-#movieImage img{
- margin-top:25px;
- margin-left:25px;
- height:33rem;
- width: 25rem;
+    background-color: #000000;
 }
 #movieDetails{
     display:grid;
     grid-template-columns: auto auto;
     gap:10px;
+}
+#movieImage img{
+    margin-top:25px;
+    margin-left:25px;
+    height:33rem;
+    width: 25rem;
+   }
+.div2{
+    margin-top:25px;
+    display:grid;
+    grid-template-rows: auto auto;
+    gap:10px;
+} 
+#movieInfo h1{
+    font-family:'Poppins', sans-serif;
+}
+#movieInfo h4{
+    font-family:'Poppins', sans-serif;
+}
+#movieInfo p{
+    font-family:'Poppins', sans-serif;
+    color:rgb(255, 255, 255);
 }

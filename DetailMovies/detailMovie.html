@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/DetailMovies/detailMovie.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- début de l'en-tete -->
@@ -16,31 +19,38 @@
         <!--********************************************************* Section 2 ******************************************** -->
         <section id="section1">
             <div id="movieDetails">
-                <!-- Image du film  -->
-                <div id="movieImage">
-                    <img src="/DetailMovies/images/Bleach1.png">
+
+                <div class="div1">
+                   <!-- Image du film  -->
+                   <div id="movieImage">
+                      <img src="/DetailMovies/images/Bleach1.png">
+                   </div>
+                   <!-- Achat du film -->
+                  <div id="movieAchat">   
+                    <p>9.5</p>
+                    <i></i>
+                    <p></p>
+                    <button></button>
+                    <i></i>
+                  </div> 
                 </div>
 
-                <!-- Infos du film -->
-                <div id="movieInfo">
-                    <h1>BLEACH</h1>
-                    <h2>Description :</h2><p> Bleach follows Ichigo Kurosaki, a teenager who becomes a Soul Reaper and battles evil spirits known as Hollows to protect the living world and lost souls.</p>
-                    <h2>Genre : </h2><p>Action, Adventure, Supernatural, Fantasy.</p>
-                    <h2>Production Date : </h2><p>The anime aired from 2004 to 2012, with the Thousand-Year Blood War Arc starting in 2022.</p>
-                    <h2>Time :</h2><p>366 episodes (main series) + additional arcs.</p>
-                    <h2>Author</h2><p>Tite Kubo.</p>
-                </div>
+                <div class="div2">
+                     <!-- Infos du film -->
+                     <div id="movieInfo">
+                        <h1 style="color:#FBFF00">BLEACH</h1>
+                        <h4 style="color:#FBFF00">Description :</h4><p><b>Bleach follows Ichigo Kurosaki, a teenager who becomes a Soul Reaper and battles evil spirits known as Hollows to protect the living world and lost souls.</b></p>
+                        <h4 style="color:#FBFF00">Genre : </h4><p><b>Action, Adventure, Supernatural, Fantasy.</b></p>
+                        <h4 style="color:#FBFF00">Production Date : </h4><p><b>The anime aired from 2004 to 2012, with the Thousand-Year Blood War Arc starting in 2022.</b></p>
+                        <h4 style="color:#FBFF00">Time :</h4><p><b>366 episodes (main series) + additional arcs.</b></p>
+                        <h4 style="color:#FBFF00">Author</h4><p><b>Tite Kubo.</b></p>
+                     </div>
+                     <!-- vidéo du film -->
+                     <div id="movieVidéo">
 
-               <!-- Achat du film -->
-                <div id="movieAchat">     
-                </div>
+                     </div>
+                </div>  
 
-                 <!-- vidéo du film -->
-                 <div id="movieVidéo">
-                    <video  style="width:100%; max-width:400px;">
-                        <source src="/DetailMovies/vidéos/bleach.mp4" type="video/mp4">
-                    </video>
-                </div>
             </div>
         </section>
 
