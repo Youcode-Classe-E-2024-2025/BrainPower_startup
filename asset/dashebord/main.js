@@ -439,6 +439,39 @@ function closeModalAccessoire() {
 }
 // ########################################################################################################################
 
+let currentPage = 1;
+const itemsPerPage = 4;
+
+
+function paginateData(data, page) {
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return data.slice(startIndex, endIndex);
+}
+
+function renderPagination(totalItems, selectedCategory) {
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    const paginationContainer = document.getElementById('pagination');
+    paginationContainer.innerHTML = '';
+    
+    const maxPages = 4; // Nombre de pages visibles
+    let startPage = Math.max(currentPage - Math.floor(maxPages / 2), 1);
+    let endPage = Math.min(startPage + maxPages - 1, totalPages);
+    
+    if (endPage - startPage < maxPages - 1) startPage = Math.max(endPage - maxPages + 1, 1);
+
+    // Afficher les pages avec "..."
+    for (let i = startPage; i <= endPage; i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.className = `px-4 py-2 rounded-md ${i === currentPage ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'} hover:bg-blue-300`;
+        button.onclick = () => { currentPage = i; afficheTable(selectedCategory); renderPagination(totalItems, selectedCategory); };
+        paginationContainer.appendChild(button);
+    }
+
+    if (startPage > 1) paginationContainer.insertAdjacentHTML('afterbegin', `<span class="px-4 py-2 text-gray-700"><i class="bi bi-caret-left-fill text-blue-600"></i></span>`);
+    if (endPage < totalPages) paginationContainer.insertAdjacentHTML('beforeend', `<span class="px-4 py-2 text-gray-700"><i class="bi bi-caret-right-fill text-blue-600"></i></span>`);
+}
 // ########################################################  Affichage   ##################################################
 
 function afficheTable(category) {
@@ -450,6 +483,8 @@ function afficheTable(category) {
     const ModelAccessoire = document.getElementById("ajouterAccessoire")
 
     tableContainer.classList.remove('hidden');
+
+    
 
     if (category === 'clients') {
 
@@ -490,7 +525,9 @@ function afficheTable(category) {
         ModelMovie.classList.remove("hidden");
         ModelTshirt.classList.add("hidden");
         ModelAccessoire.classList.add("hidden");
-    
+
+        const paginatedMovie = paginateData(dataMovies, currentPage);
+
         tableTitle.textContent = 'Movie Table';
         tableChange.innerHTML = `
             <thead class="bg-gray-100">
@@ -508,7 +545,7 @@ function afficheTable(category) {
                 </tr>
             </thead>
             <tbody>
-                ${dataMovies.map(Movie => `
+                ${paginatedMovie.map(Movie => `
                     <tr class="border-t">
                         <td class="px-6 py-4">${Movie.name}</td>
                         <td class="px-6 py-4">${Movie.text}</td>
@@ -531,10 +568,13 @@ function afficheTable(category) {
                 `).join('')}
             </tbody>
         `;
+        renderPagination(dataMovies.length, category);
     }else if (category === 'Tshirt') {
         ModelMovie.classList.add("hidden");
         ModelTshirt.classList.remove("hidden");
         ModelAccessoire.classList.add("hidden");
+
+        const paginatedTshirt = paginateData(dataTshirt, currentPage);
     
         tableTitle.textContent = 'T-shirt Table';
         tableChange.innerHTML = `
@@ -548,7 +588,7 @@ function afficheTable(category) {
                 </tr>
             </thead>
             <tbody>
-                ${dataTshirt.map(Tshirt => `
+                ${paginatedTshirt.map(Tshirt => `
                     <tr class="border-t">
                         <td class="px-6 py-4">${Tshirt.name}</td>
                         <td class="px-6 py-4">${Tshirt.text}</td>
@@ -568,11 +608,14 @@ function afficheTable(category) {
                 `).join('')}
             </tbody>
         `;
+        renderPagination(dataTshirt.length, category);
     }else if (category === 'Accessoires') {
 
         ModelMovie.classList.add("hidden");
         ModelTshirt.classList.add("hidden");
         ModelAccessoire.classList.remove("hidden");
+
+        const paginatedAccessoire = paginateData(dataAccessoire, currentPage);
     
         tableTitle.textContent = 'Accessoires Table';
         tableChange.innerHTML = `
@@ -586,7 +629,7 @@ function afficheTable(category) {
                 </tr>
             </thead>
             <tbody>
-                ${dataAccessoire.map(accessoire => `
+                ${paginatedAccessoire.map(accessoire => `
                     <tr class="border-t">
                         <td class="px-6 py-4">${accessoire.name}</td>
                         <td class="px-6 py-4">${accessoire.text}</td>
@@ -606,6 +649,7 @@ function afficheTable(category) {
                 `).join('')}
             </tbody>
         `;
+        renderPagination(dataAccessoire.length, category);
     }
     
     
