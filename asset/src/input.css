@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        @apply text-base text-white;
+        font-family: "Poppins", serif;
+    }
+    i{
+        @apply cursor-pointer text-white hover:text-orange-400;
+    }
+    .nav-menu>ul a{
+        @apply    hover:border-b-2 hover:text-orange-700;
+    }
+    .footer-links>ul a{
+        @apply    hover:border-b-2 hover:text-orange-700;
+    }
+   
+}
