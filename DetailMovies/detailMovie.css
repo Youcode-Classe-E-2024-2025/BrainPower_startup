@@ -21,32 +21,37 @@ body{
    }
 .div2{
     margin-top:20px;
+    margin-bottom: 20px;
     display:grid;
     grid-template-rows: auto auto;
 } 
 #movieInfo{
-    height:265px;
+    height:250px;
     width:50rem;
 }
 #movieInfo h1{
     font-family:'Poppins', sans-serif;
+    font-size:20px ;
 }
-#movieInfo h4{
+#movieInfo h5{
     font-family:'Poppins', sans-serif;
+    font-size:15px ;
 }
 #movieInfo p{
     color:rgb(255, 255, 255);
+    font-size:13px ;
 }
 #movieAchat{
     width: 24rem;
     margin-top:10px;
     margin-left:30px;
+    margin-bottom:20px;
     display:flex;
     justify-content: space-around;
 }
 
 video{
-    margin-top: 10px;
+    margin-top:25px;
     height:260px;
     width: 800px;
     object-fit: cover;
