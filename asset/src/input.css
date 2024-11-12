@@ -10,4 +10,7 @@
     .nav-menu>ul a{
         @apply flex h-full items-center px-6 text-white;
     }
+    *{
+        border: 1px solid white;
+    }
 }
