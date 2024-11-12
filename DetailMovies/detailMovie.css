@@ -13,3 +13,8 @@ body{
  height:33rem;
  width: 25rem;
 }
+#movieDetails{
+    display:grid;
+    grid-template-columns: auto auto;
+    gap:10px;
+}
