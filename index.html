@@ -9,18 +9,21 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Langar&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./asset/src/output.css">
+    <link rel="stylesheet" href="./asset/homePage/home.css">
     <title>Document</title>
 </head>
 
 <body>
     <!-- navbare -->
     <nav id="nav"
-        class="relative h-[77px] flex items-center justify-between px-8  bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
+        class="relative  h-[77px] flex items-center justify-between px-8  bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
         <!-- anime power_logo -->
         <div class="logo-nav flex items-center ">
             <a href="#">
@@ -31,24 +34,24 @@
         <div class="nav-menu h-full items-center self-center flex w-fit">
             <ul class="flex h-full items-center w-full gap-4">
                 <!-- home link-->
-                <li class="list-nav-menu" >
+                <li class="list-nav-menu">
                     <a href="#" rel="noopener noreferrer" id="home-nave">
                         Home
                     </a>
                 </li>
                 <!-- about link-->
-                <li class="list-nav-menu" >
+                <li class="list-nav-menu">
                     <a href="#" rel="noopener noreferrer" id="about-nav">
                         About
                     </a>
                 </li>
                 <!-- about dropdown-->
-                <li class="list-nav-menu" >
+                <li class="list-nav-menu">
                     <a href="#" id="category-nav">category</a>
                 </li>
                 <!-- contact navbar -->
                 <li class="list-nav-menu">
-                    <a href="#"  id="contact_nav">
+                    <a href="#" id="contact_nav">
                         Contact
                     </a>
                 </li>
@@ -59,21 +62,35 @@
             <i class="fa-solid fa-cart-shopping fa-xl "></i>
             <i class="fa-solid fa-user fa-xl"></i>
         </div>
-        <div class="dropDown-menu-caty rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute   left-1/2 -translate-x-1/4 top-[77px] hidden  bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
+        <div
+            class="dropDown-menu-caty z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute   left-1/2 -translate-x-1/4 top-[77px] hidden  bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
             <a href="#" target="_blank" rel="noopener noreferrer">T-shirt</a>
             <a href="#" target="_blank" rel="noopener noreferrer">Accesoires</a>
             <a href="#" target="_blank" rel="noopener noreferrer">Movies</a>
         </div>
-        <div class="dropDown-menu-right rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute right-1 top-[77px] hidden bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
+        <div
+            class="dropDown-menu-right z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute right-1 top-[77px] hidden bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
             <a href="#" target="_blank" rel="noopener noreferrer" id="log-out">log-out</a>
             <a href="#" target="_blank" rel="noopener noreferrer" id="log-in">log-in</a>
             <a href="#" target="_blank" rel="noopener noreferrer">profile</a>
         </div>
     </nav>
-   
+
     <!-- end navbare -->
 
-
+    <main>
+        <div class="sliders relative  w-full h-screen flex">
+            <div class="slider1">
+                <img src="./asset/homePage/imges/bleach_slide1.jpg" alt="bleach_slide1" class="h-full w-full">
+            </div>
+            <div class="slider2">
+                <img src="./asset/homePage/imges/zintsu_Slide2.jpg" alt="zintsu_Slide2" class="h-full w-full">
+            </div>
+            <div class="slider3">
+                <img src="./asset/homePage/imges/cillection_Slide3.jpg" alt="cillection_Slide3" class="h-full w-full">
+            </div>
+        </div>
+    </main>
 
     <!-- footer -->
     <footer
