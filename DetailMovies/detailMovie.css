@@ -8,20 +8,23 @@ body{
 #movieDetails{
     display:grid;
     grid-template-columns: auto auto;
-    gap:10px;
+    gap:5px;
 }
 #movieImage img{
     margin-top:25px;
     margin-left:25px;
-    height:33rem;
-    width: 25rem;
+    height:31rem;
+    width: 24rem;
    }
 .div2{
     margin-top:20px;
     display:grid;
     grid-template-rows: auto auto;
-    gap:10px;
 } 
+#movieInfo{
+    height:265px;
+    width:50rem;
+}
 #movieInfo h1{
     font-family:'Poppins', sans-serif;
 }
@@ -29,17 +32,19 @@ body{
     font-family:'Poppins', sans-serif;
 }
 #movieInfo p{
-    font-family:'Poppins', sans-serif;
     color:rgb(255, 255, 255);
 }
 #movieAchat{
+    width: 24rem;
     margin-top:10px;
     margin-left:30px;
     display:flex;
     justify-content: space-around;
 }
-#movieVidé img{
-    margin-top:10px;
-    height:30px;
-    width:500px;
+
+video{
+    margin-top: 10px;
+    height:260px;
+    width: 800px;
+    object-fit: cover;
 }
