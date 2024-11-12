@@ -4,13 +4,14 @@
 
 @layer base {
     html {
-        @apply text-base;
+        @apply text-base text-white;
         font-family: "Poppins", serif;
     }
+    i{
+        @apply cursor-pointer text-white;
+    }
     .nav-menu>ul a{
-        @apply flex h-full items-center px-6 text-white;
+        @apply flex h-full items-center px-6 ;
     }
-    *{
-        border: 1px solid white;
-    }
+   
 }
