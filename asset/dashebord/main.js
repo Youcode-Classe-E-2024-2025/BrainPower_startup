@@ -3,6 +3,10 @@ const SaveMovie = document.getElementById("SaveMovie");
 let dataMovies = JSON.parse(localStorage.getItem("movie")) || [] ;
 let indexMovie =dataMovies.length;
 
+// counteur movie
+const counteurMovie = document.querySelector("#counteurMovie");
+counteurMovie.textContent = indexMovie;
+
 SaveMovie.addEventListener("click", function (e) {
     e.preventDefault();
     btnModifierMovie.classList.toggle("hidden");
@@ -142,6 +146,10 @@ const SaveTshirt = document.getElementById("SaveTshir");
 let dataTshirt = JSON.parse(localStorage.getItem("Tshirt")) || [];
 let indexTshirt = dataTshirt.length
 
+// counteur Tshirt
+const counteurTshirt = document.querySelector("#counteurTshirt");
+counteurTshirt.textContent = indexTshirt;
+
 SaveTshirt.addEventListener("click", function (e) {
     e.preventDefault();
 
@@ -187,7 +195,7 @@ SaveTshirt.addEventListener("click", function (e) {
     closeModalTshirt();
 });
 
-// supprimer T-shirt
+// supprimer T-shirts
 function SupprimerTshirt(id) {
 
     const index = dataTshirt.findIndex((Tshirt) => Tshirt.id === id);
@@ -269,6 +277,10 @@ const SaveAccessoire = document.getElementById("SaveAccessoire");
 
 let dataAccessoire = JSON.parse(localStorage.getItem("Accessoire")) || [];
 let indexAccessoire = dataAccessoire.length;
+
+// counteur Accessoires
+const counteurAccessoires = document.querySelector("#counteurAccessoire");
+counteurAccessoires.textContent = indexAccessoire;
 
 SaveAccessoire.addEventListener("click", function (e) {
     e.preventDefault();
