@@ -17,7 +17,7 @@ body{
     width: 25rem;
    }
 .div2{
-    margin-top:25px;
+    margin-top:20px;
     display:grid;
     grid-template-rows: auto auto;
     gap:10px;
@@ -31,4 +31,15 @@ body{
 #movieInfo p{
     font-family:'Poppins', sans-serif;
     color:rgb(255, 255, 255);
+}
+#movieAchat{
+    margin-top:10px;
+    margin-left:30px;
+    display:flex;
+    justify-content: space-around;
+}
+#movieVidé img{
+    margin-top:10px;
+    height:30px;
+    width:500px;
 }
