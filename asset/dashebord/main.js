@@ -133,7 +133,7 @@ function ModifierMovie(id) {
         localStorage.setItem("movie", JSON.stringify(dataMovies));
 
         closeModalMovie();
-        afficheTable(); 
+        afficheTable('Movie'); 
     }
 }
 
@@ -452,7 +452,7 @@ function closeModalAccessoire() {
 // ########################################################################################################################
 
 let currentPage = 1;
-const itemsPerPage = 4;
+const itemsPerPage = 3;
 
 
 function paginateData(data, page) {
@@ -613,8 +613,8 @@ function afficheTable(category) {
                             </div>
                         </td>
                         <td class="px-6 py-4 flex items-center">
-                            <button onclick="ModifierTshirt(${Tshirt.id})" class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
-                            <button onclick="SupprimerTshirt(${Tshirt.id})" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                            <button onclick="ModifierTshirt('${Tshirt.id}')" class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                            <button onclick="SupprimerTshirt('${Tshirt.id}')" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
                         </td>
                     </tr>
                 `).join('')}
@@ -654,8 +654,8 @@ function afficheTable(category) {
                             </div>
                         </td>
                         <td class="px-6 py-4 flex items-center">
-                            <button  onclick="ModifierAccessoire(${accessoire.id})" class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
-                            <button onclick="SupprimerAccessoire(${accessoire.id})" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
+                            <button  onclick="ModifierAccessoire('${accessoire.id}')" class="px-4 py-2 rounded"><i class="bi bi-pencil-square text-blue-600"></i></button>
+                            <button onclick="SupprimerAccessoire('${accessoire.id}')" class="px-4 py-2 rounded ml-2"><i class="bi bi-trash text-red-600"></i></button>
                         </td>
                     </tr>
                 `).join('')}

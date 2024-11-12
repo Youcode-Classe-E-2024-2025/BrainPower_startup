@@ -60,5 +60,5 @@ const DataTshirt = [
 
   localStorage.setItem("Tshirt", JSON.stringify(DataTshirt));
 
-  const storedData = JSON.parse(localStorage.getItem('Tshirt'));
+  JSON.parse(localStorage.getItem('Tshirt'));
 
