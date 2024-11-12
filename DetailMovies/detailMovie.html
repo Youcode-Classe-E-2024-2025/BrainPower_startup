@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="films.js"></script>
+    <script defer src="details.js"></script>
 </head>
 <body>
     <!-- début de l'en-tete -->
@@ -73,38 +75,7 @@
     <main>
         <!--********************************************************* Section 1 ******************************************** -->
         <section id="section1">
-            <div id="movieDetails">
-                <div class="div1">
-                   <!-- Image du film  -->
-                   <div id="movieImage">
-                      <img src="/DetailMovies/images/Bleach1.png">
-                   </div>
-                   <!-- Achat du film -->
-                  <div id="movieAchat">   
-                    <h3 style="color:aliceblue">9.5</h3>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
-                    <h3 style="color:aliceblue">130DH</h3>
-                    <button style="width:100px; background-color: aliceblue;color: black;">Buy Now</button>
-                    <i class="fa-solid fa-cart-plus" style="color: #ffffff; font-size: 20px;"></i>
-                  </div> 
-                </div>
-                <div class="div2">
-                     <!-- Infos du film -->
-                     <div id="movieInfo">
-                        <b><h1 style="color:#FBFF00">BLEACH</h1></b>
-                        <h5 style="color:#FBFF00">Description :</h5><p>Bleach follows Ichigo Kurosaki, a teenager who becomes a Soul Reaper and battles evil spirits  known as Hollows to protect the living world and lost souls.</p>
-                        <h5 style="color:#FBFF00">Genre : </h5><p>Action, Adventure, Supernatural, Fantasy.</p>
-                        <h5 style="color:#FBFF00">Production Date : </h5><p>The anime aired from 2004 to 2012, with the Thousand-Year Blood War Arc starting in 2022.</p>
-                        <h5 style="color:#FBFF00">Time :</h5><p>366 episodes (main series) + additional arcs.</p>
-                        <h5 style="color:#FBFF00">Author</h5><p>Tite Kubo.</p>
-                     </div>
-                     <!-- vidéo du film -->
-                     <div id="movieVidéo">
-                        <video autoplay muted loop controls>
-                            <source src="/DetailMovies/vidéos/bleach.mp4" type="video/mp4">
-                        </video>
-                     </div>
-                </div>  
+            <div class="film-details" id="film-details">  
             </div>
         </section>
         <!--********************************************************* Section 1 ******************************************** -->

@@ -1,61 +1,92 @@
 
 
+/* style.css */
 
-*{
-    margin:0;
-    padding:0;
-}
-body{
+/* Corps de la page */
+body {
+   
     background-color: #000000;
-}
-#movieDetails{
-    display:grid;
-    grid-template-columns: auto auto;
-    gap:5px;
-}
-#movieImage img{
-    margin-top:25px;
-    margin-left:25px;
-    height:31rem;
-    width: 24rem;
-   }
-.div2{
-    margin-top:20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .film-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .film-thumbnail {
+    width: 150px;
+    height: 225px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .film-thumbnail:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Détails du film */
+  .film-details {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin: 0 auto;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Section principale des informations */
+  .film-info-container {
+    display: flex;
+    align-items: flex-start;
     margin-bottom: 20px;
-    display:grid;
-    grid-template-rows: auto auto;
-} 
-#movieInfo{
-    height:250px;
-    width:50rem;
-}
-#movieInfo h1{
+  }
+  
+  /* Image du film */
+  .film-image {
+    width: 350px;
+    height:500px;
+    margin-left: 10px;
+    border-radius: 8px;
+  }
+  
+  /* Conteneur pour les informations et la vidéo */
+  .film-info {
+    flex: 1;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .film-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #f97102;
     font-family:'Poppins', sans-serif;
-    font-size:20px ;
-}
-#movieInfo h5{
-    font-family:'Poppins', sans-serif;
-    font-size:15px ;
-}
-#movieInfo p{
-    color:rgb(255, 255, 255);
-    font-size:13px ;
-}
-#movieAchat{
-    width: 24rem;
-    margin-top:10px;
-    margin-left:30px;
-    margin-bottom:20px;
-    display:flex;
-    justify-content: space-around;
-}
-
-video{
-    margin-top:25px;
-    height:250px;
-    width: 800px;
+  }
+  
+  .film-info p {
+    margin:5px 10px;
+  }
+  
+  /* Style pour la vidéo */
+  .film-video {
+    width:500px;
+    height:300px;
+    margin-top: 20px;
+    border-radius: 8px;
     object-fit: cover;
-}
+  }
+ /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
 .sliders div{
     z-index: -1;
 }
