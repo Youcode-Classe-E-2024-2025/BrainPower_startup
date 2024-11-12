@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        @apply text-base;
+        font-family: "Poppins", serif;
+    }
+    .nav-menu>ul a{
+        @apply flex h-full items-center px-6 text-white;
+    }
+}
