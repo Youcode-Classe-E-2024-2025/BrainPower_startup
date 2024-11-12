@@ -62,3 +62,26 @@ video{
 .sliders div img{
     object-fit: cover;
 }
+.films{
+    display: flex;
+    justify-content: space-around;
+    text-align:center;
+    margin: 20px;
+}
+.films h1{
+    font-size:19px;
+    font-family:'Poppins', sans-serif;
+}
+.titles{
+    margin:30px 70px;
+    display: flex;
+    justify-content:space-between;
+}
+.titles h1{
+   font-size: 30px;
+   font-family:'Poppins', sans-serif;
+}
+.titles a{
+    font-size:23px;
+    font-family:'Poppins', sans-serif;
+ }
