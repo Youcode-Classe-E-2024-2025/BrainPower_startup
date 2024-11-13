@@ -96,6 +96,11 @@ body {
     text-align:center;
     margin: 20px;
 }
+.films img{
+  height:400px;
+  width:300px;
+  border-radius: 15px;
+}
 .films h1{
     font-size:20px;
     font-family:'Poppins', sans-serif;

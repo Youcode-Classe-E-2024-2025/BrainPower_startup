@@ -1,7 +1,7 @@
 // index.js
 document.addEventListener("DOMContentLoaded", () => {
     const gallery = document.getElementById("film-gallery");
-     films.forEach(film => {
+    DataMovie.forEach(film => {
       const filmElement = document.createElement("img");
       filmElement.src = film.image;
       filmElement.alt = film.title;
