@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h3 style="color:aliceblue">9.5</h3>
                     <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
                     <h3 style="color:aliceblue">${film.price}DH</h3>
-                    <button style="width:100px; background-color: aliceblue;color: black;">Buy Now</button>
+                    <button style="width:100px; background-color: aliceblue;color:orange; border-radius:5px">Buy Now</button>
                     <i class="fa-solid fa-cart-plus" style="color: #ffffff; font-size: 20px;"></i>
                   </div> 
         </div>
@@ -35,12 +35,24 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("film-details").innerHTML = "<p>Film non trouvé.</p>";
     }
   });
-  function afficherDetail(){
-    DataMovie.forEach(film => {
-  // Gérer le clic pour rediriger avec l'ID du film dans l'URL
-    window.location.href = `detailMovie.html?id=${film.id}`;
-});
-  }  
+
+    function afficherDetail(num){
+      for(let i=0;i<2;i++){
+        if(num===1){
+          window.location.href = `detailMovie.html?id=${DataMovie.id=num}`;
+        }
+        if(num===2){
+          window.location.href = `detailMovie.html?id=${DataMovie.id=num}`;
+        }
+        if(num===3){
+          window.location.href = `detailMovie.html?id=${DataMovie.id=num}`;
+        }
+      }
+      DataMovie.forEach(film => {
+       
+      });
+    }
+  
 
 
 
