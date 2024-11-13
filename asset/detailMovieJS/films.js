@@ -8,7 +8,7 @@ const films = [
       releaseDate: "The anime aired from 2004 to 2012, with the Thousand-Year Blood War Arc starting in 2022.",
       time :"366 episodes (main series) + additional arcs.",
       author:"Tite Kubo.",
-      image: "images/Bleach1.png",
+      image: "/asset/images/Bleach1.png",
       video: "https://www.youtube.com/embed/jHmGQC4bqJQ?si=v8xt7XdIMLMtlglX",
       price:"150 DH"
     },
@@ -20,7 +20,7 @@ const films = [
       releaseDate: "aired from 2017 to 2021, with a movie released in 2023.",
       time :"170 episodes (main series) + a movie (Black Clover: Sword of the Wizard King).",
       author:"Yūki Tabata (manga author).",
-      image: "images/blackClover 1.png",
+      image: "/asset/images/blackClover 1.png",
       video: "https://www.youtube.com/embed/zMQbMCnFOlU?si=Mc83mj_vjvoRAx9I",
       price:"270 DH"
     },
@@ -32,7 +32,7 @@ const films = [
       releaseDate: "aired from 2002 to 2007 (Naruto series), followed by Naruto: Shippuden from 2007 to 2017.",
       time :"220 episodes (Naruto), 500 episodes (Naruto: Shippuden)",
       author:"Masashi Kishimoto (manga author)",
-      image: "images/naruto.png",
+      image: "/asset/images/naruto.png",
       video: "https://www.youtube.com/embed/RzClCJFpSoM?si=tF6vmRqzRvJMfN7c",
       price:"300 DH"
     },
@@ -44,7 +44,7 @@ const films = [
       releaseDate: "aired from 2019, with the Mugen Train movie in 2020 and the Entertainment District arc in 2021-2022.",
       time :"220 episodes (Naruto), 500 episodes (Naruto: Shippuden)",
       author:"Koyoharu Gotouge (manga author)",
-      image: "images/DemonSlayer.png",
+      image: "/asset/images/DemonSlayer.png",
       video: "https://www.youtube.com/embed/VQGCKyvzIM4?si=APpxZUVBxurGukpu",
       price:"400 DH"
     },
@@ -56,7 +56,7 @@ const films = [
     releaseDate: "aired from 2019, with the Mugen Train movie in 2020 and the Entertainment District arc in 2021-2022.",
     time :"220 episodes (Naruto), 500 episodes (Naruto: Shippuden)",
     author:"Koyoharu Gotouge (manga author)",
-    image: "images/Jujutsi.webp",
+    image: "/asset/images/Jujutsi.webp",
     video: "https://www.youtube.com/embed/_GsOMwosCG8?si=2MwVJOEYHfwNPfnx",
     price:"850 DH"
   },
@@ -68,7 +68,7 @@ const films = [
     releaseDate: "aired from 2019, with the Mugen Train movie in 2020 and the Entertainment District arc in 2021-2022.",
     time :"220 episodes (Naruto), 500 episodes (Naruto: Shippuden)",
     author:"Koyoharu Gotouge (manga author)",
-    image: "images/OnePiece.jpg",
+    image: "/asset/images/OnePiece.jpg",
     video: "https://www.youtube.com/embed/xmbxe0Jtxmc?si=SE1obwQ8tQ6shX6o",
     price:"950 DH"
   },
