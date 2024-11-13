@@ -1,4 +1,6 @@
-
+:root {
+    --gradient-bg: linear-gradient(0deg, #FFFFFF 0%, #FF6500 48%, #283B82 99%);
+}
 body{
     background-color: #0A0D17;
 }
@@ -56,11 +58,37 @@ body{
     background-position-y: 30% ;
 }
 /*              contact section            */
-.contact-section{
+#contact-section{
     height: 932px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 102px;
 }
 .main-contact {
     width: 1130px;
     height:577px ;
+    font-family:"Inter", sans-serif;
+   
+}
+.up-text {
+    display: flex;
+    flex-direction: column;
+    height: 133px;
+}
+.up-text h1 {
+    font-size: 82px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    color: orangered;
+
+}
+.up-text p {
+    font-size: 22px;
+    text-align: center;
 }
