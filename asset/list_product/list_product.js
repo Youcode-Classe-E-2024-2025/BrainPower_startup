@@ -41,27 +41,27 @@ function displayProducts(page) {
 }
 
 // Gestion de la pagination
-// document.getElementById("prevPage").addEventListener("click", () => {
-//     if (currentPage > 1) {
-//         currentPage--;
-//         displayProducts(currentPage);
-//     }
-// });
+document.getElementById("prevPage").addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        displayProducts(currentPage);
+    }
+});
 
-// document.getElementById("nextPage").addEventListener("click", () => {
-//     if (currentPage * itemsPerPage < filteredProducts.length) {
-//         currentPage++;
-//         displayProducts(currentPage);
-//     }
-// });
+document.getElementById("nextPage").addEventListener("click", () => {
+    if (currentPage * itemsPerPage < filteredProducts.length) {
+        currentPage++;
+        displayProducts(currentPage);
+    }
+});
 
 // Gestion de la recherche
-document.getElementById("searchInput").addEventListener("input", (event) => {
-    const query = event.target.value.toLowerCase();
-    filteredProducts = products.filter(product => product.title.toLowerCase().includes(query));
-    currentPage = 1;
-    displayProducts(currentPage);
-});
+// document.getElementById("searchInput").addEventListener("input", (event) => {
+//     const query = event.target.value.toLowerCase();
+//     filteredProducts = products.filter(product => product.title.toLowerCase().includes(query));
+//     currentPage = 1;
+//     displayProducts(currentPage);
+// });
 
 // Gestion du tri par prix
 let sortAscending = true;
