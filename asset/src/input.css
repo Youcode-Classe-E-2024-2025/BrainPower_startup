@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+    .dropDown-menu-caty, .dropDown-menu-right {
+        z-index: 10; /* Higher than the slider */
+    }
     html {
         @apply text-base text-white;
         font-family: "Poppins", serif;
+        scroll-behavior: smooth;
     }
     i{
         @apply cursor-pointer text-white hover:text-orange-400;
@@ -20,6 +24,6 @@
        @apply py-2 px-10 text-sm border-t border-white/30 w-full hover:text-orange-500;
     }
     .dropDown-menu-right a{
-        @apply text-sm py-2 px-7 border-t border-white/30 w-full hover:text-orange-500;
+        @apply py-2 px-7 text-sm border-t border-white/30 w-full hover:text-orange-500;
     }
 }
