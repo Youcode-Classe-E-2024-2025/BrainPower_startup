@@ -15,45 +15,45 @@ function toggleSortMenu() {
 }
 
 // Affichage initial des produits
-// function displayProducts(page) {
-//     const start = (page - 1) * itemsPerPage;
-//     const end = start + itemsPerPage;
-//     const productsToDisplay = filteredProducts.slice(start, end);
-//     const productList = document.getElementById("productList");
-//     productList.innerHTML = "";
+function displayProducts(page) {
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const productsToDisplay = filteredProducts.slice(start, end);
+    const productList = document.getElementById("productList");
+    productList.innerHTML = "";
 
-//     productsToDisplay.forEach(product => {
-//         const productCard = document.createElement("div");
-//         productCard.classList.add("bg-gray-800", "p-4", "rounded-lg", "text-center");
-//         productCard.innerHTML = `
-//             <img src="${product.image}" alt="${product.title}" class="w-full h-48 object-cover mb-2 rounded-lg">
-//             <h3 class="text-lg font-semibold mb-2">${product.title}</h3>
-//             <p class="text-orange-400 font-bold">${product.price} DH</p>
-//             <p class="text-sm">⭐ ${product.rating}</p>
-//             <button class="mt-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg">Ajouter au panier</button>
-//         `;
-//         productList.appendChild(productCard);
-//     });
+    productsToDisplay.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.classList.add("bg-gray-800", "p-4", "rounded-lg", "text-center");
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.title}" class="w-full h-48 object-cover mb-2 rounded-lg">
+            <h3 class="text-lg font-semibold mb-2">${product.title}</h3>
+            <p class="text-orange-400 font-bold">${product.price} DH</p>
+            <p class="text-sm">⭐ ${product.rating}</p>
+            <button class="mt-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg">Ajouter au panier</button>
+        `;
+        productList.appendChild(productCard);
+    });
 
-//     document.getElementById("pageNum").textContent = page;
-//     document.getElementById("prevPage").disabled = page === 1;
-//     document.getElementById("nextPage").disabled = end >= filteredProducts.length;
-// }
+    document.getElementById("pageNum").textContent = page;
+    document.getElementById("prevPage").disabled = page === 1;
+    document.getElementById("nextPage").disabled = end >= filteredProducts.length;
+}
 
 // Gestion de la pagination
-document.getElementById("prevPage").addEventListener("click", () => {
-    if (currentPage > 1) {
-        currentPage--;
-        displayProducts(currentPage);
-    }
-});
+// document.getElementById("prevPage").addEventListener("click", () => {
+//     if (currentPage > 1) {
+//         currentPage--;
+//         displayProducts(currentPage);
+//     }
+// });
 
-document.getElementById("nextPage").addEventListener("click", () => {
-    if (currentPage * itemsPerPage < filteredProducts.length) {
-        currentPage++;
-        displayProducts(currentPage);
-    }
-});
+// document.getElementById("nextPage").addEventListener("click", () => {
+//     if (currentPage * itemsPerPage < filteredProducts.length) {
+//         currentPage++;
+//         displayProducts(currentPage);
+//     }
+// });
 
 // Gestion de la recherche
 document.getElementById("searchInput").addEventListener("input", (event) => {
