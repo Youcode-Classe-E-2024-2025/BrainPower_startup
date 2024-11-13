@@ -22,7 +22,11 @@ body {
 }
 .categories i {
   font-size: 50px;
+  color: white;
 }
+.categories i:hover {
+    color: #ef7d2f;
+} 
 .categories p {
   font-size: 13px;
 }
