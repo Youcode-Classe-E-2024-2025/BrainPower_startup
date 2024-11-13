@@ -1,0 +1,139 @@
+
+
+/* style.css */
+
+/* Corps de la page */
+body { 
+    background-color: #000000;
+  }
+  .film-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+ 
+  .film-thumbnail {
+    width: 150px;
+    height: 225px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .film-thumbnail:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Détails du film */
+  .film-details {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin: 0 auto;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Section principale des informations */
+  .film-info-container {
+    display: flex;
+    align-items: flex-start;
+
+  }
+  
+  /* Image du film */
+  .film-image {
+    width: 350px;
+    height:530px;
+    margin-left: 10px;
+    border-radius: 8px;
+  }
+  
+  /* Conteneur pour les informations et la vidéo */
+  .film-info {
+    flex: 1;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+  .film-info strong{
+    color: #fbff00;
+  }
+  
+  
+  .film-info h1 {
+    font-size: 24px;
+    margin-left:20px;
+    font-family:'Poppins', sans-serif;
+    background: linear-gradient(90deg, #ff5500 0%,#863600 10%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  
+  }
+  .film-info p {
+    margin-left:20px;
+    font-size:13px ;
+  }
+  
+  /* Style pour la vidéo */
+  iframe{
+    margin-left: 20px;
+  }
+
+ /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+.sliders div{
+    z-index: -1;
+}
+.sliders div img{
+    object-fit: cover;
+}
+.films{
+    display: flex;
+    justify-content: space-around;
+    text-align:center;
+    margin: 20px;
+}
+.films img{
+  height:400px;
+  width:300px;
+  border-radius: 15px;
+}
+.films h1{
+    font-size:20px;
+    font-family:'Poppins', sans-serif;
+    background: linear-gradient(90deg, #f4f0ee 0%,#EF7D2F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+   
+}
+.titles{
+    margin:30px 80px;
+    display: flex;
+    justify-content:space-between;
+}
+.titles h1{
+   font-size: 30px;
+   font-family:'Poppins', sans-serif;
+   background: linear-gradient(90deg, #5A5551 0%,#EF7D2F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.titles a{
+    font-size:23px;
+    font-family:'Poppins', sans-serif;
+ }
+ #movieAchat{
+    width: 350px;
+    display:flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+ }
