@@ -1,6 +1,66 @@
-.sliders div{
-    z-index: -1;
+
+body{
+    background-color: #0A0D17;
 }
-.sliders div img{
-    object-fit: cover;
+.middle-main{
+    height: 475px;
+    width: 100%;
+    display: flex;
+    flex-direction:column;    
+}
+*{
+    border: 1px solid red;
+}
+.categories {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.categories div {
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.categories i{
+    font-size:50px ;
+}
+.categories p{
+    font-size: 13px;
+}
+.category-section{
+    height: 291px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.category-section h1 {
+    background: linear-gradient(90deg, #5A5551 0%,#EF7D2F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 36px;
+    font-weight: bolder;
+    width: fit-content;
+    align-self: center;
+    padding-top: 27px;
+    padding-bottom: 47px;
+}
+.middle-ads {
+    height: 184px;
+    width: 100%;
+    background-image: url(imges/middle_Slide.jpg);
+    background-size: cover;
+    background-position-y: 30% ;
+}
+/*              contact section            */
+.contact-section{
+    height: 932px;
+    width: 100%;
+}
+.main-contact {
+    width: 1130px;
+    height:577px ;
 }
