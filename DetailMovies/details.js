@@ -11,11 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="film-info-container">
           <img src="${film.image}" alt="${film.title}" class="film-image">
           <div class="film-info">
-            <h1>${film.title}</h1>
-            <p><strong>Description:</strong> ${film.description}</p>
-            <p><strong>Genre:</strong> ${film.genre}</p>
-            <p><strong>Date de production:</strong> ${film.releaseDate}</p>
-            <iframe src="${film.video}" frameborder="0" allowfullscreen class="film-video"></iframe>
+            <h1><b>${film.title}</b></h1>
+            <p><strong>Description:</strong> <br>${film.description}</p>
+            <p><strong>Genre:</strong><br> ${film.genre}</p>
+            <p><strong>Date de production:</strong><br> ${film.releaseDate}</p>
+            <p><strong>Time:</strong><br> ${film.time}</p>
+            <p><strong>Author:</strong><br> ${film.author}</p>
+            <video src="${film.video}"loop autoplay muted class="film-video"></video>
           </div>
         </div>
       `;

@@ -3,16 +3,9 @@
 /* style.css */
 
 /* Corps de la page */
-body {
-   
+body { 
     background-color: #000000;
   }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  
   .film-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -53,7 +46,7 @@ body {
   /* Image du film */
   .film-image {
     width: 350px;
-    height:500px;
+    height:530px;
     margin-left: 10px;
     border-radius: 8px;
   }
@@ -65,25 +58,29 @@ body {
     display: flex;
     flex-direction: column;
   }
+  .film-info strong{
+    color: #fbff00;
+  }
+  
   
   .film-info h1 {
     font-size: 24px;
-    margin-bottom: 10px;
     color: #f97102;
+    margin-left:20px;
     font-family:'Poppins', sans-serif;
   }
   
   .film-info p {
-    margin:5px 10px;
+    margin-left:20px;
   }
   
   /* Style pour la vidéo */
-  .film-video {
+  video {
     width:500px;
     height:300px;
     margin-top: 20px;
+    margin-left:20px;
     border-radius: 8px;
-    object-fit: cover;
   }
  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 
