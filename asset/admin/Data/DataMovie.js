@@ -1,8 +1,8 @@
 const DataMovie = [
     {
         id: 1,
-        name: "Inception",
-        text: "A mind-bending thriller about dreams within dreams.",
+        name: "Attaque des Titans",
+        text: "Après la destruction de sa ville natale et la mort de sa mère, le jeune Eren Yeager promet de purger la terre",
         price: 15,
         genre: "Sci-Fi",
         date: "2010-07-16",
@@ -13,8 +13,8 @@ const DataMovie = [
     },
     {
         id: 2,
-        name: "The Matrix",
-        text: "A computer hacker learns about the true nature of reality.",
+        name: "Bleach",
+        text: "Le lycéen Kurosaki Ichigo ne ressemble à aucun adolescent ordinaire, car il est capable de voir des fantômes",
         price: 12,
         genre: "Action",
         date: "1999-03-31",
@@ -25,8 +25,8 @@ const DataMovie = [
     },
     {
         id: 3,
-        name: "Interstellar",
-        text: "An astronaut ventures into space to save humanity.",
+        name: "Death Note",
+        text: "Un lycéen intelligent se lance dans une croisade secrète afin d'éliminer les criminels",
         price: 18,
         genre: "Sci-Fi",
         date: "2014-11-07",
@@ -37,8 +37,8 @@ const DataMovie = [
     },
     {
         id: 4,
-        name: "The Dark Knight",
-        text: "Batman faces the Joker in a battle for Gotham.",
+        name: "Demon Slayer",
+        text: "Tanjiro et sa soeur Nezuko, qui se transforme lentement en démon.",
         price: 10,
         genre: "Action",
         date: "2008-07-18",
@@ -49,8 +49,8 @@ const DataMovie = [
     },
     {
         id: 5,
-        name: "Pulp Fiction",
-        text: "Interwoven stories of crime and redemption.",
+        name: "Dragon Ball Z",
+        text: "Après avoir appris qu'il était originaire d'une autre planète, le guerrier Goku",
         price: 14,
         genre: "Crime",
         date: "1994-10-14",
@@ -61,8 +61,8 @@ const DataMovie = [
     },
     {
         id: 6,
-        name: "Forrest Gump",
-        text: "The life story of a simple man with an extraordinary journey.",
+        name: "My Hero Academia",
+        text: "Un jeune garçon sans super pouvoirs fou de super-héros est bien déterminé à s'inscrire dans une prestigieuse académie.",
         price: 11,
         genre: "Drama",
         date: "1994-07-06",
@@ -73,8 +73,8 @@ const DataMovie = [
     },
     {
         id: 7,
-        name: "Gladiator",
-        text: "A betrayed Roman general seeks revenge.",
+        name: "Naruto",
+        text: "Naruto Uzumaki, un adolescent ninja, le chef du village et le ninja le plus fort.",
         price: 13,
         genre: "Action",
         date: "2000-05-05",
@@ -85,8 +85,8 @@ const DataMovie = [
     },
     {
         id: 8,
-        name: "Avatar",
-        text: "A marine on an alien planet must choose a side.",
+        name: "One Piece",
+        text: "D. Luffy et de ses amis afin de trouver le plus grand trésor jamais laissé par le légendaire Pirate, Gol D Roger.",
         price: 20,
         genre: "Sci-Fi",
         date: "2009-12-18",
