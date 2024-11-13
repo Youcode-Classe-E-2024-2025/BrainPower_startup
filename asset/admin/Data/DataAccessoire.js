@@ -2,7 +2,7 @@ const DataAccessoires = [
     {
       id : "1",
       name: "Attaque des Titans",
-      text: "Un t-shirt en coton confortable.",
+      text: "Après la destruction de sa ville natale et la mort de sa mère, le jeune Eren Yeager promet de purger la terre",
       price: 20.99,
       images: ["../asset/admin/images/imgAccessoires/AttackOnTitan_1.jpg", "../asset/admin/images/imgAccessoires/AttackOnTitan_2.jpg", "../asset/admin/images/imgAccessoires/AttackOnTitan_3.jpg"]
     },

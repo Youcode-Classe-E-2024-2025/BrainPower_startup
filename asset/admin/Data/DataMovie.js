@@ -33,7 +33,7 @@ const DataMovie = [
         dure: "169 min",
         autheur: "Christopher Nolan",
         image: "../asset/admin/images/imgMovie/DeathNote_movie.webp",
-        video: "https://www.youtube.com/embed/kNyR46eHDxE?si=pnd660xogDwJwP81"
+        video: "https://www.youtube.com/embed/kNyR46eHDxE?si=t7od5g7VngzjwAX1"
     },
     {
         id: 4,
