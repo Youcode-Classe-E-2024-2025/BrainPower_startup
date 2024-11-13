@@ -56,20 +56,20 @@ document.getElementById("nextPage").addEventListener("click", () => {
 });
 
 // Gestion de la recherche
-// document.getElementById("searchInput").addEventListener("input", (event) => {
-//     const query = event.target.value.toLowerCase();
-//     filteredProducts = products.filter(product => product.title.toLowerCase().includes(query));
-//     currentPage = 1;
-//     displayProducts(currentPage);
-// });
-
-// Gestion du tri par prix
-let sortAscending = true;
-document.getElementById("sortPriceBtn").addEventListener("click", () => {
-    filteredProducts.sort((a, b) => sortAscending ? a.price - b.price : b.price - a.price);
-    sortAscending = !sortAscending;
+document.getElementById("searchInput").addEventListener("input", (event) => {
+    const query = event.target.value.toLowerCase();
+    filteredProducts = products.filter(product => product.title.toLowerCase().includes(query));
+    currentPage = 1;
     displayProducts(currentPage);
 });
+
+// Gestion du tri par prix
+// let sortAscending = true;
+// document.getElementById("sortPriceBtn").addEventListener("click", () => {
+//     filteredProducts.sort((a, b) => sortAscending ? a.price - b.price : b.price - a.price);
+//     sortAscending = !sortAscending;
+//     displayProducts(currentPage);
+// });
 
 // Affichage initial
 displayProducts(currentPage);
