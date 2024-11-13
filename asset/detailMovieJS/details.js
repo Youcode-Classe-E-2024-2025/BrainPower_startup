@@ -35,5 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("film-details").innerHTML = "<p>Film non trouvé.</p>";
     }
   });
+  function afficherDetail(){
+    films.forEach(film => {
+  // Gérer le clic pour rediriger avec l'ID du film dans l'URL
+    window.location.href = `detailMovie.html?id=${film.id}`;
+});
+  }  
+
+
 
 

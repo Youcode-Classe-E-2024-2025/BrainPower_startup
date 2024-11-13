@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../asset/src/output.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Sidebar -->
+    <div class="flex">
+        <aside class="bg-gray-500 text-white w-64 h-screen p-4">
+        <h1 class="text-xl font-bold mb-6">Anime Powar</h1>
+        <nav class="space-y-4">
+            <a href="#" class="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-700">
+            <span><i class="bi bi-house-door"></i></span>
+            <span>Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-700">
+                <span><i class="bi bi-table"></i></span>
+                <span>Tables</span>
+            </a>
+            <a href="#" class="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-700">
+            <span><i class="bi bi-person"></i></span>
+            <span>Profile</span>
+            </a>
+        </nav>
+        </aside>
+
+    <!-- Main content -->
+    <div class="flex-1 p-6">
+      <header class="flex justify-between items-center mb-6">
+        <!-- <h2 class="text-gray-700">Dashboard /</h2> -->
+        <div class="flex items-center space-x-4">
+          <input type="text" placeholder="Search" class="border-2 border-stone-950 rounded-md p-2">
+          <!-- ##### -->
+                
+          <!-- ##### -->
+        </div>
+      </header>
+      <main>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-4">
+                <!-- Card 1 -->
+                <div onclick="afficheTable('clients',null)" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-orange-100 p-3 w-12 h-12 rounded-[50%] text-center">
+                            <span><i class="bi bi-people-fill"></i></span>
+                        </div>
+                        <div>
+                            <p class="text-gray-500">Total clients</p>
+                            <p class="text-xl font-bold">6389</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Card 2 -->
+                <div onclick="afficheTable('Movie',null)" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-green-100 p-3 w-12 h-12 rounded-[50%] text-center">
+                            <span><i class="bi bi-film"></i></span>
+                        </div>
+                        <div>
+                            <p class="text-gray-500">Total Movie</p>
+                            <p id="counteurMovie" class="text-xl font-bold"></p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Card 3 -->
+                <div onclick="afficheTable('Tshirt',null)" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <span><i class="fas fa-tshirt"></i>
+                            </span>
+                        </div>
+                        <div>
+                            <p class="text-gray-500">Total T-Shirt</p>
+                            <p id="counteurTshirt" class="text-xl font-bold"></p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Card 4 -->
+                <div onclick="afficheTable('Accessoires',null)" class="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-teal-100 p-3 rounded-full">
+                            <span><i class="bi bi-tropical-storm"></i></span>
+                        </div>
+                        <div>
+                            <p class="text-gray-500">Total Accessoires</p>
+                            <p id="counteurAccessoire" class="text-xl font-bold"></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+          <!-- content des tables  -->
+
+            <div id="table-container" class="mx-auto my-10 hidden">
+                <div class="bg-gray-500 text-white rounded-t-lg p-4 flex justify-between items-center">
+                    <h2 id="table-title" class="text-lg font-semibold">Authors Table</h2>
+                    <div>
+                        <button id="ajouterMovie" onclick="openModalMovie()" class="rounded hidden"><i class="fas fa-plus-circle text-green-600 text-[25px] "></i> </button>
+                        <button id="ajouterTshirt" onclick="openModalTshirt()" class="rounded hidden "><i class="fas fa-plus-circle text-green-600 text-[25px]"></i> </button>
+                        <button id="ajouterAccessoire" onclick="openModalAccessoire()" class="rounded hidden"><i class="fas fa-plus-circle text-green-600 text-[25px]"></i> </button>
+                    </div>
+                </div>
+                <div class="bg-white shadow-lg rounded-b-lg overflow-hidden">
+                    <table id="table-change" class="w-full  text-left">
+                        <!-- table client  -->
+                    </table>
+                </div>
+                <div id="pagination" class="flex justify-center mt-4 space-x-2">
+                    <!-- Pagination buttons will be added here dynamically -->
+                </div>
+            </div>
+
+
+
+        <!-- ###############  model 1  ########## -->
+
+    <section id="ModalMovie" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-start pt-10 flex">
+            <form class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6 border-2 ">
+                <div class="flex justify-between items-center border-b pb-3">
+                    <h3 class="text-lg font-semibold text-gray-700">Ajouté movie</h3>
+                    <button onclick="closeModalMovie()" class="text-gray-400 hover:text-gray-600">&times;</button>
+                </div>
+                <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2">
+                    <div>
+                        <label class="text-gray-600 font-medium">Nom</label>
+                        <input type="text" id="nameMovie"  class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Description</label>
+                        <textarea id="textareaMovie" class="w-full p-2 border rounded mt-1"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Prix</label>
+                        <input type="text" id="priceMovie" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Genre</label>
+                        <input type="text" id="GenreMovie" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Date de Production</label>
+                        <input type="date" id="dateMovie" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Durée</label>
+                        <input type="text" id="duréMovie" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Auteur</label>
+                        <input type="text" id="autheurMovie" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Image</label>
+                        <input type="file" id="imageMovie" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Vidéo</label>
+                        <input type="file" id="vidéoMovie" class="w-full p-2 border rounded mt-1">
+                    </div>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <button onclick="closeModalMovie()"class="px-4 py-2 bg-gray-200 text-gray-600 rounded mr-2">Annuler</button>
+                    <button id="SaveMovie" class="px-4 py-2 bg-blue-500 text-white rounded">Enregistrer</button>
+                    <button id="SaveModiferMovie" class="px-4 py-2 bg-blue-500 text-white rounded hidden">modifer</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- ############## model 2    ##########-->
+
+   <section id="ModalTshirt" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-start pt-10 flex">
+            <form class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6">
+                <div class="flex justify-between items-center border-b pb-3">
+                    <h3 class="text-lg font-semibold text-gray-700">Ajouté T-Shirt</h3>
+                    <button onclick="closeModalTshirt()" class="text-gray-400 hover:text-gray-600">&times;</button>
+                </div>
+                <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2">
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Titre</label>
+                        <input type="text" id="titleTshirt" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Description</label>
+                        <textarea id="textTshirt" class="w-full p-2 border rounded mt-1"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Prix</label>
+                        <input type="text" id="priceTshirt"  class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Images</label>
+                        <input type="file" id="imageTshirt" class="w-full p-2 border rounded mt-2"multiple>
+                    </div>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <button onclick="closeModalTshirt()" class="px-4 py-2 bg-gray-200 text-gray-600 rounded mr-2">Annuler</button>
+                    <button id="SaveTshir" class="px-4 py-2 bg-blue-500 text-white rounded">Enregistrer</button>
+                    <button id="SaveModiferTshir" class="px-4 py-2 bg-blue-500 text-white rounded hidden">modifer</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- ##############  model 3   ######### -->
+
+        <section id="ModalAccessoire" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-start pt-10 flex">
+            <form class="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-6">
+                <div class="flex justify-between items-center border-b pb-3">
+                    <h3 class="text-lg font-semibold text-gray-700">Ajouté Accessoires</h3>
+                    <button onclick="closeModalAccessoire()" class="text-gray-400 hover:text-gray-600">&times;</button>
+                </div>
+                <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2">
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Titre</label>
+                        <input type="text" id="titleAccessoire" class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Description</label>
+                        <textarea id="textAccessoire" class="w-full p-2 border rounded mt-1"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-gray-600 font-medium">Prix</label>
+                        <input type="text" id="priceAccessoire"  class="w-full p-2 border rounded mt-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="text-gray-600 font-medium">Images</label>
+                        <input type="file" id="imageAccessoire" class="w-full p-2 border rounded mt-2" multiple>
+                    </div>
+                </div>
+                <div class="flex justify-end mt-4">
+                    <button onclick="closeModalAccessoire()" class="px-4 py-2 bg-gray-200 text-gray-600 rounded mr-2">Annuler</button>
+                    <button  id="SaveAccessoire" class="px-4 py-2 bg-blue-500 text-white rounded">Enregistrer</button>
+                    <button id="SaveModiferAccessoire" class="px-4 py-2 bg-blue-500 text-white rounded hidden">modifer</button>
+                </div>
+            </form>
+        </section>
+                
+        </main>
+    </div>
+  </div>
+
+  <script src="../asset/admin/main.js"></script>
+  <script src="../asset/admin/Data/DataTshirt.js"></script>
+  <script src="../asset/admin/Data/DataAccessoire.js"></script>
+  <script src="../asset/admin/Data/DataMovie.js"></script>
+</body>
+</html>
