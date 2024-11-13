@@ -60,3 +60,13 @@ sliders.forEach((slider, index) => {
     slider.style.transition = 'opacity 1s ease';
     slider.style.opacity = index === 0 ? '1' : '0';
 });
+
+// add smooth scroll 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});

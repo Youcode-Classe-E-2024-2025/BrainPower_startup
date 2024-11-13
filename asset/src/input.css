@@ -9,6 +9,7 @@
     html {
         @apply text-base text-white;
         font-family: "Poppins", serif;
+        scroll-behavior: smooth;
     }
     i{
         @apply cursor-pointer text-white hover:text-orange-400;
