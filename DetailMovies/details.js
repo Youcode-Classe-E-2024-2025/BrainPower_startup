@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div id="movieAchat">   
                     <h3 style="color:aliceblue">9.5</h3>
                     <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
-                    <h3 style="color:aliceblue">130DH</h3>
+                    <h3 style="color:aliceblue">${film.price}</h3>
                     <button style="width:100px; background-color: aliceblue;color: black;">Buy Now</button>
                     <i class="fa-solid fa-cart-plus" style="color: #ffffff; font-size: 20px;"></i>
                   </div> 
@@ -28,9 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p><strong>Date de production:</strong><br> ${film.releaseDate}</p>
             <p><strong>Time:</strong><br> ${film.time}</p>
             <p><strong>Author:</strong><br> ${film.author}</p>
-            <div class="video-container">
-            <video src="${film.video}" loop autoplay muted ;class="film-video"></video>
-            </div>
+            <iframe width="800" height="280" src="${film.video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             
           </div>
         </div>
@@ -40,3 +38,5 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("film-details").innerHTML = "<p>Film non trouvé.</p>";
     }
   });
+
+

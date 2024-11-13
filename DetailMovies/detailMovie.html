@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/DetailMovies/detailMovie.css">
+    <link rel="stylesheet" href="../asset/src/output.css">
+    <link rel="stylesheet" href="detailMovie.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="films.js"></script>
+    <script defer src="details.js"></script>
     <script defer src="details.js"></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
      <!-- anime power_logo -->
      <div class="logo-nav flex items-center ">
          <a href="#">
-             <img src="/DetailMovies/images/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+             <img src="../asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
          </a>
      </div>
      <!-- navbar menu -->
@@ -76,37 +77,6 @@
         <!--********************************************************* Section 1 ******************************************** -->
         <section id="section1">
             <div class="film-details" id="film-details">
-                <!-- <div class="div1">
-                  
-                   <div id="movieImage">
-                      <img src="/DetailMovies/images/Bleach1.png">
-                   </div>
-                   
-                  <div id="movieAchat">   
-                    <h3 style="color:aliceblue">9.5</h3>
-                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star" style="color: #FFD43B;"></i><i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
-                    <h3 style="color:aliceblue">130DH</h3>
-                    <button style="width:100px; background-color: aliceblue;color: black;">Buy Now</button>
-                    <i class="fa-solid fa-cart-plus" style="color: #ffffff; font-size: 20px;"></i>
-                  </div> 
-                </div>
-                <div class="div2">
-                     
-                     <div id="movieInfo">
-                        <b><h1 style="color:#FBFF00">BLEACH</h1></b>
-                        <h5 style="color:#FBFF00">Description :</h5><p>Bleach follows Ichigo Kurosaki, a teenager who becomes a Soul Reaper and battles evil spirits  known as Hollows to protect the living world and lost souls.</p>
-                        <h5 style="color:#FBFF00">Genre : </h5><p>Action, Adventure, Supernatural, Fantasy.</p>
-                        <h5 style="color:#FBFF00">Production Date : </h5><p>The anime aired from 2004 to 2012, with the Thousand-Year Blood War Arc starting in 2022.</p>
-                        <h5 style="color:#FBFF00">Time :</h5><p>366 episodes (main series) + additional arcs.</p>
-                        <h5 style="color:#FBFF00">Author</h5><p>Tite Kubo.</p>
-                     </div>
-                     
-                     <div id="movieVidéo">
-                        <video autoplay muted loop controls>
-                            <source src="/DetailMovies/vidéos/bleach.mp4" type="video/mp4">
-                        </video>
-                     </div>
-                </div>   -->
             </div>
         </section>
         <!--********************************************************* Section 1 ******************************************** -->
@@ -115,12 +85,11 @@
         <section id="section2">
           <div class="titles"><h1 style="color:#ffffff">Other Movies</h1><a href="#" style="color:#ffffff" >see All</a></div>
           <div class="films">
-            <div><img src="/DetailMovies/images/blackClover 1.png" alt="hi"><h1 style="color:#ffffff">Black Clover</h1></div>
-            <div><img src="/DetailMovies/images/naruto.png" alt="hi"><h1 style="color:#ffffff">Naruto</h1></div>
-            <div><img src="/DetailMovies/images/DemonSlayer.png" alt="hi"><h1 style="color:#ffffff ">Demon Slayer</h1></div>
+            <div id="film-gallery"><img src="images/blackClover 1.png" alt="hi"><h1 style="color:#ffffff">Black Clover</h1></div>
+            <div id="film-gallery"><img src="images/naruto.png" alt="hi"><h1 style="color:#ffffff">Naruto</h1></div>
+            <div id="film-gallery"><img src="images/DemonSlayer.png" alt="hi"><h1 style="color:#ffffff ">Demon Slayer</h1></div>
           </div>
         </section>
-        <script scr="main.js"></script>
     </main>
     <!-- Fin de main  -->
 
@@ -131,7 +100,7 @@
             <!-- footer logo -->
             <div class="logo-footer flex items-center ">
                 <a href="#">
-                    <img src="/DetailMovies/images/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+                    <img src="../asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
                 </a>
             </div>
             <div class="footer-links flex items-center">
@@ -182,5 +151,8 @@
     </footer>
     
     <!-- Fin de footer -->
+     
+    <script src="main.js"></script>
 </body>
+
 </html>

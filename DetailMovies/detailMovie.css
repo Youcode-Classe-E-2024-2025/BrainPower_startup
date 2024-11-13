@@ -63,27 +63,29 @@ body {
   
   .film-info h1 {
     font-size: 24px;
-    color: #f97102;
     margin-left:20px;
     font-family:'Poppins', sans-serif;
-  }
+      background-image: linear-gradient(-225deg,
+              #ff5506 100%,
+              #5f4f44 50%,
+              #000000 100%);
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 1s ease infinite;
   
+  }
   .film-info p {
     margin-left:20px;
     font-size:13px ;
   }
   
   /* Style pour la vidéo */
-  .video-container{
-    width:100%;
-    height:320px;
-    overflow: hidden;
-  }
-  video {
-    width:100%;
-    height:100%;
-    margin-top: 20px;
-    margin-left:20px;
+  iframe{
+    margin-left: 20px;
   }
 
  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
