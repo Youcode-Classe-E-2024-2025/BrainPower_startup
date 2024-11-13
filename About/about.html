@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../asset/src/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -11,7 +12,61 @@
 </head>
 <body>
     <!-- Début de l'en-tete  -->
-     <header></header>
+     <header>
+        <nav id="nav"
+     class="relative  h-[77px] flex items-center justify-between px-8  bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
+     <!-- anime power_logo -->
+     <div class="logo-nav flex items-center ">
+         <a href="#">
+             <img src="../asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+         </a>
+     </div>
+     <!-- navbar menu -->
+     <div class="nav-menu h-full items-center self-center flex w-fit">
+         <ul class="flex h-full items-center w-full gap-4">
+             <!-- home link-->
+             <li class="list-nav-menu">
+                 <a href="#" rel="noopener noreferrer" id="home-nave">
+                     Home
+                 </a>
+             </li>
+             <!-- about link-->
+             <li class="list-nav-menu">
+                 <a href="#" rel="noopener noreferrer" id="about-nav">
+                     About
+                 </a>
+             </li>
+             <!-- about dropdown-->
+             <li class="list-nav-menu">
+                 <a href="#" id="category-nav">category</a>
+             </li>
+             <!-- contact navbar -->
+             <li class="list-nav-menu">
+                 <a href="#" id="contact_nav">
+                     Contact
+                 </a>
+             </li>
+         </ul>
+     </div>
+     <!-- right icons -->
+     <div class="icons-nav w-24 flex h-full items-center justify-between">
+         <i class="fa-solid fa-cart-shopping fa-xl "></i>
+         <i class="fa-solid fa-user fa-xl"></i>
+     </div>
+     <div
+         class="dropDown-menu-caty z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute   left-1/2 -translate-x-1/4 top-[77px] hidden  bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
+         <a href="#" target="_blank" rel="noopener noreferrer">T-shirt</a>
+         <a href="#" target="_blank" rel="noopener noreferrer">Accesoires</a>
+         <a href="#" target="_blank" rel="noopener noreferrer">Movies</a>
+     </div>
+     <div
+         class="dropDown-menu-right z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute right-1 top-[77px] hidden bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
+         <a href="#" target="_blank" rel="noopener noreferrer" id="log-out" >log-out</a>
+         <a href="#" target="_blank" rel="noopener noreferrer" id="log-in">log-in</a>
+         <a href="#" target="_blank" rel="noopener noreferrer">profile</a>
+     </div>
+        </nav>
+     </header>
     <!--  Fin de l'en-tete  -->
 
      <main>
@@ -50,7 +105,62 @@
 
 
     <!-- Début de footer  -->
-    
+  <footer
+    class="flex flex-col  bg-[linear-gradient(90deg,#000000_0%,#3B332E_25%,#483F39_50%,#3B332E_75%,#000000_100%)] h-[177px]">
+    <div class="up-footer flex justify-between px-12 h-[122px]">
+        <!-- footer logo -->
+        <div class="logo-footer flex items-center ">
+            <a href="#">
+                <img src="../asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+            </a>
+        </div>
+        <div class="footer-links flex items-center">
+            <ul class="flex gap-4 ">
+                <li class="font-bold text-[#EF7D2F] text-xl pr-3 bordr border-r-2">
+                    Links
+                </li>
+                <!-- home link-->
+                <li class="list-footer-menu" id="home-nave">
+                    <a href="#" rel="noopener noreferrer">
+                        Home
+                    </a>
+                </li>
+                <!-- about link-->
+                <li class="list-foter-menu" id="about-nav">
+                    <a href="#" rel="noopener noreferrer">
+                        About
+                    </a>
+                </li>
+                <!-- about dropdown-->
+                <li class="list-footer-menu" id="category-nav">
+                    <a href="#">category</a>
+                </li>
+                <!-- contact navbar -->
+                <li class="list-footer-menu" id="contact_nav">
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="follow flex flex-col justify-center items-center">
+            <p class="text-[#EF7D2F] text-xl ">Follow Us!</p>
+            <hr class="w-11/12">
+            <div class="footer-icons flex items-center justify-center pt-4 gap-4 h-9">
+                <i class="fa-brands fa-discord fa-xl"></i>
+                <i class="fa-brands fa-github fa-xl"></i>
+                <i class="fa-brands fa-facebook fa-xl"></i>
+                <i class="fa-brands fa-twitter fa-xl"></i>
+            </div>
+        </div>
+    </div>
+    <!-- down-footer -->
+    <div class="down-footer flex justify-center items-center pt-4 gap-1  border-t-2">
+        <i class="fa-regular fa-copyright"></i>
+        <p class="text-sm">Copyright <span class="">Anime power</span> 2024. All right reserved</p>
+    </div>
+ </footer>  
     <!--  Fin de footer  -->
+    <script src="main.js"></script>
 </body>
 </html>
