@@ -64,12 +64,12 @@ document.getElementById("searchInput").addEventListener("input", (event) => {
 });
 
 // Gestion du tri par prix
-// let sortAscending = true;
-// document.getElementById("sortPriceBtn").addEventListener("click", () => {
-//     filteredProducts.sort((a, b) => sortAscending ? a.price - b.price : b.price - a.price);
-//     sortAscending = !sortAscending;
-//     displayProducts(currentPage);
-// });
+let sortAscending = true;
+document.getElementById("sortPriceBtn").addEventListener("click", () => {
+    filteredProducts.sort((a, b) => sortAscending ? a.price - b.price : b.price - a.price);
+    sortAscending = !sortAscending;
+    displayProducts(currentPage);
+});
 
 // Affichage initial
 displayProducts(currentPage);
