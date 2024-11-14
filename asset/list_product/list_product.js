@@ -2,7 +2,33 @@
 const products = [
     { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
     { id: 2, title: "Poster Naruto", price: 150.00, rating: 9.0, image: "image2.jpg" },
-    // Ajoutez plus de produits ici
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
+    
 ];
 
 const itemsPerPage = 16;
@@ -24,7 +50,7 @@ function displayProducts(page) {
 
     productsToDisplay.forEach(product => {
         const productCard = document.createElement("div");
-        productCard.classList.add("bg-gray-800", "p-4", "rounded-lg", "text-center");
+        productCard.classList.add("p-4", "rounded-lg", );
         productCard.innerHTML = `
             <img src="${product.image}" alt="${product.title}" class="w-full h-48 object-cover mb-2 rounded-lg">
             <h3 class="text-lg font-semibold mb-2">${product.title}</h3>

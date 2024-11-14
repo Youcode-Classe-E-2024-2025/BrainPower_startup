@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+
+    <!-- Table pour les produits dans le panier -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <table class="min-w-full text-left table-fixed border-collapse">
+            <thead>
+                <tr class="border-b">
+                    <th class="px-4 py-2">Supprimer</th>
+                    <th class="px-4 py-2">Produit</th>
+                    <th class="px-4 py-2">Prix Unité</th>
+                    <th class="px-4 py-2">Quantité</th>
+                    <th class="px-4 py-2">Prix Total</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems">
+                <!-- Les lignes du tableau seront générées ici via JavaScript -->
+            </tbody>
+        </table>
+        
+        <!-- Boutons sous le tableau -->
+        <div class="flex justify-between mt-4">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="returnToShop()">Return to Shop</button>
+            <button class="bg-red-500 text-white px-4 py-2 rounded" onclick="removeSelectedItems()">Remove Selected</button>
+        </div>
+    </div>
+
+    <!-- Tableau pour le total du panier -->
+    <div class="bg-white p-6 mt-6 rounded-lg shadow-md">
+        <h2 class="text-lg font-semibold">Cart Total</h2>
+        <table class="w-full mt-4 text-left">
+            <tr>
+                <td class="font-medium">Subtotal:</td>
+                <td id="subtotal">$0.00</td>
+            </tr>
+            <tr>
+                <td class="font-medium">Shipping:</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Total:</td>
+                <td id="totalPrice" class="font-bold">$0.00</td>
+            </tr>
+        </table>
+        
+        <!-- Bouton pour finaliser l'achat -->
+        <button class="bg-green-500 text-white px-6 py-2 rounded mt-4 w-full" onclick="processCheckout()">Process to Checkout</button>
+    </div>
+
+    <script>
+        const cartItems = [
+            { id: 1, name: 'Produit A', image: 'image1.jpg', unitPrice: 20.00, quantity: 1 },
+            { id: 2, name: 'Produit B', image: 'image2.jpg', unitPrice: 15.00, quantity: 2 },
+            // Ajoute d'autres produits si nécessaire
+        ];
+
+        function renderCart() {
+            const cartTable = document.getElementById('cartItems');
+            cartTable.innerHTML = '';
+            let subtotal = 0;
+
+            cartItems.forEach((item, index) => {
+                const total = item.unitPrice * item.quantity;
+                subtotal += total;
+                cartTable.innerHTML += `
+                    <tr>
+                        <td class="px-4 py-2">
+                            <input type="checkbox" class="remove-checkbox" data-index="${index}">
+                        </td>
+                        <td class="px-4 py-2 flex items-center">
+                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 mr-4"> ${item.name}
+                        </td>
+                        <td class="px-4 py-2">$${item.unitPrice.toFixed(2)}</td>
+                        <td class="px-4 py-2">
+                            <button onclick="decreaseQuantity(${index})">-</button>
+                            ${item.quantity}
+                            <button onclick="increaseQuantity(${index})">+</button>
+                        </td>
+                        <td class="px-4 py-2">$${total.toFixed(2)}</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('totalPrice').innerText = `$${subtotal.toFixed(2)}`;
+        }
+
+        function increaseQuantity(index) {
+            cartItems[index].quantity++;
+            renderCart();
+        }
+
+        function decreaseQuantity(index) {
+            if (cartItems[index].quantity > 1) {
+                cartItems[index].quantity--;
+                renderCart();
+            }
+        }
+
+        function returnToShop() {
+            // Redirige vers la page de magasin
+            window.location.href = '/shop';
+        }
+
+        function removeSelectedItems() {
+            const checkboxes = document.querySelectorAll('.remove-checkbox');
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    const index = parseInt(checkbox.getAttribute('data-index'));
+                    cartItems.splice(index, 1);
+                }
+            });
+            renderCart();
+        }
+
+        function processCheckout() {
+            alert("Checkout in process...");
+            // Logique de checkout ici
+        }
+
+        renderCart();
+    </script>
+</body>
+</html>
