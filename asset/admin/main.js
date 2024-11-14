@@ -1,3 +1,34 @@
+fetch('/asset/admin/Data/DataMovie.json')
+  .then(response => response.json())
+  .then(data => {
+    localStorage.setItem("movie", JSON.stringify(data.DataMovie));
+  })
+  .catch(error => console.error('Erreur:', error));
+
+JSON.parse(localStorage.getItem('movie'));
+
+
+fetch('/asset/admin/Data/DataTshirt.json')
+  .then(response => response.json())
+  .then(data => {
+    localStorage.setItem("Tshirt", JSON.stringify(data.DataTshirt));
+  })
+  .catch(error => console.error('Erreur:', error));
+
+const tshirt = JSON.parse(localStorage.getItem('Tshirt'));
+
+fetch('/asset/admin/Data/DataAccessoire.json')
+  .then(response => response.json())
+  .then(data => {
+    localStorage.setItem("Accessoire", JSON.stringify(data.DataAccessoires));
+  })
+  .catch(error => console.error('Erreur:', error));
+
+JSON.parse(localStorage.getItem('Accessoire'));
+
+
+
+
 // #######################################################################################################################
 const SaveMovie = document.getElementById("SaveMovie");
 // ############################################################  remplissage movie  ###############################################################
