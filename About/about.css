@@ -8,7 +8,13 @@ body{
 }
 
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  STYLE DU 1ER SECTION  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-
+.bg-About{
+  background-image: url(./images/aboutAnime.png);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 37rem;
+}
 .bg-About h1{
     position:absolute;
     top:200px;
@@ -48,8 +54,7 @@ body{
 .profiles{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    gap: 40px;
-    margin-left:200px;
+    justify-items:center;
 
 }
 .profile{
@@ -114,3 +119,31 @@ body{
     color:white;
     justify-content:center;
   }
+  @media(max-width:900px) {
+    .bg-About h1{
+      font-size:4rem ;
+  }
+  .bg-About p{
+    font-size:18px;
+}
+}
+@media(max-width:700px) {
+.bg-About p{
+  font-size:17px;
+}
+.stat{
+  margin:100px 10px;
+}
+.profile{
+  width:15rem;
+  height:14rem;
+}
+.profiles img{
+  width:100px;
+  height:100px;
+  margin-left:50px;
+}
+.links{
+  margin-left:25px;
+}
+}
