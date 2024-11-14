@@ -13,7 +13,9 @@
         <table class="min-w-full text-left table-fixed border-collapse">
             <thead>
                 <tr class="border-b">
-                    <th class="px-4 py-2">Supprimer</th>
+                    <th class="px-4 py-2">
+                        <input type="checkbox" id="selectAll" onclick="toggleSelectAll()"> <!-- Case pour sélectionner tous les produits -->
+                    </th>
                     <th class="px-4 py-2">Produit</th>
                     <th class="px-4 py-2">Prix Unité</th>
                     <th class="px-4 py-2">Quantité</th>
@@ -109,13 +111,26 @@
             window.location.href = '/shop';
         }
 
+        function toggleSelectAll() {
+            const checkboxes = document.querySelectorAll('.remove-checkbox');
+            const selectAllCheckbox = document.getElementById('selectAll');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        }
+
         function removeSelectedItems() {
             const checkboxes = document.querySelectorAll('.remove-checkbox');
-            checkboxes.forEach((checkbox) => {
+            const selectedIndexes = [];
+            checkboxes.forEach(checkbox => {
                 if (checkbox.checked) {
                     const index = parseInt(checkbox.getAttribute('data-index'));
-                    cartItems.splice(index, 1);
+                    selectedIndexes.push(index);
                 }
+            });
+            // Suppression en commençant par les indices les plus élevés pour éviter les décalages
+            selectedIndexes.sort((a, b) => b - a).forEach(index => {
+                cartItems.splice(index, 1);
             });
             renderCart();
         }
