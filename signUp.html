@@ -80,22 +80,35 @@
     </nav>
     <!-- end navbare -->
 <main class="h-screen flex items-center justify-center">
-    <div class="login-form rounded-xl">
-       <div class="left-card">
-        <h1>Log-In</h1>
-        
-        <form method="get" class="pb-3"> 
-             <input type="email" placeholder="Email" required> 
-                <input
-                type="password" placeholder="Password" required> 
-                 <button type="submit">login</button>
-         </form>
-       </div>
-        <div class="right-card rounded-md">
-
+    <div id="contact-section">
+        <div class="up-text">
+            <h1>Get in touch</h1>
+            <p>Reach out, and let's create a universe of possibilities together!</p>
+        </div>
+        <div class="main-contact rounded-2xl p-3" id="contact-home">
+            <div class="contact-form">
+                <div class="up-text-form">
+                    <h1>Let's connect our anime worlds!</h1>
+                    <p>Reach out and let the magic of our favorite stories and characters bring new adventures to life.
+                    </p>
+                </div>
+                
+                <form method="get" class="pb-3"> 
+                    <div class="name-flex">
+                        <input type="text" placeholder="Last Name" required> 
+                    <input type="text"placeholder="First Name" required>
+                    </div>
+                    
+                     <input type="email" placeholder="Email" required> 
+                        <input
+                        type="tel" placeholder="Phone Number" required> <textarea placeholder="Message" rows="4"
+                        required></textarea> <button type="submit">Send</button> </form>
+            </div>
+            <div class="flex left-card w-1/2 h-full rounded-xl">
+             <p class="self-end text-gray-400 mb-9 px-6">Two travelers gaze out over a mystical landscape of towering mountains and distant planets, awed by nature’s vast, otherworldly beauty.</p>
+            </div>
         </div>
     </div>
-
 </main>
     <!-- footer -->
     <footer
