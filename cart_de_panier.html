@@ -111,13 +111,13 @@
             window.location.href = '/shop';
         }
 
-        function toggleSelectAll() {
-            const checkboxes = document.querySelectorAll('.remove-checkbox');
-            const selectAllCheckbox = document.getElementById('selectAll');
-            checkboxes.forEach(checkbox => {
-                checkbox.checked = selectAllCheckbox.checked;
-            });
-        }
+        // function toggleSelectAll() {
+        //     const checkboxes = document.querySelectorAll('.remove-checkbox');
+        //     const selectAllCheckbox = document.getElementById('selectAll');
+        //     checkboxes.forEach(checkbox => {
+        //         checkbox.checked = selectAllCheckbox.checked;
+        //     });
+        // }
 
         function removeSelectedItems() {
             const checkboxes = document.querySelectorAll('.remove-checkbox');
@@ -135,10 +135,10 @@
             renderCart();
         }
 
-        // function processCheckout() {
-        //     alert("Checkout in process...");
-        //     // Logique de checkout ici
-        // }
+        function processCheckout() {
+            alert("Checkout in process...");
+            // Logique de checkout ici
+        }
 
         renderCart();
     </script>
