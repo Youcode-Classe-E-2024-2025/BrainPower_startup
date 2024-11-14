@@ -20,7 +20,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./asset/src/output.css">
     <link rel="stylesheet" href="./asset/homePage/home.css">
-    <title>Document</title>
+    <title>Anime power</title>
 </head>
 
 <body>
@@ -33,6 +33,14 @@
                 <img src="./asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
             </a>
         </div>
+
+         <!-- burger Menu (Mobile) -->
+         <div class="lg:hidden">
+            <button id="menu-btn" class="text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
         <!-- navbar menu -->
         <div class="nav-menu h-full items-center self-center flex w-fit">
             <ul class="flex h-full items-center w-full gap-4">
@@ -80,6 +88,29 @@
     </nav>
 
     <!-- end navbare -->
+     <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden z-50 fixed top-20 left-0 right-0 bg-gray-800 p-4 hidden flex-col space-y-4">
+        <a href="#sliders" class="hover:text-orange-400">Home</a>
+        <a href="#about" class="hover:text-orange-400">About</a>
+        <div class="relative">
+            <button id="category-btn" class="flex items-center justify-between w-full hover:text-orange-400">
+                Category
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <!-- Dropdown Items -->
+            <div id="mobile-category-dropdown" class="mt-2 ml-4 hidden flex-col space-y-2">
+                <a href="#" class="hover:text-orange-400">T-shirt</a>
+                <a href="#" class="hover:text-orange-400">Accessories</a>
+                <a href="#" class="hover:text-orange-400">Movies</a>
+            </div>
+        </div>
+        <a href="#contact-home" class="hover:text-orange-400">Contact</a>
+        <div class="flex space-x-4 mt-4">
+            <i class="fa-solid fa-cart-shopping fa-lg hover:text-orange-400 cursor-pointer"></i>
+            <i class="fa-solid fa-user fa-lg hover:text-orange-400 cursor-pointer"></i>
+        </div>
+    </div>
+    <!-- End Mobile Menu -->
 
     <main class="flex flex-col">
         <!-- slider -->

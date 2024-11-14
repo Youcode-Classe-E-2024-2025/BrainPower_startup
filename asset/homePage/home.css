@@ -154,3 +154,118 @@ body {
     background-position: center;
     background-size: cover;
 }
+/* General Styles for Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  /* Hide the main nav menu and icons */
+  .nav-menu {
+      display: none;
+  }
+
+  .icons-nav {
+      display: none;
+  }
+
+  /* Adjust sliders for smaller screens */
+  .slider1 img, .slider2 img, .slider3 img {
+      height: 60vh;
+  }
+
+  /* Category section - stack categories vertically on mobile */
+  .categories {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+  }
+
+  /* Adjust category title for mobile */
+  .category-section h1 {
+      font-size: 1.5rem;
+      padding-top: 1rem;
+      padding-bottom: 1.5rem;
+  }
+
+  /* Contact section adjustments */
+  #contact-section {
+      height: auto;
+      padding: 20px;
+  }
+
+  .main-contact {
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+  }
+
+  .contact-form {
+      width: 90%;
+      padding: 10px;
+      gap: 20px;
+  }
+
+  .contact-form h1 {
+      font-size: 1.5rem;
+  }
+
+  .contact-form p {
+      font-size: 0.875rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+      padding: 8px;
+      font-size: 0.875rem;
+  }
+
+  .contact-form button {
+      padding: 12px;
+      font-size: 1rem;
+  }
+
+  .name-flex {
+      flex-direction: column;
+      gap: 8px;
+  }
+
+  /* Adjust text in the left card */
+  .left-card p {
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 0 10px;
+  }
+
+  /* Footer adjustments */
+  .footer-links ul {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+  }
+
+  .follow {
+      padding-top: 10px;
+  }
+}
+
+/* Tablet Specific Adjustments (max-width: 1024px) */
+@media (max-width: 1024px) {
+  /* Adjustments to middle-main section for tablet */
+  .middle-main {
+      height: auto;
+      padding: 20px;
+  }
+
+  /* Contact section on tablet */
+  .main-contact {
+      width: 90%;
+      height: auto;
+      padding: 20px;
+  }
+
+  .categories div {
+      gap: 8px;
+  }
+
+  /* Adjust footer layout */
+  .footer-links ul {
+      gap: 20px;
+  }
+}

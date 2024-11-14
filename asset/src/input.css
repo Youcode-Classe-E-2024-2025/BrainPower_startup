@@ -11,6 +11,9 @@
         font-family: "Poppins", serif;
         scroll-behavior: smooth;
     }
+    body{
+        @apply bg-[#0A0D17];
+    }
     i{
         @apply cursor-pointer text-white hover:text-orange-400;
     }
