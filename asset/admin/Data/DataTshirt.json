@@ -1,7 +1,7 @@
 {
   "DataTshirt": [
       {
-          "id": "1",
+          "id": 1,
           "name": "Attaque des Titans",
           "text": "Un t-shirt en coton confortable.",
           "price": 20.99,
@@ -12,7 +12,7 @@
           ]
       },
       {
-          "id": "2",
+          "id": 2,
           "name": "Bleach",
           "text": "Parfait pour les activités sportives.",
           "price": 25.99,
@@ -23,7 +23,7 @@
           ]
       },
       {
-          "id": "3",
+          "id": 3,
           "name": "Death Note",
           "text": "Design tendance et moderne.",
           "price": 30.99,
@@ -34,7 +34,7 @@
           ]
       },
       {
-          "id": "4",
+          "id": 4,
           "name": "Demon Slayer",
           "text": "Décontracté pour un usage quotidien.",
           "price": 18.99,
@@ -45,7 +45,7 @@
           ]
       },
       {
-          "id": "5",
+          "id": 5,
           "name": "Dragon Ball Z",
           "text": "Style urbain et cool.",
           "price": 27.99,
@@ -56,7 +56,7 @@
           ]
       },
       {
-          "id": "6",
+          "id": 6,
           "name": "My Hero Academia",
           "text": "Un look rétro unique.",
           "price": 22.99,
@@ -67,7 +67,7 @@
           ]
       },
       {
-          "id": "7",
+          "id": 7,
           "name": "Naruto",
           "text": "Simple et élégant.",
           "price": 19.99,
@@ -78,7 +78,7 @@
           ]
       },
       {
-          "id": "8",
+          "id": 8,
           "name": "One Piece",
           "text": "Design audacieux pour se démarquer.",
           "price": 24.99,
