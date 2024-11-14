@@ -9,7 +9,7 @@ body{
 
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  STYLE DU 1ER SECTION  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 .bg-About{
-  background-image: url(./images/aboutAnime.png);
+  background-image: url(./image/aboutAnime.jpg);
   background-size: cover;
   background-position: center;
   width: 100%;
