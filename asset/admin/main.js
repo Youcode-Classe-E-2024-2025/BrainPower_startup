@@ -1,3 +1,36 @@
+fetch('/asset/admin/Data/DataMovie.json')
+  .then(response => response.json())
+  .then(data => {
+    if (!localStorage.getItem("movie")) {
+      localStorage.setItem("movie", JSON.stringify(data.DataMovie));
+    }
+  })
+  .catch(error => console.error('Erreur:', error));
+
+
+fetch('/asset/admin/Data/DataTshirt.json')
+  .then(response => response.json())
+  .then(data => {
+    if (!localStorage.getItem("Tshirt")) {
+       localStorage.setItem("Tshirt", JSON.stringify(data.DataTshirt));
+      }
+  })
+  .catch(error => console.error('Erreur:', error));
+
+
+fetch('/asset/admin/Data/DataAccessoire.json')
+  .then(response => response.json())
+  .then(data => {
+    if (!localStorage.getItem("Accessoire")) {
+        localStorage.setItem("Accessoire", JSON.stringify(data.DataAccessoires));
+       }
+  })
+  .catch(error => console.error('Erreur:', error));
+
+
+
+
+
 // #######################################################################################################################
 const SaveMovie = document.getElementById("SaveMovie");
 // ############################################################  remplissage movie  ###############################################################
@@ -38,7 +71,7 @@ SaveMovie.addEventListener("click", function (e) {
             const videoUrl = event.target.result;
 
             let Movie = {
-                id: indexMovie++,
+                id: ++indexMovie,
                 name: nameMovie,
                 text: textareaMovie,
                 price: priceMovie,
@@ -66,7 +99,7 @@ SaveMovie.addEventListener("click", function (e) {
 // supprimer movie
 function SupprimerMovie(id) {
 
-    const index = dataMovies.findIndex((movie) => movie.id === id);
+    const index = dataMovies.findIndex((movie) => movie.id == id);
     dataMovies.splice(index, 1);
     localStorage.setItem("movie", JSON.stringify(dataMovies));
     afficheTable("Movie");
@@ -79,7 +112,7 @@ function ModifierMovie(id) {
     SaveMovie.classList.add("hidden");
     btnModifierMovie.classList.toggle("hidden");
 
-    const movie = dataMovies.find((movie) => movie.id === id);
+    const movie = dataMovies.find((movie) => movie.id == id);
 
     document.querySelector("#nameMovie").value = movie.name;
     document.querySelector("#textareaMovie").value = movie.text;
@@ -178,7 +211,7 @@ SaveTshirt.addEventListener("click", function (e) {
             // Enregistrer le T-shirt une fois que toutes les images sont chargées
             if (loadedImages === imagesInput.length) {
                 let Tshirt = {
-                    id: indexTshirt++,
+                    id: ++indexTshirt,
                     name: titleTshirt,
                     text: textareaTshirt,
                     price: priceTshirt,
@@ -199,7 +232,7 @@ SaveTshirt.addEventListener("click", function (e) {
 // supprimer T-shirts
 function SupprimerTshirt(id) {
 
-    const index = dataTshirt.findIndex((Tshirt) => Tshirt.id === id);
+    const index = dataTshirt.findIndex((Tshirt) => Tshirt.id == id);
     dataTshirt.splice(index, 1);
     localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
     afficheTable('Tshirt');
@@ -213,7 +246,7 @@ function ModifierTshirt(id) {
     SaveTshirt.classList.add("hidden");
     btnModifierTshirt.classList.remove("hidden");
 
-    const Tshirt = dataTshirt.find((tshirt) => tshirt.id === id);
+    const Tshirt = dataTshirt.find((tshirt) => tshirt.id == id);
 
     document.querySelector("#titleTshirt").value = Tshirt.name;
     document.querySelector("#textTshirt").value = Tshirt.text;
@@ -308,7 +341,7 @@ SaveAccessoire.addEventListener("click", function (e) {
             // Enregistrer l'accessoire une fois que toutes les images sont chargées
             if (loadedImages === imagesInput.length) {
                 let Accessoire = {
-                    id: indexAccessoire++,
+                    id: ++indexAccessoire,
                     name: titleAccessoire,
                     text: textareaAccessoire,
                     price: priceAccessoire,
@@ -329,7 +362,7 @@ SaveAccessoire.addEventListener("click", function (e) {
 // supprimer Accessoire
 function SupprimerAccessoire(id) {
 
-    const index = dataAccessoire.findIndex((Accessoire) => Accessoire.id === id);
+    const index = dataAccessoire.findIndex((Accessoire) => Accessoire.id == id);
     dataAccessoire.splice(index, 1);
     localStorage.setItem("Accessoire", JSON.stringify(dataAccessoire));
     afficheTable("Accessoires");
@@ -342,7 +375,7 @@ function ModifierAccessoire(id) {
     SaveAccessoire.classList.add("hidden");
     btnModifierAccessoire.classList.remove("hidden");
 
-    const accessoire = dataAccessoire.find((accessoire) => accessoire.id === id);
+    const accessoire = dataAccessoire.find((accessoire) => accessoire.id == id);
 
     document.querySelector("#titleAccessoire").value = accessoire.name;
     document.querySelector("#textAccessoire").value = accessoire.text;
