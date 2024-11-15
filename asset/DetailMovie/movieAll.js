@@ -1,27 +1,3 @@
-// fetch('http://localhost:3000/DataMovie')
-//   .then(response => response.json())
-//   .then(data => {
-   
-//     const gallery = document.getElementById("film-gallery");
-//    console.log(data)
-//     if (gallery) {
-//       data.forEach(film => {
-//         const filmElement = document.createElement("img");
-//         filmElement.src = film.image; 
-//         filmElement.alt = film.name;
-//         filmElement.classList.add("film-thumbnail");
-//         filmElement.addEventListener("click", () => {
-//           window.location.href = `detailMovie.html?id=${film.id}`;
-//         });
-//         gallery.appendChild(filmElement);
-//       });
-//     }
-//   })
- 
-//   .catch(error => {
-//     console.error('Erreur lors du chargement du fichier JSON:', error);
-//   });
-
 // Check if data exists in localStorage
 let movieData = JSON.parse(localStorage.getItem('movie'));
 
