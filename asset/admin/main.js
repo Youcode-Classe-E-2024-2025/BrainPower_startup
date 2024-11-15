@@ -1,4 +1,4 @@
-fetch('/asset/admin/Data/DataMovie.json')
+fetch('../asset/admin/Data/DataMovie.json')
   .then(response => response.json())
   .then(data => {
     if (!localStorage.getItem("movie")) {
@@ -8,7 +8,7 @@ fetch('/asset/admin/Data/DataMovie.json')
   .catch(error => console.error('Erreur:', error));
 
 
-fetch('/asset/admin/Data/DataTshirt.json')
+fetch('../asset/admin/Data/DataTshirt.json')
   .then(response => response.json())
   .then(data => {
     if (!localStorage.getItem("Tshirt")) {
@@ -18,7 +18,7 @@ fetch('/asset/admin/Data/DataTshirt.json')
   .catch(error => console.error('Erreur:', error));
 
 
-fetch('/asset/admin/Data/DataAccessoire.json')
+fetch('../asset/admin/Data/DataAccessoire.json')
   .then(response => response.json())
   .then(data => {
     if (!localStorage.getItem("Accessoire")) {
