@@ -70,3 +70,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+// -------------------------mobile menu-------------------------
+ // Toggle Mobile Menu
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const categoryBtn = document.getElementById('category-btn');
+const mobileCategoryDropdown = document.getElementById('mobile-category-dropdown');
+
+menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+});
+
+categoryBtn.addEventListener('click', () => {
+    mobileCategoryDropdown.classList.toggle('hidden');
+});
