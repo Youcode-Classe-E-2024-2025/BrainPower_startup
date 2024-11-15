@@ -1,0 +1,97 @@
+
+.signUp-form {
+    background-color: rgba(255, 255, 255, 0.04);
+    height: 80%;
+    width: 70%;
+    display: flex;
+    padding:34px 14px;
+    margin:5rem 0;
+}
+
+.up-text {
+    display: flex;
+    flex-direction: column;
+    height: 133px;
+  }
+  .up-text h1 {
+    font-size: 6rem;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    background: linear-gradient(90deg, #FFFFFF 30%,#EF7D2F 70%,#283B82 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+  }
+  .up-text p {
+    font-size: 22px;
+    text-align: center;
+  }
+  /* conatact form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  form input , button {
+    border-radius: 5px;
+  }
+  .left-card {
+    width: 50%;
+    height: 100%;
+    padding-inline: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left-card h1 {
+    font-size: 36px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #FFFFFF 30%,#EF7D2F 70%,#283B82 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 65px;
+    line-height: 1.2;
+  }
+  .left-card input,
+  .left-card textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+  .left-card input::placeholder,
+  .left-card textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .left-card button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: linear-gradient(to right, #ff7e5f, #283B82);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .left-card button:hover {
+    background: linear-gradient(to right, #ed784a, #811a00);
+  }
+  /* right card */
+  .right-card  {
+      width: 50%;
+      background:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../imges/dragon.jpg);
+      background-position: center;
+      background-size: cover;
+  }
