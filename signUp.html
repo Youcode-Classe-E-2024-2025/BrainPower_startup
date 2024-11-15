@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../asset/src/output.css">
-    <link rel="stylesheet" href="login.css">
-    <title>login</title>
+    <link rel="stylesheet" href="./asset/src/output.css">
+    <link rel="stylesheet" href="./asset/signUp/signUp.css">
+    <title>signUp</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
         <!-- anime power_logo -->
         <div class="logo-nav flex items-center ">
             <a href="#">
-                <img src="../asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+                <img src="./asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
             </a>
         </div>
 
@@ -38,7 +38,7 @@
             <ul class="flex h-full items-center w-full gap-4">
                 <!-- home link-->
                 <li class="list-nav-menu">
-                    <a href="../index.html" rel="noopener noreferrer" id="home-nave">
+                    <a href="./index.html" rel="noopener noreferrer" id="home-nave">
                         Home
                     </a>
                 </li>
@@ -79,31 +79,26 @@
         </div>
     </nav>
     <!-- end navbare -->
-    <main class="h-screen flex items-center justify-center">
-        <div id="contact-section">
-            <div class="up-text">
-                <h1>Get in touch</h1>
-                <p>Reach out, and let's create a universe of possibilities together!</p>
-            </div>
-            <div class="main-contact rounded-2xl p-3" id="contact-home">
-                <div class="contact-form">
-                    <div class="up-text-form">
-                        <h1>Sign-Up</h1>
-                    </div>
-
-                    <form method="get" class="pb-3">
-                        <input type="text" placeholder="Last Name" required>
-                        <input type="text" placeholder="First Name" required>
-                        <input type="email" placeholder="Email" required>
-                        <input type="tel" placeholder="Phone Number" >
-                        <input type="password" placeholder="Password" required>
-                        <button type="submit">Send</button>
-                    </form>
-                </div>
-                <div class="flex left-card w-1/2 h-full rounded-xl">
-                </div>
-            </div>
+    <main class="min-h-screen flex flex-col items-center justify-center">
+        <div class="up-text">
+            <h1>Sign-Up</h1>
+            <p>Sign up to continue exploring a world of endless possibilities!</p>
         </div>
+        <div class="signUp-form rounded-xl">
+            <div class="left-card">             
+             <form method="get" class="pb-3"> 
+                  <input type="Name" placeholder="Name" required> 
+                  <input type="Last Name" placeholder="Last Name" required> 
+                  <input type="email" placeholder="Email" required> 
+                     <input
+                     type="password" placeholder="Password" required> 
+                      <button type="submit">signUp</button>
+              </form>
+            </div>
+             <div class="right-card rounded-md">
+     
+             </div>
+         </div>
     </main>
     <!-- footer -->
     <footer
@@ -112,7 +107,7 @@
             <!-- footer logo -->
             <div class="logo-footer flex items-center ">
                 <a href="#">
-                    <img src="../asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+                    <img src="./asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
                 </a>
             </div>
             <div class="footer-links flex items-center">
@@ -122,7 +117,7 @@
                     </li>
                     <!-- home link-->
                     <li class="list-footer-menu" id="home-nave">
-                        <a href="../index.html" rel="noopener noreferrer">
+                        <a href="./index.html" rel="noopener noreferrer">
                             Home
                         </a>
                     </li>
@@ -134,11 +129,11 @@
                     </li>
                     <!-- about dropdown-->
                     <li class="list-footer-menu" id="category-nav">
-                        <a href="../index.html">category</a>
+                        <a href="./index.html">category</a>
                     </li>
                     <!-- contact navbar -->
                     <li class="list-footer-menu" id="contact_nav">
-                        <a href="../index.html">
+                        <a href="./index.html">
                             Contact
                         </a>
                     </li>
@@ -162,7 +157,7 @@
         </div>
     </footer>
     <!-- end footer -->
-    <script src="../main.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 
