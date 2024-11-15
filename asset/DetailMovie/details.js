@@ -54,13 +54,15 @@ if (data ) {
                     </div> 
                 </div>
                 <div class="film-info">
+                    <div class="film-infos">
                     <h1><b>${film.name}</b></h1>
                     <p><strong>Description:</strong> <br>${film.text}</p>
                     <p><strong>Genre:</strong><br> ${film.genre}</p>
                     <p><strong>Date de production:</strong><br> ${film.date}</p>
                     <p><strong>Durée:</strong><br> ${film.dure}</p>
                     <p><strong>Auteur:</strong><br> ${film.autheur}</p>
-                    // <iframe width="100%" height="300" src="${film.video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <iframe width="100%" height="300" src="${film.video}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         `;
