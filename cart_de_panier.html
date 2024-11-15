@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart Page</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./asset/src/output.css">
 </head>
-<body class="bg-gray-100 p-6">
+<body class="bg-gray-900 p-6 ">
 
     <!-- Table pour les produits dans le panier -->
-    <div class="bg-white p-6 rounded-lg shadow-md">
-        <table class="min-w-full text-left table-fixed border-collapse">
+    <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+        <table class="min-w-full text-left table-fixed border-collapse text-white border-spacing-4">
             <thead>
-                <tr class="border-b">
+                <tr class=" border rounded-lg border-gray-400 bg-gray-700  mb-1.5">
                     <th class="px-4 py-2">
                         <input type="checkbox" id="selectAll" onclick="toggleSelectAll()"> <!-- Case pour sélectionner tous les produits -->
                     </th>
@@ -35,25 +36,27 @@
     </div>
 
     <!-- Tableau pour le total du panier -->
-    <div class="bg-white p-6 mt-6 rounded-lg shadow-md">
-        <h2 class="text-lg font-semibold">Cart Total</h2>
+    <div class="bg-gray-500 p-6 mt-6 rounded-lg shadow-md w-2/5  mx-auto">
+        <h2 class="text-lg font-semibold  ">Cart Total</h2>
         <table class="w-full mt-4 text-left">
-            <tr>
+            <tr class="border-b border-solid border-white border-b-1">
                 <td class="font-medium">Subtotal:</td>
-                <td id="subtotal">$0.00</td>
+                <td id="subtotal" class="text-right">0.00DH</td>
             </tr>
-            <tr>
+            <tr class="border-b border-solid border-white border-b-1">
                 <td class="font-medium">Shipping:</td>
-                <td>Free</td>
+                <td class="text-right">Free</td>
             </tr>
-            <tr>
+            <tr >
                 <td class="font-bold">Total:</td>
-                <td id="totalPrice" class="font-bold">$0.00</td>
+                <td id="totalPrice" class="font-bold text-right">0.00DH</td>
             </tr>
         </table>
         
         <!-- Bouton pour finaliser l'achat -->
-        <button class="bg-green-500 text-white px-6 py-2 rounded mt-4 w-full" onclick="processCheckout()">Process to Checkout</button>
+        <div class="flex justify-center items-center" >
+            <button class="bg-gradient-to-r from-orange-500 to-gray-600 text-white font-medium py-2 px-4 rounded-lg " onclick="processCheckout()">Process to Checkout</button>
+        </div>
     </div>
 
     <script>
@@ -72,26 +75,26 @@
                 const total = item.unitPrice * item.quantity;
                 subtotal += total;
                 cartTable.innerHTML += `
-                    <tr>
+                    <tr class="border rounded-lg border-gray-400 bg-gray-700  mb-1.5">
                         <td class="px-4 py-2">
                             <input type="checkbox" class="remove-checkbox" data-index="${index}">
                         </td>
                         <td class="px-4 py-2 flex items-center">
                             <img src="${item.image}" alt="${item.name}" class="w-12 h-12 mr-4"> ${item.name}
                         </td>
-                        <td class="px-4 py-2">$${item.unitPrice.toFixed(2)}</td>
+                        <td class="px-4 py-2">${item.unitPrice.toFixed(2)}DH</td>
                         <td class="px-4 py-2">
                             <button onclick="decreaseQuantity(${index})">-</button>
                             ${item.quantity}
                             <button onclick="increaseQuantity(${index})">+</button>
                         </td>
-                        <td class="px-4 py-2">$${total.toFixed(2)}</td>
+                        <td class="px-4 py-2">${total.toFixed(2)}DH</td>
                     </tr>
                 `;
             });
 
-            document.getElementById('subtotal').innerText = `$${subtotal.toFixed(2)}`;
-            document.getElementById('totalPrice').innerText = `$${subtotal.toFixed(2)}`;
+            document.getElementById('subtotal').innerText = `${subtotal.toFixed(2)}DH`;
+            document.getElementById('totalPrice').innerText = `${subtotal.toFixed(2)}DH`;
         }
 
         function increaseQuantity(index) {
@@ -111,13 +114,13 @@
             window.location.href = '/shop';
         }
 
-        // function toggleSelectAll() {
-        //     const checkboxes = document.querySelectorAll('.remove-checkbox');
-        //     const selectAllCheckbox = document.getElementById('selectAll');
-        //     checkboxes.forEach(checkbox => {
-        //         checkbox.checked = selectAllCheckbox.checked;
-        //     });
-        // }
+        function toggleSelectAll() {
+            const checkboxes = document.querySelectorAll('.remove-checkbox');
+            const selectAllCheckbox = document.getElementById('selectAll');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        }
 
         function removeSelectedItems() {
             const checkboxes = document.querySelectorAll('.remove-checkbox');
