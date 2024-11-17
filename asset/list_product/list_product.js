@@ -1,46 +1,24 @@
-// Exemple de données de produit
-const products = [
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 2, title: "Poster Naruto", price: 150.00, rating: 9.0, image: "image2.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    
-];
+// Chargement des produits depuis localStorage
+let products = [];
+["Tshirt", "Accessoire", "movie"].forEach(category => {
+    const storedProducts = JSON.parse(localStorage.getItem(category)) || [];
+    products = products.concat(storedProducts.map(item => ({
+        id: item.id,
+        title: item.name,
+        price: parseFloat(item.price || 0),
+        rating: parseFloat(item.rating || 0), // Si rating existe
+        image: item.images && item.images.length > 0 
+        ? item.images[0].replace(".", "") 
+        : "placeholder.jpg",
+    })));
+});
 
+// Variables de pagination
 const itemsPerPage = 16;
 let currentPage = 1;
 let filteredProducts = [...products];
 
-function toggleSortMenu() {
-    const sortMenu = document.getElementById("sortMenu");
-    sortMenu.classList.toggle("hidden");
-}
-
-// Affichage initial des produits
+// Fonction d'affichage des produits
 function displayProducts(page) {
     const start = (page - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -50,9 +28,9 @@ function displayProducts(page) {
 
     productsToDisplay.forEach(product => {
         const productCard = document.createElement("div");
-        productCard.classList.add("p-4", "rounded-lg", );
+        productCard.classList.add("bg-gray-800", "p-4", "rounded-lg", "text-center");
         productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" class="w-full h-48 object-cover mb-2 rounded-lg">
+            <img src="${product.image}" alt="${product.title}" w-full h-auto object-contain rounded-md mb-4">
             <h3 class="text-lg font-semibold mb-2">${product.title}</h3>
             <p class="text-orange-400 font-bold">${product.price} DH</p>
             <p class="text-sm">⭐ ${product.rating}</p>
@@ -96,6 +74,8 @@ document.getElementById("sortPriceBtn").addEventListener("click", () => {
     sortAscending = !sortAscending;
     displayProducts(currentPage);
 });
+
+console.log("Image URL:", product.image);
 
 // Affichage initial
 displayProducts(currentPage);
