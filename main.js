@@ -73,3 +73,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             document.getElementById('menuList').classList.add('flex');
         }
     });
+    document.querySelector('.t-shirt').addEventListener('click', function () {
+        // Rediriger vers list_product.html avec un paramètre 'category=tshirt'
+        window.location.href = 'list_product.html?category=tshirt';
+    });
+    
+    document.querySelector('.movie').addEventListener('click', function () {
+        // Rediriger vers list_product.html avec un paramètre 'category=movie'
+        window.location.href = 'list_product.html?category=movie';
+    });
+    
+    document.querySelector('.accesoires').addEventListener('click', function () {
+        // Rediriger vers list_product.html avec un paramètre 'category=accessoire'
+        window.location.href = 'list_product.html?category=accessoire';
+    });
+    document.querySelector('.fa-cart-shopping').addEventListener('click', function () {
+        window.location.href = 'cart_de_panier.html'; // Redirige l'utilisateur vers cart_de_panier.html
+    });    

@@ -1,33 +1,37 @@
+// Récupérer le paramètre 'category' de l'URL
+const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get('category');  // La catégorie choisie (tshirt, movie, accessoire)
+
 // Chargement des produits depuis localStorage
 let products = [];
 
-["Tshirt", "Accessoire", "movie"].forEach(category => {
-    const storedProducts = JSON.parse(localStorage.getItem(category)) || [];
+// Charger les produits en fonction de la catégorie sélectionnée
+["Tshirt", "Accessoire", "movie"].forEach(cat => {
+    const storedProducts = JSON.parse(localStorage.getItem(cat)) || [];
 
-    // Traitement des produits par catégorie
-    products = products.concat(storedProducts.map(item => {
-        // Pour les films, utiliser 'image' et ne pas vérifier 'images'
-        if (category === "movie") {
+    // Si la catégorie correspond à celle choisie, on l'ajoute à la liste des produits
+    if (!category || category.toLowerCase() === cat.toLowerCase()) {
+        products = products.concat(storedProducts.map(item => {
+            // Traitement des produits en fonction de la catégorie
+            if (cat === "movie") {
+                return {
+                    id: item.id,
+                    title: item.name,
+                    price: parseFloat(item.price || 0),
+                    rating: parseFloat(item.rating || 0), 
+                    image: item.image ? item.image.replace(".", "") : "placeholder.jpg",
+                };
+            }
             return {
                 id: item.id,
                 title: item.name,
                 price: parseFloat(item.price || 0),
-                rating: parseFloat(item.rating || 0), // Si rating existe
-                image: item.image ? item.image.replace(".", "") : "placeholder.jpg",  // Utiliser 'image' pour les films
+                rating: parseFloat(item.rating || 0),
+                image: item.images && item.images.length > 0 
+                    ? item.images[0].replace(".", "") : "placeholder.jpg",
             };
-        }
-
-        // Pour Tshirt et Accessoire, utiliser 'images' comme tableau
-        return {
-            id: item.id,
-            title: item.name,
-            price: parseFloat(item.price || 0),
-            rating: parseFloat(item.rating || 0), // Si rating existe
-            image: item.images && item.images.length > 0 
-                ? item.images[0].replace(".", "") // Utiliser la première image
-                : "placeholder.jpg",
-        };
-    }));
+        }));
+    }
 });
 
 // Variables de pagination
@@ -47,7 +51,7 @@ function displayProducts(page) {
         const productCard = document.createElement("div");
         productCard.classList.add("p-4");
         productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.title}"  class="w-full h-64 object-contain rounded-md mb-4 product-card">
+            <img src="${product.image}" alt="${product.title}" class="w-full h-64 object-contain rounded-md mb-4 product-card">
             <p class="text-2xl font-semibold mb-2">${product.title}</p>
             <div class="flex">
                 <p class="text-4xl text-red font-bold text-yellow-500">${product.price.toFixed(2)} DH</p>
@@ -67,49 +71,6 @@ function displayProducts(page) {
                 </button>
             </div>
         `;
-        if (product.image && product.image.includes("movie")) { // Assure-toi que l'attribut image indique bien "movie"
-            const productImage = productCard.querySelector(".product-card");
-            productImage.addEventListener("click", () => {
-                window.location.href = `./DetailMovies/detailMovie.html?id=${product.id}`;
-            });
-        } else {
-            const productImage = productCard.querySelector(".product-card");
-            productImage.addEventListener("click", (event) => {
-                const productId = event.target.dataset.id;
-                window.location.href = `product_detailes.html?id=${productId}`; // Redirect to product details page with product id
-            });
-        }
-        const addToCartButton = productCard.querySelector(".add-to-cart");
-        addToCartButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-
-         // Créer un objet produit avec les bonnes propriétés
-        const cartProduct = {
-        id: product.id,
-        name: product.title,
-        unitPrice: product.price, // prix de l'article
-        quantity: 1, // initialiser à 1 par défaut
-        image: product.image
-    };
-
-    // Récupérer le panier existant dans le localStorage
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Ajouter ou mettre à jour le produit dans le panier
-    const existingProductIndex = cart.findIndex(item => item.id === cartProduct.id);
-    if (existingProductIndex !== -1) {
-        cart[existingProductIndex].quantity += 1; // Si le produit existe déjà, augmenter la quantité
-    } else {
-        cart.push(cartProduct); // Sinon, ajouter le produit
-    }
-
-    // Sauvegarder à nouveau dans le localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Afficher une alerte
-    alert(`${product.title} a été ajouté au panier !`);
-});
-
         productList.appendChild(productCard);
     });
 
@@ -117,6 +78,10 @@ function displayProducts(page) {
     document.getElementById("prevPage").disabled = page === 1;
     document.getElementById("nextPage").disabled = end >= filteredProducts.length;
 }
+
+// Appel de la fonction pour afficher les produits
+displayProducts(currentPage);
+
 
 // Gestion de la pagination
 document.getElementById("prevPage").addEventListener("click", () => {
@@ -200,6 +165,9 @@ document.querySelectorAll('.bi-cart-plus-fill').forEach(button => {
 
         addToCart(product); // Ajoute au panier
     });
+});
+document.querySelector('.fa-cart-shopping').addEventListener('click', function () {
+    window.location.href = 'cart_de_panier.html'; // Redirige l'utilisateur vers cart_de_panier.html
 });
 
 
