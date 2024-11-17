@@ -12,62 +12,55 @@
             <!-- Barre de recherche -->
             <div class="flex items-center space-x-2">
                 <button
-                onclick="searchProducts()"
-                class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-            >
-                Search
-            </button>
+                    id="search"
+                    class="px-4 py-2 text-white rounded-md hover:bg-blue-600"
+                    style="background-color: orange"
+                >
+                    search
+                </button>
                 <input
                     id="searchInput"
                     type="text"
                     placeholder="Rechercher"
                     class="p-2 w-64 rounded-md text-gray-700 placeholder-gray-400 focus:outline-none"
                 />
-                
             </div>
             
             <!-- Bouton de tri -->
-            <div class="relative">
+            <div>
                 <button
-                    onclick="toggleSortMenu()"
-                    class="px-4 py-2  text-white rounded-md hover:bg-blue-600 " style="background-color:orange"
+                    id="sortPriceBtn"
+                    class="px-4 py-2 text-white rounded-md hover:bg-blue-600"
+                    style="background-color: orange"
                 >
                     Tri par prix
                 </button>
-                <div id="sortMenu" class="absolute right-0 mt-2 w-40 bg-gray-700 rounded-md shadow-lg hidden">
-                    <button
-                        onclick="sortProducts('asc')"
-                        class="block px-4 py-2 text-left text-white hover:bg-gray-600 w-full"
-                    >
-                        Croissant
-                    </button>
-                    <button
-                        onclick="sortProducts('desc')"
-                        class="block px-4 py-2 text-left text-white hover:bg-gray-600 w-full"
-                    >
-                        Décroissant
-                    </button>
-                </div>
             </div>
         </div>
         
         <!-- Liste des produits -->
-        <div id="productList" class="grid grid-cols-4 gap-4">
+        <div id="productList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
             <!-- Les cartes produits seront injectées ici -->
         </div>
         
         <!-- Pagination -->
         <div class="flex justify-center mt-8 space-x-4">
-            <button onclick="previousPage()" id="prevPage" class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600">
+            <button
+                id="prevPage"
+                class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600"
+            >
                 &lt;
             </button>
             <span id="pageNum" class="text-white">1</span>
-            <button onclick="nextPage()" id="nextPage" class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600">
+            <button
+                id="nextPage"
+                class="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600"
+            >
                 &gt;
             </button>
         </div>
     </div>
-    
 
     <script src="./asset/list_product/list_product.js"></script>
 </body>
