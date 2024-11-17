@@ -1,22 +1,7 @@
-// Select the category menu item and the dropdown menu
-const categoryNav = document.getElementById('category-nav');
-const dropDownMenuCaty = document.querySelector('.dropDown-menu-caty');
+// Select the dropdown menu
+
 const dropDownRight = document.querySelector('.dropDown-menu-right');
 const userIcon = document.querySelector('.fa-user');
-
-// Add event listener to toggle dropdown visibility
-categoryNav.addEventListener('click', (event) => {
-    event.preventDefault(); 
-    dropDownMenuCaty.classList.toggle('hidden'); 
-});
-
-// Close dropdown when clicking outside
-document.addEventListener('click', (event) => {
-    // Check if the click is outside the dropdown and category button
-    if (!dropDownMenuCaty.contains(event.target) && !categoryNav.contains(event.target)) {
-        dropDownMenuCaty.classList.add('hidden');
-    }
-});
 
 userIcon.addEventListener('click',(event) =>{
     event.preventDefault();
@@ -72,27 +57,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 // -------------------------mobile menu-------------------------
  // Toggle Mobile Menu
- function toggleMenu() {
-    const menu = document.getElementById('menuList');
-    menu.classList.toggle('hidden');
-    menu.classList.toggle('flex');
-    menu.classList.toggle('flex-col');
-    menu.classList.toggle('absolute');
-    menu.classList.toggle('bg-black');
-    menu.classList.toggle('top-[77px]');
-    menu.classList.toggle('w-full');
-}
-
-// Toggle category dropdown visibility
-function toggleDropdown(menu) {
-    const dropdown = document.getElementById(`${menu}-dropdown`);
-    dropdown.classList.toggle('hidden');
-}
-
-// To make the navbar responsive
-window.addEventListener('resize', function() {
-    if (window.innerWidth > 700) {
-        document.getElementById('menuList').classList.remove('hidden', 'flex-col', 'absolute', 'bg-black');
-        document.getElementById('menuList').classList.add('flex');
+  function toggleMenu() {
+        const menu = document.getElementById('menuList');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+        menu.classList.toggle('flex-col');
+        menu.classList.toggle('absolute');
+        menu.classList.toggle('bg-black');
+        menu.classList.toggle('top-[77px]');
+        menu.classList.toggle('w-full');
     }
-});
+
+    // To make the navbar responsive
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 700) {
+            document.getElementById('menuList').classList.remove('hidden', 'flex-col', 'absolute', 'bg-black');
+            document.getElementById('menuList').classList.add('flex');
+        }
+    });
