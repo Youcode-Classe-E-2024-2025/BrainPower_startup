@@ -48,3 +48,29 @@ thumbnails.forEach(thumbnail => {
         mainImage.src = this.src;
     });
 });
+
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id"); // Get product id from the URL
+
+// Assuming you have the data stored in a variable `DataTshirt`
+const product = DataTshirt.find(p => p.id === parseInt(productId)); // Find the product using the id
+
+if (product) {
+    // Populate the product details on the page
+    document.getElementById("mainImage").src = product.images[0]; // Main image
+    document.getElementById("mainImage").alt = product.name;
+    document.querySelector("h1").textContent = product.name;
+    document.querySelector(".text-red-500").textContent = product.price + " DH"; // Price
+    document.querySelector("p.text-gray-300").textContent = product.text; // Description
+
+    // Update image thumbnails
+    const thumbnails = document.querySelectorAll(".thumbnail");
+    thumbnails.forEach((thumb, index) => {
+        if (product.images[index]) {
+            thumb.src = product.images[index];
+            thumb.addEventListener("click", () => {
+                document.getElementById("mainImage").src = product.images[index];
+            });
+        }
+    });
+}
