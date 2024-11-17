@@ -28,95 +28,72 @@
 <body>
     <!-- navbare -->
     <nav id="nav"
-        class="relative  h-[77px] flex items-center justify-between px-8  bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
-        <!-- anime power_logo -->
-        <div class="logo-nav flex items-center ">
-            <a href="#">
-                <img src="./asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
-            </a>
-        </div>
-
-         <!-- burger Menu (Mobile) -->
-         <div class="lg:hidden">
-            <button id="menu-btn" class="text-2xl focus:outline-none">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-
-        <!-- navbar menu -->
-        <div class="nav-menu h-full items-center self-center flex w-fit">
-            <ul class="flex h-full items-center w-full gap-4">
-                <!-- home link-->
-                <li class="list-nav-menu">
-                    <a href="#sliders" rel="noopener noreferrer" id="home-nave">
-                        Home
-                    </a>
-                </li>
-                <!-- about link-->
-                <li class="list-nav-menu">
-                    <a href="#" rel="noopener noreferrer" id="about-nav">
-                        About
-                    </a>
-                </li>
-                <!-- about dropdown-->
-                <li class="list-nav-menu">
-                    <a href="#" id="category-nav">category</a>
-                </li>
-                <!-- contact navbar -->
-                <li class="list-nav-menu">
-                    <a href="#contact-home" id="contact_nav">
-                        Contact
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- right icons -->
-        <div class="icons-nav w-24 flex h-full items-center justify-between">
-            <i class="fa-solid fa-cart-shopping fa-xl "></i>
-            <i class="fa-solid fa-user fa-xl"></i>
-        </div>
-        <div
-            class="dropDown-menu-caty z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute   left-1/2 -translate-x-1/4 top-[77px] hidden  bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
-            <a href="#" target="_blank" rel="noopener noreferrer">T-shirt</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">Accesoires</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">Movies</a>
-        </div>
-        <div
-            class="dropDown-menu-right z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute right-1 top-[77px] hidden bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
-            <a href="#" target="_blank" rel="noopener noreferrer" id="log-out">log-out</a>
-            <a href="./login-page/login.html" target="_blank" rel="noopener noreferrer" id="log-in">log-in</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">profile</a>
-        </div>
-    </nav>
-
-    <!-- end navbare -->
-     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden z-50 fixed top-20 left-0 right-0 bg-gray-800 p-4 hidden flex-col space-y-4">
-        <a href="#sliders" class="hover:text-orange-400">Home</a>
-        <a href="#about" class="hover:text-orange-400">About</a>
-        <div class="relative">
-            <button id="category-btn" class="flex items-center justify-between w-full hover:text-orange-400">
-                Category
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            <!-- Dropdown Items -->
-            <div id="mobile-category-dropdown" class="mt-2 ml-4 hidden flex-col space-y-2">
-                <a href="#" class="hover:text-orange-400">T-shirt</a>
-                <a href="#" class="hover:text-orange-400">Accessories</a>
-                <a href="#" class="hover:text-orange-400">Movies</a>
-            </div>
-        </div>
-        <a href="#contact-home" class="hover:text-orange-400">Contact</a>
-        <div class="flex space-x-4 mt-4">
-            <i class="fa-solid fa-cart-shopping fa-lg hover:text-orange-400 cursor-pointer"></i>
-            <i class="fa-solid fa-user fa-lg hover:text-orange-400 cursor-pointer"></i>
-        </div>
+    class="fixed z-50 h-[77px] w-full flex items-center justify-between px-8 bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
+    <!-- anime power_logo -->
+    <div class="logo-nav flex items-center">
+        <a href="#">
+            <img src="./asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+        </a>
     </div>
-    <!-- End Mobile Menu -->
+
+    <!-- navbar menu -->
+    <div class="nav-menu h-full items-center self-center flex w-fit">
+        <ul id="menuList" class="flex h-full items-center w-full gap-4">
+            <!-- home link-->
+            <li class="list-nav-menu">
+                <a href="#sliders" rel="noopener noreferrer" id="home-nave">
+                    Home
+                </a>
+            </li>
+            <!-- about link-->
+            <li class="list-nav-menu">
+                <a href="./AboutPage/about.html" rel="noopener noreferrer" id="about-nav">
+                    About
+                </a>
+            </li>
+            <!-- category dropdown-->
+            <li class="list-nav-menu relative">
+                <a href="#" id="category-nav" onclick="toggleDropdown('category')">Category</a>
+                <div id="category-dropdown" class="dropdown-menu hidden absolute bg-white border shadow-md mt-2 rounded">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 hover:bg-gray-200">T-shirt</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 hover:bg-gray-200">Accessories</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 hover:bg-gray-200">Movies</a>
+                </div>
+            </li>
+            
+            <!-- contact navbar -->
+            <li class="list-nav-menu">
+                <a href="#contact-section" id="contact_nav">
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- right icons -->
+    <div class="icons-nav w-24 flex h-full items-center justify-between">
+        <i class="fa-solid fa-cart-shopping fa-xl "></i>
+        <i class="fa-solid fa-user fa-xl"></i>
+    </div>
+
+    <!-- Burger Menu (Mobile) -->
+    <div class="burger_menu">
+        <i class="fa-solid fa-bars fa-xl" onclick="toggleMenu()"></i>
+    </div>
+
+    <!-- Profile Dropdown -->
+    <div class="dropDown-menu-right z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute right-1 top-[77px] hidden bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
+        <a href="./signUp.html" target="_blank" rel="noopener noreferrer" id="sign-Up">sign-Up</a>
+        <a href="./login-page/login.html" target="_blank" rel="noopener noreferrer" id="log-in">log-in</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">profile</a>
+    </div>
+</nav>
+    <!-- end navbare -->
+ 
 
     <main class="flex flex-col">
         <!-- slider -->
-        <div class="sliders relative h-screen  overflow-hidden flex" id="sliders">
+        <div id="sliders" class="sliders relative h-screen  overflow-hidden flex" id="sliders">
             <div class="slider1">
                 <img src="./asset/homePage/imges/bleach_slide1.jpg" alt="bleach_slide1" class="object-cover ">
             </div>
