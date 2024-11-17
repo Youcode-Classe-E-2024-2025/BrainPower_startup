@@ -1,4 +1,4 @@
-const sizeBtns = document.querySelectorAll('.sizes button'); // Select all button elements within the 'sizes' div
+const sizeBtns = document.querySelectorAll('.sizes button');
 
 sizeBtns.forEach(btnSize => {
     btnSize.addEventListener('click', () => {
@@ -10,4 +10,29 @@ sizeBtns.forEach(btnSize => {
         // Add active classes to the clicked button
         btnSize.classList.add('text-white', 'bg-orange-500');
     });
-});
+}); 
+
+// add incries ..etc
+const incriesBtn = document.getElementById('incries');
+const QuantityDisplay = document.getElementById('Quantity');
+const dincriesBtn = document.getElementById('dincries');
+
+
+function incries() {
+    // Convert the current text content to a number, increment, and update
+    QuantityDisplay.textContent = parseInt(QuantityDisplay.textContent) + 1;
+}
+
+function dincries() {
+    // Convert the current text content to a number, decrement, and update
+    // Ensure the quantity doesn't go below 0
+    const currentQuantity = parseInt(QuantityDisplay.textContent);
+    if (currentQuantity > 0) {
+        QuantityDisplay.textContent = currentQuantity - 1;
+    }
+}
+
+incriesBtn.addEventListener('click', dincries);
+dincriesBtn.addEventListener('click', incries);
+
+
