@@ -14,37 +14,35 @@ document.addEventListener('click', (event) => {
         dropDownRight.classList.add('hidden');
     }
 });
-// ----------------------------------------slider-----------------------------------------------
+const sliderContainer = document.querySelector(".slider-container");
+const slides = document.querySelectorAll(".slider");
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
 
-// Select all the slider elements
-const sliders = document.querySelectorAll('.sliders > div');
-
-// Initialize an index to track the active slider
 let currentIndex = 0;
 
-// Function to change the active slider
-function changeSlider() {
-    // Hide all sliders by setting their opacity to 0
-    sliders.forEach((slider, index) => {
-        slider.style.opacity = (index === currentIndex) ? '1' : '0';
-    });
-
-    // Move to the next slider
-    currentIndex = (currentIndex + 1) % sliders.length;
+// Update slider position
+function updateSlider() {
+    sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
-// Run the changeSlider function every 3 seconds
-setInterval(changeSlider, 3000);
-
-// Initial styling to display only the first slider
-sliders.forEach((slider, index) => {
-    slider.style.position = 'absolute';
-    slider.style.top = '0';
-    slider.style.left = '0';
-    slider.style.zIndex = '1';
-    slider.style.transition = 'opacity 1s ease';
-    slider.style.opacity = index === 0 ? '1' : '0';
+// Move to the next slide
+nextButton.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length; // Loop back to the first slide
+    updateSlider();
 });
+
+// Move to the previous slide
+prevButton.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Loop back to the last slide
+    updateSlider();
+});
+
+// Auto-slide functionality (optional)
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+}, 5000); // Change slides every 5 seconds
 
 // add smooth scroll 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
