@@ -59,8 +59,6 @@ body {
   .film-info strong{
     color: #fbff00;
   }
-  
-  
   .film-info h1 {
     font-size: 24px;
     margin-left:20px;
@@ -70,20 +68,16 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-  
   }
   .film-info p {
     margin-left:20px;
     font-size:13px ;
   }
-  
   /* Style pour la vidéo */
   iframe{
     margin:0 10px;
   }
-
  /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-
 .sliders div{
     z-index: -1;
 }
@@ -136,4 +130,49 @@ body {
     margin-left: 10px;
     border-radius: 8px;
     margin-top: 10px;
+ }
+ @media(max-width:850px) {
+ .film-info-container{
+  display: block;
+  margin:10px;
+ }
+ .film-left{
+  margin-left:0px;
+ }
+ .film-left img{
+  height: 350px;
+  width:100%;
+  margin-left:0px;
+ }
+.film-infos{
+  margin-top:10px;
+}
+.movieAchat{
+  margin-top: 15px;
+}
+.film-info h1{
+  margin-left:0px;
+}
+.film-info p{
+  margin-left:0px;
+}
+iframe{
+  margin-left: 0px;
+}
+.films img{
+ padding:10px;
+ height: 300px;
+}
+.titles h1{
+  font-size:25px;
+}
+.titles a{
+  font-size:20px;
+}
+.titles{
+  margin:30px 40px;
+  display: flex;
+  justify-content:space-between;
+}
+
  }
