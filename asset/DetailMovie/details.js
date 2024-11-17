@@ -75,3 +75,4 @@ if (data ) {
     document.getElementById("film-details").innerHTML = "<p>Erreur lors du chargement des détails du film.</p>";
 }
 
+

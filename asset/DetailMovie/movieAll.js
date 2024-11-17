@@ -1,3 +1,4 @@
+
 // Check if data exists in localStorage
 let movieData = JSON.parse(localStorage.getItem('movie'));
 
@@ -35,3 +36,4 @@ function displayMovies(data) {
     });
   }
 }
+
