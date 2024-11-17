@@ -35,4 +35,16 @@ function dincries() {
 incriesBtn.addEventListener('click', dincries);
 dincriesBtn.addEventListener('click', incries);
 
+// switch between each product
 
+// Select the main image and all thumbnails
+const mainImage = document.getElementById('mainImage');
+const thumbnails = document.querySelectorAll('.thumbnail');
+
+// Add a click event listener to each thumbnail
+thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', function() {
+        // Update the src of the main image to match the clicked thumbnail
+        mainImage.src = this.src;
+    });
+});
