@@ -60,60 +60,70 @@
     </div>
 
     <script>
-        const cartItems = [
-            { id: 1, name: 'Produit A', image: 'image1.jpg', unitPrice: 20.00, quantity: 1 },
-            { id: 2, name: 'Produit B', image: 'image2.jpg', unitPrice: 15.00, quantity: 2 },
-            // Ajoute d'autres produits si nécessaire
-        ];
+        // Récupérer les produits du panier depuis le localStorage
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
+        // Fonction de rendu du panier
         function renderCart() {
-            const cartTable = document.getElementById('cartItems');
-            cartTable.innerHTML = '';
-            let subtotal = 0;
+    const cartTable = document.getElementById('cartItems');
+    cartTable.innerHTML = '';
+    let subtotal = 0;
 
-            cartItems.forEach((item, index) => {
-                const total = item.unitPrice * item.quantity;
-                subtotal += total;
-                cartTable.innerHTML += `
-                    <tr class="border rounded-lg border-gray-400 bg-gray-700  mb-1.5">
-                        <td class="px-4 py-2">
-                            <input type="checkbox" class="remove-checkbox" data-index="${index}">
-                        </td>
-                        <td class="px-4 py-2 flex items-center">
-                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 mr-4"> ${item.name}
-                        </td>
-                        <td class="px-4 py-2">${item.unitPrice.toFixed(2)}DH</td>
-                        <td class="px-4 py-2">
-                            <button onclick="decreaseQuantity(${index})">-</button>
-                            ${item.quantity}
-                            <button onclick="increaseQuantity(${index})">+</button>
-                        </td>
-                        <td class="px-4 py-2">${total.toFixed(2)}DH</td>
-                    </tr>
-                `;
-            });
+    cartItems.forEach((item, index) => {
+        const total = item.unitPrice * item.quantity;
+        subtotal += total;
 
-            document.getElementById('subtotal').innerText = `${subtotal.toFixed(2)}DH`;
-            document.getElementById('totalPrice').innerText = `${subtotal.toFixed(2)}DH`;
-        }
+        cartTable.innerHTML += `
+            <tr class="border rounded-lg border-gray-400 bg-gray-700  mb-1.5">
+                <td class="px-4 py-2">
+                    <input type="checkbox" class="remove-checkbox" data-index="${index}">
+                </td>
+                <td class="px-4 py-2 flex items-center">
+                    <img src="${item.image}" alt="${item.name}" class="w-12 h-12 mr-4"> ${item.name}
+                </td>
+                <td class="px-4 py-2">${item.unitPrice.toFixed(2)}DH</td>
+                <td class="px-4 py-2">
+                    <button onclick="decreaseQuantity(${index})">-</button>
+                    ${item.quantity}
+                    <button onclick="increaseQuantity(${index})">+</button>
+                </td>
+                <td class="px-4 py-2">${total.toFixed(2)}DH</td>
+            </tr>
+        `;
+    });
 
+    // Mettre à jour les totaux
+    document.getElementById('subtotal').innerText = `${subtotal.toFixed(2)}DH`;
+    document.getElementById('totalPrice').innerText = `${subtotal.toFixed(2)}DH`;
+}
+
+
+        // Augmenter la quantité d'un produit
         function increaseQuantity(index) {
             cartItems[index].quantity++;
-            renderCart();
+            updateCart();
         }
 
+        // Diminuer la quantité d'un produit
         function decreaseQuantity(index) {
             if (cartItems[index].quantity > 1) {
                 cartItems[index].quantity--;
-                renderCart();
+                updateCart();
             }
         }
 
+        // Mettre à jour le localStorage après modification
+        function updateCart() {
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            renderCart();
+        }
+
+        // Rediriger vers la page de magasin
         function returnToShop() {
-            // Redirige vers la page de magasin
             window.location.href = '/shop';
         }
 
+        // Cocher/décocher tous les produits
         function toggleSelectAll() {
             const checkboxes = document.querySelectorAll('.remove-checkbox');
             const selectAllCheckbox = document.getElementById('selectAll');
@@ -122,27 +132,46 @@
             });
         }
 
-        function removeSelectedItems() {
-            const checkboxes = document.querySelectorAll('.remove-checkbox');
-            const selectedIndexes = [];
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    const index = parseInt(checkbox.getAttribute('data-index'));
-                    selectedIndexes.push(index);
-                }
-            });
-            // Suppression en commençant par les indices les plus élevés pour éviter les décalages
-            selectedIndexes.sort((a, b) => b - a).forEach(index => {
-                cartItems.splice(index, 1);
-            });
-            renderCart();
-        }
+        // Supprimer les produits sélectionnés
+        // Fonction pour supprimer les produits sélectionnés
+function removeSelectedItems() {
+    const checkboxes = document.querySelectorAll('.remove-checkbox');
+    const selectedIndexes = [];
 
-        function processCheckout() {
-            alert("Checkout in process...");
-            // Logique de checkout ici
+    // Recueillir les indices des produits sélectionnés pour suppression
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            const index = parseInt(checkbox.getAttribute('data-index'));
+            selectedIndexes.push(index);
         }
+    });
 
+    // Supprimer les produits dans l'ordre inverse des indices pour éviter les décalages
+    selectedIndexes.sort((a, b) => b - a).forEach(index => {
+        // Retirer le produit du tableau `cartItems`
+        cartItems.splice(index, 1);
+    });
+
+    // Sauvegarder le tableau mis à jour dans le localStorage
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+    // Re-rendre le panier pour afficher les changements
+    renderCart();
+}
+
+
+        // Finaliser l'achat
+        // Finaliser l'achat et rediriger vers la page de checkout
+function processCheckout() {
+    // Sauvegarder éventuellement les données du panier ou d'autres informations dans le localStorage
+    localStorage.setItem('checkoutCart', JSON.stringify(cartItems));
+
+    // Rediriger vers la page de checkout
+    window.location.href = 'checkOut.html'; // Redirection vers checkOut.html
+}
+
+
+        // Initialisation du rendu du panier
         renderCart();
     </script>
 </body>

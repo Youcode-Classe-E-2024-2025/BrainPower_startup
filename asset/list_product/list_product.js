@@ -47,7 +47,7 @@ function displayProducts(page) {
         const productCard = document.createElement("div");
         productCard.classList.add("p-4");
         productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" class="w-full h-64 object-contain rounded-md mb-4">
+            <img src="${product.image}" alt="${product.title}"  class="w-full h-64 object-contain rounded-md mb-4 product-card">
             <p class="text-2xl font-semibold mb-2">${product.title}</p>
             <div class="flex">
                 <p class="text-4xl text-red font-bold text-yellow-500">${product.price.toFixed(2)} DH</p>
@@ -62,16 +62,54 @@ function displayProducts(page) {
                     <i class="bi bi-star-half text-yellow-500"></i>
                     9.5
                 </p>
-                <button>
+                <button class="add-to-cart">
                     <i class="bi bi-cart-plus-fill text-4xl mr-5"></i>
                 </button>
             </div>
         `;
         if (product.image && product.image.includes("movie")) { // Assure-toi que l'attribut image indique bien "movie"
-            productCard.addEventListener("click", () => {
+            const productImage = productCard.querySelector(".product-card");
+            productImage.addEventListener("click", () => {
                 window.location.href = `./DetailMovies/detailMovie.html?id=${product.id}`;
             });
+        } else {
+            const productImage = productCard.querySelector(".product-card");
+            productImage.addEventListener("click", (event) => {
+                const productId = event.target.dataset.id;
+                window.location.href = `product_detailes.html?id=${productId}`; // Redirect to product details page with product id
+            });
         }
+        const addToCartButton = productCard.querySelector(".add-to-cart");
+        addToCartButton.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+         // Créer un objet produit avec les bonnes propriétés
+        const cartProduct = {
+        id: product.id,
+        name: product.title,
+        unitPrice: product.price, // prix de l'article
+        quantity: 1, // initialiser à 1 par défaut
+        image: product.image
+    };
+
+    // Récupérer le panier existant dans le localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Ajouter ou mettre à jour le produit dans le panier
+    const existingProductIndex = cart.findIndex(item => item.id === cartProduct.id);
+    if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += 1; // Si le produit existe déjà, augmenter la quantité
+    } else {
+        cart.push(cartProduct); // Sinon, ajouter le produit
+    }
+
+    // Sauvegarder à nouveau dans le localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Afficher une alerte
+    alert(`${product.title} a été ajouté au panier !`);
+});
+
         productList.appendChild(productCard);
     });
 
@@ -126,6 +164,44 @@ document.getElementById("sortDesc").addEventListener("click", () => {
     displayProducts(currentPage);
     document.getElementById("priceSortOptions").classList.add("hidden");
 });
+
+// Fonction pour récupérer le panier du localStorage
+function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+}
+
+// Fonction pour enregistrer le panier dans le localStorage
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Fonction pour ajouter un produit au panier
+function addToCart(product) {
+    let cart = getCart();
+    const existingProduct = cart.find(item => item.id === product.id);
+    
+    if (existingProduct) {
+        // Si le produit est déjà dans le panier, on augmente la quantité
+        existingProduct.quantity += 1;
+    } else {
+        // Sinon on l'ajoute avec quantité 1
+        cart.push({...product, quantity: 1});
+    }
+
+    saveCart(cart);
+    alert(`${product.title} ajouté au panier !`);
+}
+
+// Gestion des événements sur le bouton "Ajouter au panier"
+document.querySelectorAll('.bi-cart-plus-fill').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const productId = event.target.closest('.product').id; // Récupère l'id du produit parent
+        const product = products.find(p => p.id === productId); // Trouve le produit dans la liste
+
+        addToCart(product); // Ajoute au panier
+    });
+});
+
 
 // Affichage initial
 displayProducts(currentPage);
