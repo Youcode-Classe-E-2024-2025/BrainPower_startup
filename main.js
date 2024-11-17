@@ -72,15 +72,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 // -------------------------mobile menu-------------------------
  // Toggle Mobile Menu
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const categoryBtn = document.getElementById('category-btn');
-const mobileCategoryDropdown = document.getElementById('mobile-category-dropdown');
+ function toggleMenu() {
+    const menu = document.getElementById('menuList');
+    menu.classList.toggle('hidden');
+    menu.classList.toggle('flex');
+    menu.classList.toggle('flex-col');
+    menu.classList.toggle('absolute');
+    menu.classList.toggle('bg-black');
+    menu.classList.toggle('top-[77px]');
+    menu.classList.toggle('w-full');
+}
 
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
+// Toggle category dropdown visibility
+function toggleDropdown(menu) {
+    const dropdown = document.getElementById(`${menu}-dropdown`);
+    dropdown.classList.toggle('hidden');
+}
 
-categoryBtn.addEventListener('click', () => {
-    mobileCategoryDropdown.classList.toggle('hidden');
+// To make the navbar responsive
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 700) {
+        document.getElementById('menuList').classList.remove('hidden', 'flex-col', 'absolute', 'bg-black');
+        document.getElementById('menuList').classList.add('flex');
+    }
 });
