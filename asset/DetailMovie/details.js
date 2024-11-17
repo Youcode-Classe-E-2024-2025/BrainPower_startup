@@ -35,7 +35,6 @@ if (data ) {
     if (film) {
         // Find the container where to display film details
         const detailsContainer = document.getElementById("film-details");
-
         // Create HTML to display the film's details
         detailsContainer.innerHTML = `
             <div class="film-info-container">
@@ -74,4 +73,5 @@ if (data ) {
     console.error("Données de film non disponibles dans le localStorage");
     document.getElementById("film-details").innerHTML = "<p>Erreur lors du chargement des détails du film.</p>";
 }
+
 

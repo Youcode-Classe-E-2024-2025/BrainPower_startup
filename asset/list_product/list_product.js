@@ -1,20 +1,41 @@
-// Exemple de données de produit
-const products = [
-    { id: 1, title: "T-shirt Bleach", price: 130.34, rating: 9.5, image: "image1.jpg" },
-    { id: 2, title: "Poster Naruto", price: 150.00, rating: 9.0, image: "image2.jpg" },
-    // Ajoutez plus de produits ici
-];
+// Chargement des produits depuis localStorage
+let products = [];
 
+["Tshirt", "Accessoire", "movie"].forEach(category => {
+    const storedProducts = JSON.parse(localStorage.getItem(category)) || [];
+
+    // Traitement des produits par catégorie
+    products = products.concat(storedProducts.map(item => {
+        // Pour les films, utiliser 'image' et ne pas vérifier 'images'
+        if (category === "movie") {
+            return {
+                id: item.id,
+                title: item.name,
+                price: parseFloat(item.price || 0),
+                rating: parseFloat(item.rating || 0), // Si rating existe
+                image: item.image ? item.image.replace(".", "") : "placeholder.jpg",  // Utiliser 'image' pour les films
+            };
+        }
+
+        // Pour Tshirt et Accessoire, utiliser 'images' comme tableau
+        return {
+            id: item.id,
+            title: item.name,
+            price: parseFloat(item.price || 0),
+            rating: parseFloat(item.rating || 0), // Si rating existe
+            image: item.images && item.images.length > 0 
+                ? item.images[0].replace(".", "") // Utiliser la première image
+                : "placeholder.jpg",
+        };
+    }));
+});
+
+// Variables de pagination
 const itemsPerPage = 16;
 let currentPage = 1;
 let filteredProducts = [...products];
 
-function toggleSortMenu() {
-    const sortMenu = document.getElementById("sortMenu");
-    sortMenu.classList.toggle("hidden");
-}
-
-// Affichage initial des produits
+// Fonction d'affichage des produits
 function displayProducts(page) {
     const start = (page - 1) * itemsPerPage;
     const end = start + itemsPerPage;
@@ -24,14 +45,33 @@ function displayProducts(page) {
 
     productsToDisplay.forEach(product => {
         const productCard = document.createElement("div");
-        productCard.classList.add("bg-gray-800", "p-4", "rounded-lg", "text-center");
+        productCard.classList.add("p-4");
         productCard.innerHTML = `
-            <img src="${product.image}" alt="${product.title}" class="w-full h-48 object-cover mb-2 rounded-lg">
-            <h3 class="text-lg font-semibold mb-2">${product.title}</h3>
-            <p class="text-orange-400 font-bold">${product.price} DH</p>
-            <p class="text-sm">⭐ ${product.rating}</p>
-            <button class="mt-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg">Ajouter au panier</button>
+            <img src="${product.image}" alt="${product.title}" class="w-full h-64 object-contain rounded-md mb-4">
+            <p class="text-2xl font-semibold mb-2">${product.title}</p>
+            <div class="flex">
+                <p class="text-4xl text-red font-bold text-yellow-500">${product.price.toFixed(2)} DH</p>
+                <p class="text-lg line-through">${(product.price + 10).toFixed(2)} DH</p>
+            </div>
+            <div class="flex items-center justify-between">
+                <p class="text-2xl">
+                    <i class="bi bi-star-fill text-yellow-500"></i>
+                    <i class="bi bi-star-fill text-yellow-500"></i>
+                    <i class="bi bi-star-fill text-yellow-500"></i>
+                    <i class="bi bi-star-fill text-yellow-500"></i>
+                    <i class="bi bi-star-half text-yellow-500"></i>
+                    9.5
+                </p>
+                <button>
+                    <i class="bi bi-cart-plus-fill text-4xl mr-5"></i>
+                </button>
+            </div>
         `;
+        if (product.image && product.image.includes("movie")) { // Assure-toi que l'attribut image indique bien "movie"
+            productCard.addEventListener("click", () => {
+                window.location.href = `./DetailMovies/detailMovie.html?id=${product.id}`;
+            });
+        }
         productList.appendChild(productCard);
     });
 
@@ -65,10 +105,26 @@ document.getElementById("searchInput").addEventListener("input", (event) => {
 
 // Gestion du tri par prix
 let sortAscending = true;
+
 document.getElementById("sortPriceBtn").addEventListener("click", () => {
-    filteredProducts.sort((a, b) => sortAscending ? a.price - b.price : b.price - a.price);
-    sortAscending = !sortAscending;
+    const priceSortOptions = document.getElementById("priceSortOptions");
+    priceSortOptions.classList.toggle("hidden");
+});
+
+// Tri croissant
+document.getElementById("sortAsc").addEventListener("click", () => {
+    filteredProducts.sort((a, b) => a.price - b.price);
+    sortAscending = true;
     displayProducts(currentPage);
+    document.getElementById("priceSortOptions").classList.add("hidden");
+});
+
+// Tri décroissant
+document.getElementById("sortDesc").addEventListener("click", () => {
+    filteredProducts.sort((a, b) => b.price - a.price);
+    sortAscending = false;
+    displayProducts(currentPage);
+    document.getElementById("priceSortOptions").classList.add("hidden");
 });
 
 // Affichage initial

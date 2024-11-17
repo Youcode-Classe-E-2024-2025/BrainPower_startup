@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 fetch('../asset/admin/Data/DataMovie.json')
+=======
+fetch('/asset/admin/Data/DataMovie.json')
+>>>>>>> fbd9fbcf9f3b27ea79419d45552d1530f46e3323
   .then(response => response.json())
   .then(data => {
     if (!localStorage.getItem("movie")) {
@@ -6,6 +10,7 @@ fetch('../asset/admin/Data/DataMovie.json')
     }
   })
   .catch(error => console.error('Erreur:', error));
+
 
 
 fetch('../asset/admin/Data/DataTshirt.json')
@@ -16,7 +21,6 @@ fetch('../asset/admin/Data/DataTshirt.json')
       }
   })
   .catch(error => console.error('Erreur:', error));
-
 
 fetch('../asset/admin/Data/DataAccessoire.json')
   .then(response => response.json())

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Détails de la Commande</h1>
+        
+        <!-- Formulaire de paiement -->
+        <div class="flex flex-wrap">
+            <div class="w-full md:w-1/2 p-4">
+                <form id="checkoutForm" class="space-y-4">
+                    <p>First Name*</p>
+                    <input type="text" name="firstName" class="w-full p-3 bg-gray-800 rounded-md focus:outline-none">
+                    <p>Street Address*</p>
+                    <input type="text" name="address" class="w-full p-3 bg-gray-800 rounded-md focus:outline-none">
+                    <p>Apartment, floor, etc. (optional)</p>
+                    <input type="text" name="apartment" class="w-full p-3 bg-gray-800 rounded-md focus:outline-none">
+                    <p>Town/City*</p>
+                    <input type="text" name="city" class="w-full p-3 bg-gray-800 rounded-md focus:outline-none">
+                    <p>Phone Number*</p>
+                    <input type="text" name="phone" class="w-full p-3 bg-gray-800 rounded-md focus:outline-none">
+                    <p>Email Address*</p>
+                    <input type="email" name="email" class="w-full p-3 bg-gray-800 rounded-md focus:outline-none">
+                    <label class="inline-flex items-center mt-3">
+                        <input type="checkbox" class="form-checkbox bg-gray-800" name="saveInfo">
+                        <span class="ml-2">Save this information for faster check-out next time</span>
+                    </label>
+                </form>
+            </div>
+            
+            <!-- Détails de la commande -->
+            <div class="w-full md:w-1/2 p-4">
+                <div class="bg-gray-800 p-4 rounded-md">
+                    <div class="space-y-2">
+                    </div>
+                    <hr class="my-4 border-gray-700">
+                    <div class="flex items-center justify-between">
+                        <span>Subtotal:</span>
+                        <span>0DH</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span>Shipping:</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="flex items-center justify-between font-bold">
+                        <span>Total:</span>
+                        <span>0DH</span>
+                    </div>
+                    <div class="flex items-center mt-4">
+                        <input type="radio" name="paymentMethod" class="form-radio bg-gray-800">
+                        <span class="ml-2">Bank</span>
+                        <img src="asset/list_product/img/attijariwafa bank.webp" alt="" width="20px" height="20px">
+                        <img src="asset/list_product/img/cih.png" alt="" width="20px" height="20px">
+                        <img src="asset/list_product/img/visa.jpg" alt="" width="20px" height="20px">
+                        <img src="" alt="" width="20px" height="20px">
+                    </div>
+                    <div class="flex space-x-4 mt-6">
+                        <button onclick="buyOrder()" class="w-full bg-gradient-to-r from-orange-600 to-orange-800 text-white font-bold py-2 px-4 rounded-md">BUY</button>
+                        <button onclick="printOrder()" class="w-full bg-gray-600 text-white font-bold py-2 px-4 rounded-md"><i class="bi bi-printer"></i> Print</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour sauvegarder les informations de la commande dans localStorage
+        function buyOrder() {
+            const form = document.getElementById('checkoutForm');
+            const orderDetails = {
+                firstName: form.firstName.value,
+                address: form.address.value,
+                apartment: form.apartment.value,
+                city: form.city.value,
+                phone: form.phone.value,
+                email: form.email.value,
+                total: '1750DH'
+            };
+            localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
+            alert("Les informations de la commande ont été enregistrées !");
+        }
+
+        // Fonction pour imprimer les informations de la commande en PDF
+        function printOrder() {
+            const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
+            if (orderDetails) {
+                let printWindow = window.open('', '', 'width=800,height=600');
+                printWindow.document.write('<html><head><title>Commande</title></head><body>');
+                printWindow.document.write('<h1>Détails de la Commande</h1>');
+                printWindow.document.write(`<p>Nom: ${orderDetails.firstName}</p>`);
+                printWindow.document.write(`<p>Adresse: ${orderDetails.address}, ${orderDetails.apartment}, ${orderDetails.city}</p>`);
+                printWindow.document.write(`<p>Téléphone: ${orderDetails.phone}</p>`);
+                printWindow.document.write(`<p>Email: ${orderDetails.email}</p>`);
+                printWindow.document.write(`<p>Total: ${orderDetails.total} </p>`);
+                printWindow.document.write(`</body></html>`);
+                printWindow.document.close();
+                printWindow.print();
+            } else {
+                alert("Aucune commande à imprimer.");
+            }
+        }
+    </script>
+</body>
+</html>
