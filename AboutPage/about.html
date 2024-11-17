@@ -12,61 +12,66 @@
 </head>
 <body>
     <!-- Début de l'en-tete  -->
-     <header>
-        <nav id="nav"
-     class="relative  h-[77px] flex items-center justify-between px-8  bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
-     <!-- anime power_logo -->
-     <div class="logo-nav flex items-center ">
-         <a href="#">
-             <img src="../asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
-         </a>
-     </div>
-     <!-- navbar menu -->
-     <div class="nav-menu h-full items-center self-center flex w-fit">
-         <ul class="flex h-full items-center w-full gap-4">
-             <!-- home link-->
-             <li class="list-nav-menu">
-                 <a href="#" rel="noopener noreferrer" id="home-nave">
-                     Home
-                 </a>
-             </li>
-             <!-- about link-->
-             <li class="list-nav-menu">
-                 <a href="#" rel="noopener noreferrer" id="about-nav">
-                     About
-                 </a>
-             </li>
-             <!-- about dropdown-->
-             <li class="list-nav-menu">
-                 <a href="#" id="category-nav">category</a>
-             </li>
-             <!-- contact navbar -->
-             <li class="list-nav-menu">
-                 <a href="#" id="contact_nav">
-                     Contact
-                 </a>
-             </li>
-         </ul>
-     </div>
-     <!-- right icons -->
-     <div class="icons-nav w-24 flex h-full items-center justify-between">
-         <i class="fa-solid fa-cart-shopping fa-xl "></i>
-         <i class="fa-solid fa-user fa-xl"></i>
-     </div>
-     <div
-         class="dropDown-menu-caty z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute   left-1/2 -translate-x-1/4 top-[77px] hidden  bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
-         <a href="#" target="_blank" rel="noopener noreferrer">T-shirt</a>
-         <a href="#" target="_blank" rel="noopener noreferrer">Accesoires</a>
-         <a href="#" target="_blank" rel="noopener noreferrer">Movies</a>
-     </div>
-     <div
-         class="dropDown-menu-right z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute right-1 top-[77px] hidden bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
-         <a href="#" target="_blank" rel="noopener noreferrer" id="log-out" >log-out</a>
-         <a href="#" target="_blank" rel="noopener noreferrer" id="log-in">log-in</a>
-         <a href="#" target="_blank" rel="noopener noreferrer">profile</a>
-     </div>
-        </nav>
-     </header>
+    <nav id="nav"
+    class="fixed z-50 h-[77px] w-full flex items-center justify-between px-8 bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
+    <!-- anime power_logo -->
+    <div class="logo-nav flex items-center">
+        <a href="#">
+            <img src="../asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+        </a>
+    </div>
+
+    <!-- navbar menu -->
+    <div class="nav-menu h-full items-center self-center flex w-fit">
+        <ul id="menuList" class="flex h-full items-center w-full gap-4">
+            <!-- home link-->
+            <li class="list-nav-menu">
+                <a href="../index.html" rel="noopener noreferrer" id="home-nave">
+                    Home
+                </a>
+            </li>
+            <!-- about link-->
+            <li class="list-nav-menu">
+                <a href="./about.html" rel="noopener noreferrer" id="about-nav">
+                    About
+                </a>
+            </li>
+            <!-- category dropdown-->
+            <li class="list-nav-menu">
+                <a href="#" id="category-nav" onclick="toggleDropdown('category')">category</a>
+                <div id="category-dropdown" class="dropdown-menu hidden">
+                    <a href="#" target="_blank" rel="noopener noreferrer">T-shirt</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Accesoires</a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">Movies</a>
+                </div>
+            </li>
+            <!-- contact navbar -->
+            <li class="list-nav-menu">
+                <a href="../index.html" id="contact_nav">
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- right icons -->
+    <div class="icons-nav w-24 flex h-full items-center justify-between">
+        <i class="fa-solid fa-cart-shopping fa-xl "></i>
+        <i class="fa-solid fa-user fa-xl"></i>
+    </div>
+
+    <!-- Burger Menu (Mobile) -->
+    <div class="burger_menu">
+        <i class="fa-solid fa-bars fa-xl" onclick="toggleMenu()"></i>
+    </div>
+
+    <!-- Profile Dropdown -->
+    <div class="dropDown-menu-right z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute right-1 top-[77px] hidden bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
+        <a href="../signUp.html" target="_blank" rel="noopener noreferrer" id="log-out">sign-Up</a>
+        <a href="../login-page/login.html" target="_blank" rel="noopener noreferrer" id="log-in">log-in</a>
+        <a href="#" target="_blank" rel="noopener noreferrer">profile</a>
+    </div>
+</nav>
     <!--  Fin de l'en-tete  -->
 
      <main>
@@ -160,6 +165,6 @@
     </div>
  </footer>  
     <!--  Fin de footer  -->
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
 </body>
 </html>
