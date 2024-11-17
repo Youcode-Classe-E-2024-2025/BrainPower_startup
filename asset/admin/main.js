@@ -1,4 +1,4 @@
-fetch('/asset/admin/Data/DataMovie.json')
+fetch('../asset/admin/Data/DataMovie.json')
   .then(response => response.json())
   .then(data => {
     if (!localStorage.getItem("movie")) {
@@ -8,7 +8,7 @@ fetch('/asset/admin/Data/DataMovie.json')
   .catch(error => console.error('Erreur:', error));
 
 
-fetch('/asset/admin/Data/DataTshirt.json')
+fetch('../asset/admin/Data/DataTshirt.json')
   .then(response => response.json())
   .then(data => {
     if (!localStorage.getItem("Tshirt")) {
@@ -18,7 +18,7 @@ fetch('/asset/admin/Data/DataTshirt.json')
   .catch(error => console.error('Erreur:', error));
 
 
-fetch('/asset/admin/Data/DataAccessoire.json')
+fetch('../asset/admin/Data/DataAccessoire.json')
   .then(response => response.json())
   .then(data => {
     if (!localStorage.getItem("Accessoire")) {
@@ -51,11 +51,12 @@ SaveMovie.addEventListener("click", function (e) {
     const GenreMovie = document.querySelector("#GenreMovie").value;
     const dateMovie = document.querySelector("#dateMovie").value;
     const duréMovie = document.querySelector("#duréMovie").value;
+    const quantiteMovie = document.querySelector("#quantiteMovie").value;
     const autheurMovie = document.querySelector("#autheurMovie").value;
     const imageMovie = document.querySelector("#imageMovie").files[0]; 
     const vidéoMovie = document.querySelector("#vidéoMovie").files[0];
 
-    if (!nameMovie || !textareaMovie || !priceMovie || !GenreMovie || !dateMovie || !duréMovie || !autheurMovie || !imageMovie || !vidéoMovie) {
+    if (!nameMovie || !textareaMovie || !quantiteMovie || !priceMovie || !GenreMovie || !dateMovie || !duréMovie || !autheurMovie || !imageMovie || !vidéoMovie) {
         alert("Remplissez tous les champs");
         return;
     }
@@ -78,6 +79,7 @@ SaveMovie.addEventListener("click", function (e) {
                 genre: GenreMovie,
                 date: dateMovie,
                 dure: duréMovie,
+                quantite : quantiteMovie,
                 autheur: autheurMovie,
                 image: imageUrl, 
                 video: videoUrl,
@@ -120,6 +122,7 @@ function ModifierMovie(id) {
     document.querySelector("#GenreMovie").value = movie.genre;
     document.querySelector("#dateMovie").value = movie.date;
     document.querySelector("#duréMovie").value = movie.dure;
+    document.querySelector("#quantiteMovie").value = movie.quantite
     document.querySelector("#autheurMovie").value = movie.autheur;
     document.querySelector("#imageMovie").src = movie.image; 
     document.querySelector("#vidéoMovie").src = movie.video; 
@@ -134,7 +137,7 @@ function ModifierMovie(id) {
         const dateMovie = document.querySelector("#dateMovie").value;
         const duréMovie = document.querySelector("#duréMovie").value;
         const autheurMovie = document.querySelector("#autheurMovie").value;
-
+        const quantiteMovie = document.querySelector("#quantiteMovie").value;
         const imageMovie = document.querySelector("#imageMovie").files[0];
         const videoMovie = document.querySelector("#vidéoMovie").files[0];
 
@@ -162,6 +165,7 @@ function ModifierMovie(id) {
         movie.genre = GenreMovie;
         movie.date = dateMovie;
         movie.dure = duréMovie;
+        movie.quantite = quantiteMovie;
         movie.autheur = autheurMovie;
 
         localStorage.setItem("movie", JSON.stringify(dataMovies));
@@ -192,9 +196,10 @@ SaveTshirt.addEventListener("click", function (e) {
     const titleTshirt = document.querySelector("#titleTshirt").value;
     const textareaTshirt = document.querySelector("#textTshirt").value;
     const priceTshirt = document.querySelector("#priceTshirt").value;
+    const quantiteTshirt = document.querySelector("#quantiteTshirt").value;
     const imagesInput = document.querySelector("#imageTshirt").files;
 
-    if (!titleTshirt || !textareaTshirt || !priceTshirt || imagesInput.length === 0) {
+    if (!titleTshirt || !quantiteTshirt || !textareaTshirt || !priceTshirt || imagesInput.length === 0) {
         alert("Remplissez tous les champs du T-shirt");
         return;
     }
@@ -215,6 +220,7 @@ SaveTshirt.addEventListener("click", function (e) {
                     name: titleTshirt,
                     text: textareaTshirt,
                     price: priceTshirt,
+                    quantite:quantiteTshirt,
                     images: imageUrls
                 };
 
@@ -251,6 +257,7 @@ function ModifierTshirt(id) {
     document.querySelector("#titleTshirt").value = Tshirt.name;
     document.querySelector("#textTshirt").value = Tshirt.text;
     document.querySelector("#priceTshirt").value = Tshirt.price;
+    document.querySelector("#quantiteTshirt").value = Tshirt.quantite;
 
 
     btnModifierTshirt.onclick = function(e) {
@@ -259,6 +266,7 @@ function ModifierTshirt(id) {
         const titleTshirt = document.querySelector("#titleTshirt").value;
         const textareaTshirt = document.querySelector("#textTshirt").value;
         const priceTshirt = document.querySelector("#priceTshirt").value;
+        const quantiteTshirt = document.querySelector("#quantiteTshirt").value;
         const imagesTshirt = document.querySelector("#imageTshirt").files;
 
         if (imagesTshirt && imagesTshirt.length > 0) {
@@ -274,7 +282,7 @@ function ModifierTshirt(id) {
 
                     if (loadedImages === imagesTshirt.length) {
                         Tshirt.images = imagesDataUrls;
-                        updateTshirtData(Tshirt, titleTshirt, textareaTshirt, priceTshirt);
+                        updateTshirtData(Tshirt, titleTshirt, textareaTshirt, priceTshirt,quantiteTshirt);
                     }
                 };
 
@@ -282,14 +290,16 @@ function ModifierTshirt(id) {
             });
 
         } else {
-            updateTshirtData(Tshirt, titleTshirt, textareaTshirt, priceTshirt);
+            updateTshirtData(Tshirt, titleTshirt, textareaTshirt, priceTshirt,quantiteTshirt);
         }
     };
 
-    function updateTshirtData(Tshirt, title, text, price) {
+    function updateTshirtData(Tshirt, title, text, price,quantite) {
         Tshirt.name = title;
         Tshirt.text = text;
         Tshirt.price = price;
+        Tshirt.quantite = quantite;
+
 
         localStorage.setItem("Tshirt", JSON.stringify(dataTshirt));
         closeModalTshirt();
@@ -322,9 +332,10 @@ SaveAccessoire.addEventListener("click", function (e) {
     const titleAccessoire = document.querySelector("#titleAccessoire").value;
     const textareaAccessoire = document.querySelector("#textAccessoire").value;
     const priceAccessoire = document.querySelector("#priceAccessoire").value;
+    const quantiteAccessoire = document.querySelector("#quantiteAccessoire").value;
     const imagesInput = document.querySelector("#imageAccessoire").files;
 
-    if (!titleAccessoire || !textareaAccessoire || !priceAccessoire || imagesInput.length === 0) {
+    if (!titleAccessoire || !quantiteAccessoire || !textareaAccessoire || !priceAccessoire || imagesInput.length === 0) {
         alert("Remplissez tous les champs de l'accessoire");
         return;
     }
@@ -345,6 +356,8 @@ SaveAccessoire.addEventListener("click", function (e) {
                     name: titleAccessoire,
                     text: textareaAccessoire,
                     price: priceAccessoire,
+                    quantite:quantiteAccessoire,
+
                     images: imageUrls
                 };
 
@@ -380,6 +393,7 @@ function ModifierAccessoire(id) {
     document.querySelector("#titleAccessoire").value = accessoire.name;
     document.querySelector("#textAccessoire").value = accessoire.text;
     document.querySelector("#priceAccessoire").value = accessoire.price;
+    document.querySelector("#quantiteAccessoire").value = accessoire.quantite
 
     btnModifierAccessoire.onclick = function(e) {
         e.preventDefault();
@@ -387,6 +401,7 @@ function ModifierAccessoire(id) {
         const titleAccessoire = document.querySelector("#titleAccessoire").value;
         const textareaAccessoire = document.querySelector("#textAccessoire").value;
         const priceAccessoire = document.querySelector("#priceAccessoire").value;
+        const quantiteAccessoire = document.querySelector("#quantiteAccessoire").value;
         const imagesAccessoire = document.querySelector("#imageAccessoire").files;
 
         if (imagesAccessoire && imagesAccessoire.length > 0) {
@@ -402,7 +417,7 @@ function ModifierAccessoire(id) {
 
                     if (loadedImages === imagesAccessoire.length) {
                         accessoire.images = imagesDataUrls;
-                        updateAccessoireData(accessoire, titleAccessoire, textareaAccessoire, priceAccessoire);
+                        updateAccessoireData(accessoire, titleAccessoire, textareaAccessoire, priceAccessoire,quantiteAccessoire);
                     }
                 };
 
@@ -410,14 +425,15 @@ function ModifierAccessoire(id) {
             });
 
         } else {
-            updateAccessoireData(accessoire, titleAccessoire, textareaAccessoire, priceAccessoire);
+            updateAccessoireData(accessoire, titleAccessoire, textareaAccessoire, priceAccessoire,quantiteAccessoire);
         }
     };
 
-    function updateAccessoireData(accessoire, title, text, price) {
+    function updateAccessoireData(accessoire, title, text, price,quantite) {
         accessoire.name = title;
         accessoire.text = text;
         accessoire.price = price;
+        accessoire.quantite = quantite;
 
         localStorage.setItem("Accessoire", JSON.stringify(dataAccessoire));
         closeModalAccessoire();
@@ -585,6 +601,7 @@ function afficheTable(category) {
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Production Date</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Duration</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Author</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Quantite</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Image</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Video</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Actions</th> 
@@ -600,6 +617,7 @@ function afficheTable(category) {
                         <td class="px-6 py-4">${Movie.date}</td>
                         <td class="px-6 py-4">${Movie.dure}</td>
                         <td class="px-6 py-4">${Movie.autheur}</td>
+                        <td class="px-6 py-4">${Movie.quantite}</td>
                         <td class="px-6 py-4"><img src="${Movie.image}" alt="Movie" class="w-16 h-16 object-cover"></td>
                         <td class="px-6 py-4">
                             <iframe src="${Movie.video}" width="150px"  height="100px"></iframe>
@@ -627,6 +645,7 @@ function afficheTable(category) {
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Title</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Description</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Price</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Quantite</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Images</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Actions</th>
                 </tr>
@@ -637,6 +656,7 @@ function afficheTable(category) {
                         <td class="px-6 py-4">${Tshirt.name}</td>
                         <td class="px-6 py-4">${Tshirt.text}</td>
                         <td class="px-6 py-4">${Tshirt.price}</td>
+                        <td class="px-6 py-4">${Tshirt.quantite}</td>
                         <td class="px-6 py-4">
                             <div class="flex space-x-2">
                                 ${Tshirt.images.map(imageUrl => `
@@ -668,6 +688,7 @@ function afficheTable(category) {
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Title</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Description</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Price</th>
+                    <th class="px-6 py-3 text-gray-600 font-medium uppercase">Quantite</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Images</th>
                     <th class="px-6 py-3 text-gray-600 font-medium uppercase">Actions</th>
                 </tr>
@@ -678,6 +699,7 @@ function afficheTable(category) {
                         <td class="px-6 py-4">${accessoire.name}</td>
                         <td class="px-6 py-4">${accessoire.text}</td>
                         <td class="px-6 py-4">${accessoire.price}</td>
+                        <td class="px-6 py-4">${accessoire.quantite}</td>
                         <td class="px-6 py-4">
                             <div class="flex space-x-2">
                                 ${accessoire.images.map(image => `
