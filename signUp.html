@@ -19,16 +19,16 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./asset/src/output.css">
     <link rel="stylesheet" href="./asset/signUp/signUp.css">
-    <title>signUp</title>
+    <title>sign-Up</title>
 </head>
 
 <body>
     <!-- navbare -->
     <nav id="nav"
-    class="fixed z-50 h-[77px] w-full flex items-center justify-between px-8 bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
+    class="fixed top-0 z-50 h-[77px] w-full flex items-center justify-between px-8 bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
     <!-- anime power_logo -->
     <div class="logo-nav flex items-center">
-        <a href="#">
+        <a href="./index.html">
             <img src="./asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
         </a>
     </div>
@@ -44,18 +44,9 @@
             </li>
             <!-- about link-->
             <li class="list-nav-menu">
-                <a href="./About/about.html" rel="noopener noreferrer" id="about-nav">
+                <a href="./AboutPage/about.html" rel="noopener noreferrer" id="about-nav">
                     About
                 </a>
-            </li>
-            <!-- category dropdown-->
-            <li class="list-nav-menu">
-                <a href="#" id="category-nav" onclick="toggleDropdown('category')">category</a>
-                <div id="category-dropdown" class="dropdown-menu hidden">
-                    <a href="#" target="_blank" rel="noopener noreferrer">T-shirt</a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">Accesoires</a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">Movies</a>
-                </div>
             </li>
             <!-- contact navbar -->
             <li class="list-nav-menu">
@@ -79,76 +70,66 @@
 
     <!-- Profile Dropdown -->
     <div class="dropDown-menu-right z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute right-1 top-[77px] hidden bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
-        <a href="#" target="_blank" rel="noopener noreferrer" id="log-out">log-out</a>
-        <a href="#" target="_blank" rel="noopener noreferrer" id="log-in">log-in</a>
-        <a href="#" target="_blank" rel="noopener noreferrer">profile</a>
+        <a href="./login-page/login.html" target="_blank" rel="noopener noreferrer" id="log-in">log-in</a>
+        <a href="./profile/profile.html" target="_blank" rel="noopener noreferrer">profile</a>
     </div>
 </nav>
     <!-- end navbare -->
-    <main class="min-h-screen flex flex-col items-center justify-center">
+    <main class="min-h-screen flex flex-col items-center justify-around px-4">
         <div class="up-text">
             <h1>Sign-Up</h1>
             <p>Sign up to continue exploring a world of endless possibilities!</p>
         </div>
+    
         <div class="signUp-form rounded-xl">
-            <div class="left-card">             
-             <form method="get" class="pb-3"> 
-                  <input type="Name" placeholder="Name" required> 
-                  <input type="Last Name" placeholder="Last Name" required> 
-                  <input type="email" placeholder="Email" required> 
-                     <input
-                     type="password" placeholder="Password" required> 
-                      <button type="submit">signUp</button>
-              </form>
+            <div class="left-card">
+                <form method="get" class="pb-3">
+                    <input type="text" placeholder="Name" required> 
+                    <input type="text" placeholder="Last Name" required> 
+                    <input type="email" placeholder="Email" required> 
+                    <input type="password" placeholder="Password" required> 
+                    <button type="submit">Sign-Up</button>
+                </form>
             </div>
-             <div class="right-card rounded-md">
-     
-             </div>
-         </div>
+            
+            <div class="right-card rounded-md">
+            </div>
+        </div>
     </main>
+    
     <!-- footer -->
-    <footer
-        class="flex flex-col  bg-[linear-gradient(90deg,#000000_0%,#3B332E_25%,#483F39_50%,#3B332E_75%,#000000_100%)] h-[177px]">
-        <div class="up-footer flex justify-between px-12 h-[122px]">
+    <footer class="flex flex-col bg-[linear-gradient(90deg,#000000_0%,#3B332E_25%,#483F39_50%,#3B332E_75%,#000000_100%)] h-auto">
+        <div class="up-footer flex flex-col md:flex-row justify-between px-4 md:px-12 py-6 md:h-[122px]">
             <!-- footer logo -->
-            <div class="logo-footer flex items-center ">
-                <a href="#">
+            <div class="logo-footer flex items-center justify-center md:justify-start">
+                <a href="./index.html">
                     <img src="./asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
                 </a>
             </div>
-            <div class="footer-links flex items-center">
-                <ul class="flex gap-4 ">
-                    <li class="font-bold text-[#EF7D2F] text-xl pr-3 bordr border-r-2">
+    
+            <!-- footer links -->
+            <div class="footer-links flex flex-col md:flex-row items-center mt-6 md:mt-0">
+                <ul class="flex flex-col md:flex-row gap-4">
+                    <li class="font-bold text-[#EF7D2F] text-xl pr-3 border-b-2 md:border-b-0 md:border-r-2">
                         Links
                     </li>
-                    <!-- home link-->
-                    <li class="list-footer-menu" id="home-nave">
-                        <a href="./index.html" rel="noopener noreferrer">
-                            Home
-                        </a>
+                    <li class="list-footer-menu">
+                        <a href="./index.html" rel="noopener noreferrer">Home</a>
                     </li>
-                    <!-- about link-->
-                    <li class="list-foter-menu" id="about-nav">
-                        <a href="./About/about.html" rel="noopener noreferrer">
-                            About
-                        </a>
+                    <li class="list-footer-menu">
+                        <a href="./AboutPage/about.html" rel="noopener noreferrer">About</a>
                     </li>
-                    <!-- about dropdown-->
-                    <li class="list-footer-menu" id="category-nav">
-                        <a href="./index.html">category</a>
-                    </li>
-                    <!-- contact navbar -->
-                    <li class="list-footer-menu" id="contact_nav">
-                        <a href="./index.html">
-                            Contact
-                        </a>
+                    <li class="list-footer-menu">
+                        <a href="./index.html">Contact</a>
                     </li>
                 </ul>
             </div>
-            <div class="follow flex flex-col justify-center items-center">
-                <p class="text-[#EF7D2F] text-xl ">Follow Us!</p>
-                <hr class="w-11/12">
-                <div class="footer-icons flex items-center justify-center pt-4 gap-4 h-9">
+    
+            <!-- follow section -->
+            <div class="follow flex flex-col items-center md:items-start mt-6 md:mt-0">
+                <p class="text-[#EF7D2F] text-xl">Follow Us!</p>
+                <hr class="w-11/12 mt-2 md:w-full">
+                <div class="footer-icons flex items-center justify-center md:justify-start pt-4 gap-4 h-9">
                     <i class="fa-brands fa-discord fa-xl"></i>
                     <i class="fa-brands fa-github fa-xl"></i>
                     <i class="fa-brands fa-facebook fa-xl"></i>
@@ -156,12 +137,14 @@
                 </div>
             </div>
         </div>
+    
         <!-- down-footer -->
-        <div class="down-footer flex justify-center items-center pt-4 gap-1  border-t-2">
+        <div class="down-footer flex justify-center items-center pt-4 gap-1 border-t-2">
             <i class="fa-regular fa-copyright"></i>
-            <p class="text-sm">Copyright <span class="">Anime power</span> 2024. All right reserved</p>
+            <p class="text-sm">Copyright <span>Anime power</span> 2024. All rights reserved</p>
         </div>
     </footer>
+    
     <!-- end footer -->
     <script src="./main.js"></script>
     <script src="./asset/signUp/signup.js"></script>
