@@ -9,11 +9,62 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-gray-900 text-white font-sans">
-    <div class="container mx-auto p-8">
+    <nav id="nav"
+     class="fixed top-0 z-50 h-[77px] w-full flex items-center justify-between px-8 bg-[linear-gradient(90deg,#000000_0%,#EF7D2F_50%,#000000_100%)]">
+     <!-- anime power_logo -->
+     <div class="logo-nav flex items-center">
+         <a href="./index.html">
+             <img src="./asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+         </a>
+     </div>
+ 
+     <!-- navbar menu -->
+     <div class="nav-menu h-full items-center self-center flex w-fit">
+         <ul id="menuList" class="flex h-full items-center w-full gap-4 z-50">
+             <!-- home link-->
+             <li class="list-nav-menu">
+                 <a href="./index.html" rel="noopener noreferrer" id="home-nave">
+                     Home
+                 </a>
+             </li>
+             <!-- about link-->
+             <li class="list-nav-menu">
+                 <a href="./about.html" rel="noopener noreferrer" id="about-nav">
+                     About
+                 </a>
+             </li>
+             <!-- contact navbar -->
+             <li class="list-nav-menu">
+                 <a href="#contact-section" id="contact_nav">
+                     Contact
+                 </a>
+             </li>
+         </ul>
+     </div>
+ 
+     <!-- right icons -->
+     <div class="icons-nav w-24 flex h-full items-center justify-between">
+         <i class="fa-solid fa-cart-shopping fa-xl "></i>
+         <i class="fa-solid fa-user fa-xl"></i>
+     </div>
+ 
+     <!-- Burger Menu (Mobile) -->
+     <div class="burger_menu">
+         <i class="fa-solid fa-bars fa-xl" onclick="toggleMenu()"></i>
+     </div>
+ 
+     <!-- Profile Dropdown -->
+     <div class="dropDown-menu-right z-40 rounded-bl-lg rounded-br-lg flex flex-col align-middle items-center absolute right-1 top-[77px] hidden bg-[linear-gradient(90deg,#010101_0%,#676767_100%)]">
+         <a href="./login-page/login.html" target="_blank" rel="noopener noreferrer" id="log-in">log-in</a>
+         <a href="./signUp.html" target="_blank" rel="noopener noreferrer" id="sign-Up">sign-Up</a>
+         <a href="./profile/profile.html" target="_blank" rel="noopener noreferrer">profile</a>
+     </div>
+ </nav>
+    <div class="container mx-auto p-8 mt-10">
         <h1 class="text-3xl font-bold text-center mb-8">Détails de la Commande</h1>
         
         <!-- Formulaire de paiement -->
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap items-center justify-center">
             <div class="w-full md:w-1/2 p-4">
                 <form id="checkoutForm" class="space-y-4">
                     <p>First Name*</p>
@@ -72,113 +123,53 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Fonction pour afficher la liste des produits dans le panier
-        function displayProducts() {
-            const cart = JSON.parse(localStorage.getItem('checkoutCart')) || [];
-            const productList = document.getElementById('productList');
-            let subtotal = 0;
-
-            // Vider la liste des produits avant de la remplir
-            productList.innerHTML = '';
-
-            // Parcourir le panier pour afficher chaque produit
-            cart.forEach(item => {
-                const productDiv = document.createElement('div');
-                productDiv.classList.add('flex', 'items-center', 'justify-between', 'p-4', 'bg-gray-700', 'rounded-md');
-                productDiv.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover">
-                    <span class="flex-1">${item.name}</span>
-                    <span>${item.unitPrice}DH</span>
-                    <span>Quantity: ${item.quantity}</span>
-                    <span>${(item.unitPrice * item.quantity).toFixed(2)}DH</span>
-                `;
-                productList.appendChild(productDiv);
-
-                // Calculer le sous-total
-                subtotal += item.unitPrice * item.quantity;
-            });
-
-            // Afficher le sous-total et le total
-            document.getElementById('subtotal').textContent = `${subtotal.toFixed(2)}DH`;
-            document.getElementById('totalPrice').textContent = `${subtotal.toFixed(2)}DH`; // Total = Subtotal + frais de livraison (gratuits)
-        }
-
-        // Appeler la fonction lors du chargement de la page
-        window.onload = displayProducts;
-
-        // Fonction pour sauvegarder les informations de la commande dans localStorage
-        function buyOrder() {
-            const form = document.getElementById('checkoutForm');
-            const orderDetails = {
-                firstName: form.firstName.value,
-                address: form.address.value,
-                apartment: form.apartment.value,
-                city: form.city.value,
-                phone: form.phone.value,
-                email: form.email.value,
-                total: document.getElementById('totalPrice').textContent
-            };
-            localStorage.setItem('orderDetails', JSON.stringify(orderDetails));
-            alert("Les informations de la commande ont été enregistrées !");
-        }
-        // Récupérer les produits du panier
-const cart = JSON.parse(localStorage.getItem('checkoutCart'));
-
-if (cart && cart.length > 0) {
-    let cartHTML = '';
-    let subtotal = 0;
-
-    // Parcourir chaque produit et ajouter les informations au HTML
-    cart.forEach(product => {
-        const productTotal = product.unitPrice * product.quantity;
-        subtotal += productTotal;
-
-        cartHTML += `
-            <div class="flex items-center justify-between my-4">
-                <img src="${product.image}" alt="${product.name}" class="w-16 h-16">
-                <span>${product.name}</span>
-                <span>${product.unitPrice} DH</span>
-                <span>Quantité: ${product.quantity}</span>
-                <span>Total: ${productTotal} DH</span>
+    <footer class="flex flex-col bg-[linear-gradient(90deg,#000000_0%,#3B332E_25%,#483F39_50%,#3B332E_75%,#000000_100%)] h-auto">
+        <div class="up-footer flex flex-col md:flex-row justify-between px-4 md:px-12 py-6 md:h-[122px]">
+            <!-- footer logo -->
+            <div class="logo-footer flex items-center justify-center md:justify-start">
+                <a href="./index.html">
+                    <img src="./asset/imges/animePower_logo.png" alt="animePower_logo" class="w-[140px]">
+                </a>
             </div>
-        `;
-    });
+    
+            <!-- footer links -->
+            <div class="footer-links flex flex-col md:flex-row items-center mt-6 md:mt-0">
+                <ul class="flex flex-col md:flex-row gap-4">
+                    <li class="font-bold text-[#EF7D2F] text-xl pr-3 border-b-2 md:border-b-0 md:border-r-2">
+                        Links
+                    </li>
+                    <li class="list-footer-menu">
+                        <a href="./index.html" rel="noopener noreferrer">Home</a>
+                    </li>
+                    <li class="list-footer-menu">
+                        <a href="./AboutPage/about.html" rel="noopener noreferrer">About</a>
+                    </li>
+                    <li class="list-footer-menu">
+                        <a href="./index.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+    
+            <!-- follow section -->
+            <div class="follow flex flex-col items-center md:items-start mt-6 md:mt-0">
+                <p class="text-[#EF7D2F] text-xl">Follow Us!</p>
+                <hr class="w-11/12 mt-2 md:w-full">
+                <div class="footer-icons flex items-center justify-center md:justify-start pt-4 gap-4 h-9">
+                    <i class="fa-brands fa-discord fa-xl"></i>
+                    <i class="fa-brands fa-github fa-xl"></i>
+                    <i class="fa-brands fa-facebook fa-xl"></i>
+                    <i class="fa-brands fa-twitter fa-xl"></i>
+                </div>
+            </div>
+        </div>
+    
+        <!-- down-footer -->
+        <div class="down-footer flex justify-center items-center pt-4 gap-1 border-t-2">
+            <i class="fa-regular fa-copyright"></i>
+            <p class="text-sm">Copyright <span>Anime power</span> 2024. All rights reserved</p>
+        </div>
+    </footer>
 
-    // Afficher les produits dans la section du panier
-    document.getElementById('productList').innerHTML = cartHTML;
-
-    // Mettre à jour le subtotal et le total
-    document.getElementById('subtotal').textContent = `${subtotal} DH`;
-    document.getElementById('total').textContent = `${subtotal} DH`;  // Ajoute les frais de livraison si nécessaire
-} else {
-    document.getElementById('productList').innerHTML = 'Aucun produit dans le panier';
-    document.getElementById('subtotal').textContent = '0 DH';
-    document.getElementById('total').textContent = '0 DH';
-}
-
-
-        // Fonction pour imprimer les informations de la commande en PDF
-        function printOrder() {
-            const orderDetails = JSON.parse(localStorage.getItem('orderDetails'));
-            if (orderDetails) {
-                let printWindow = window.open('', '', 'width=800,height=600');
-                printWindow.document.write('<html><head><title>Commande</title></head><body>');
-                printWindow.document.write('<h1>Détails de la Commande</h1>');
-                printWindow.document.write(`<p>Nom: ${orderDetails.firstName}</p>`);
-                printWindow.document.write(`<p>Adresse: ${orderDetails.address}, ${orderDetails.apartment}, ${orderDetails.city}</p>`);
-                printWindow.document.write(`<p>Téléphone: ${orderDetails.phone}</p>`);
-                printWindow.document.write(`<p>Email: ${orderDetails.email}</p>`);
-                printWindow.document.write(`<p>Total: ${orderDetails.total} </p>`);
-                printWindow.document.write('</body></html>');
-                printWindow.document.close();
-                printWindow.print();
-            } else {
-                alert("Aucune commande à imprimer.");
-            }
-        }
-        console.log(localStorage.getItem('checkoutCart'));
-    </script>
+    <script src="asset/list_product/chechOut.js"></script>
 </body>
 </html>
