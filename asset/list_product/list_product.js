@@ -67,6 +67,11 @@ function displayProducts(page) {
                 </button>
             </div>
         `;
+        if (product.image && product.image.includes("movie")) { // Assure-toi que l'attribut image indique bien "movie"
+            productCard.addEventListener("click", () => {
+                window.location.href = `./DetailMovies/detailMovie.html?id=${product.id}`;
+            });
+        }
         productList.appendChild(productCard);
     });
 

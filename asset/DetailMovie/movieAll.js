@@ -29,7 +29,7 @@ function displayMovies(data) {
 
       // Redirect on image click
       filmElement.addEventListener("click", () => {
-        window.location.href = `detailMovie.html?id=${film.id}`;
+        window.location.href = `./DetailMovies/detailMovie.html?id=${film.id}`;
       });
 
       gallery.appendChild(filmElement);  // Add the image to the gallery
