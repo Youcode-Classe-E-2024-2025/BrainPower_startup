@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .dropDown-menu-caty, .dropDown-menu-right {
+        z-index: 10; /* Higher than the slider */
+    }
+    html {
+        @apply text-base text-white;
+        font-family: "Poppins", serif;
+        scroll-behavior: smooth;
+    }
+    i{
+        @apply cursor-pointer text-white hover:text-orange-400;
+    }
+    .nav-menu>ul a{
+        @apply    hover:border-b-2 hover:text-orange-700;
+    }
+    .footer-links>ul a{
+        @apply    hover:border-b-2 hover:text-orange-700;
+    }
+    .dropDown-menu-caty a{
+       @apply py-2 px-10 text-sm border-t border-white/30 w-full hover:text-orange-500;
+    }
+    .dropDown-menu-right a{
+        @apply py-2 px-7 text-sm border-t border-white/30 w-full hover:text-orange-500;
+    }
+}
