@@ -30,3 +30,13 @@
         @apply py-2 px-7 text-sm border-t border-white/30 w-full hover:text-orange-500;
     }
 }
+@media (max-width: 768px) {
+    .up-footer {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .footer-icons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
