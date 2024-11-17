@@ -102,4 +102,6 @@ function printOrder() {
         alert("Aucune commande à imprimer.");
     }
 }
-
+document.querySelector('.fa-cart-shopping').addEventListener('click', function () {
+    window.location.href = 'cart_de_panier.html'; // Redirige l'utilisateur vers cart_de_panier.html
+});
